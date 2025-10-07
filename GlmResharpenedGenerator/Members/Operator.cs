@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlmResharpenedGenerator.Types;
 
-using GlmResharpenedGenerator.Types;
+namespace GlmResharpenedGenerator.Members;
 
-namespace GlmResharpenedGenerator.Members
+internal class Operator : Function
 {
-    class Operator : Function
-    {
-        public Operator(AbstractType type, string op) : base(type, "operator " + op)
-        {
-            Static = true;
-        }
-	}
+	public Operator(AbstractType type, string op) : base(type, "operator " + op) => Static = true;
 }

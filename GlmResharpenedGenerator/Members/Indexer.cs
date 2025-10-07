@@ -1,108 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlmResharpenedGenerator.Types;
 
-using GlmResharpenedGenerator;
-using GlmResharpenedGenerator.Types;
+namespace GlmResharpenedGenerator.Members;
 
-namespace GlmResharpenedGenerator.Members
+internal class Indexer : Member
 {
-    class Indexer : Member
-    {
-        /// <summary>
-        /// Property type
-        /// </summary>
-        public AbstractType Type { get; set; }
+	/// <summary>
+	/// Property type
+	/// </summary>
+	public AbstractType Type { get; set; }
 
-        /// <summary>
-        /// True if override property
-        /// </summary>
-        public bool Override { get; set; }
+	/// <summary>
+	/// True if override property
+	/// </summary>
+	public bool Override { get; set; }
 
-        /// <summary>
-        /// Getter code
-        /// </summary>
-        public IEnumerable<string> Getter { get; set; }
-        /// <summary>
-        /// Setter code
-        /// </summary>
-        public IEnumerable<string> Setter { get; set; }
+	/// <summary>
+	/// Getter code
+	/// </summary>
+	public IEnumerable<string> Getter { get; set; }
+	/// <summary>
+	/// Setter code
+	/// </summary>
+	public IEnumerable<string> Setter { get; set; }
 
-        /// <summary>
-        /// Single-Line getter
-        /// </summary>
-        public string GetterLine { set { Getter = new[] { value }; } }
-        /// <summary>
-        /// Single-Line setter
-        /// </summary>
-        public string SetterLine { set { Setter = new[] { value }; } }
+	/// <summary>
+	/// Single-Line getter
+	/// </summary>
+	public string GetterLine { set => Getter = new[] { value }; }
+	/// <summary>
+	/// Single-Line setter
+	/// </summary>
+	public string SetterLine { set => Setter = new[] { value }; }
 
-        /// <summary>
-        /// Initial value
-        /// </summary>
-        public string Value { get; set; }
+	/// <summary>
+	/// Initial value
+	/// </summary>
+	public string Value { get; set; }
 
-        /// <summary>
-        /// Indexer parameters
-        /// </summary>
-        public IEnumerable<string> Parameters { get; set; }
-        public string ParameterString { set { Parameters = new[] { value }; } }
+	/// <summary>
+	/// Indexer parameters
+	/// </summary>
+	public IEnumerable<string> Parameters { get; set; }
+	public string ParameterString { set => Parameters = new[] { value }; }
 
-        public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
+	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-        public Indexer(AbstractType type)
-        {
-            Type = type;
-        }
+	public Indexer(AbstractType type) => Type = type;
 
-        public override IEnumerable<string> Lines
-        {
-            get
-            {
-                foreach (var line in base.Lines)
-                    yield return line;
-                
-                var getter = Getter?.ToArray();
-                var setter = Setter?.ToArray();
+	public override IEnumerable<string> Lines
+	{
+		get
+		{
+			foreach (var line in base.Lines)
+				yield return line;
 
-                if (getter == null)
-                    throw new NotSupportedException();
+			var getter = Getter?.ToArray();
+			var setter = Setter?.ToArray();
 
-                if (setter == null) // getter-only
-                {
-                    if (getter.Length == 1)
-                        yield return $"{MemberPrefix} {Type.NameThat} this[{Parameters.CommaSeparated()}] => {getter[0]};";
-                    else
-                    {
-                        yield return $"{MemberPrefix} {Type.NameThat} this[{Parameters.CommaSeparated()}]";
-                        yield return "{";
-                        yield return "    get";
-                        yield return "    {";
-                        foreach (var line in getter)
-                            yield return line.Indent(2);
-                        yield return "    }";
-                        yield return "}";
-                    }
-                }
-                else
-                {
-                    yield return $"{MemberPrefix} {Type.NameThat} this[{Parameters.CommaSeparated()}]";
-                    yield return "{";
-                    yield return "    get";
-                    yield return "    {";
-                    foreach (var line in getter)
-                        yield return line.Indent(2);
-                    yield return "    }";
-                    yield return "    set";
-                    yield return "    {";
-                    foreach (var line in setter)
-                        yield return line.Indent(2);
-                    yield return "    }";
-                    yield return "}";
-                }
-            }
-        }
-    }
+			if (getter == null)
+				throw new NotSupportedException();
+
+			if (setter == null) // getter-only
+			{
+				if (getter.Length == 1)
+					yield return $"{MemberPrefix} {Type.NameThat} this[{Parameters.CommaSeparated()}] => {getter[0]};";
+				else
+				{
+					yield return $"{MemberPrefix} {Type.NameThat} this[{Parameters.CommaSeparated()}]";
+					yield return "{";
+					yield return "    get";
+					yield return "    {";
+					foreach (var line in getter)
+						yield return line.Indent(2);
+					yield return "    }";
+					yield return "}";
+				}
+			}
+			else
+			{
+				yield return $"{MemberPrefix} {Type.NameThat} this[{Parameters.CommaSeparated()}]";
+				yield return "{";
+				yield return "    get";
+				yield return "    {";
+				foreach (var line in getter)
+					yield return line.Indent(2);
+				yield return "    }";
+				yield return "    set";
+				yield return "    {";
+				foreach (var line in setter)
+					yield return line.Indent(2);
+				yield return "    }";
+				yield return "}";
+			}
+		}
+	}
 }

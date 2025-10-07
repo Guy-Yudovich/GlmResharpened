@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlmResharpenedGenerator.Types;
 
-using GlmResharpenedGenerator.Types;
+namespace GlmResharpenedGenerator.Members;
 
-namespace GlmResharpenedGenerator.Members
+internal class ImplicitOperator : Function
 {
-    class ImplicitOperator : Function
-    {
-        public override string MemberPrefix => base.MemberPrefix + " implicit";
-        public override string FunctionName => ReturnType.NameThat;
-        public override string ReturnName => "operator";
+	public override string MemberPrefix => base.MemberPrefix + " implicit";
+	public override string FunctionName => ReturnType.NameThat;
+	public override string ReturnName => "operator";
 
-        public ImplicitOperator(AbstractType type) : base(type, type.Name)
-        {
-            Static = true;
-        }
-	}
+	public ImplicitOperator(AbstractType type) : base(type, type.Name) => Static = true;
 }

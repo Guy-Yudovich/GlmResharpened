@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlmResharpenedGenerator.Types;
 
-using GlmResharpenedGenerator.Types;
+namespace GlmResharpenedGenerator.Members;
 
-namespace GlmResharpenedGenerator.Members
+internal class ExplicitOperator : Function
 {
-    class ExplicitOperator : Function
-    {
-        public override string MemberPrefix => base.MemberPrefix + " explicit";
-        public override string FunctionName => ReturnType.NameThat;
-        public override string ReturnName => "operator";
+	public override string MemberPrefix => base.MemberPrefix + " explicit";
+	public override string FunctionName => ReturnType.NameThat;
+	public override string ReturnName => "operator";
 
-        public ExplicitOperator(AbstractType type) : base(type, type.Name)
-        {
-            Static = true;
-        }
-    }
+	public ExplicitOperator(AbstractType type) : base(type, type.Name) => Static = true;
 }

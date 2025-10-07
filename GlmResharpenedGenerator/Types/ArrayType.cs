@@ -1,38 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlmResharpenedGenerator.Members;
 
-using GlmResharpenedGenerator.Members;
+namespace GlmResharpenedGenerator.Types;
 
-namespace GlmResharpenedGenerator.Types
+internal class ArrayType : AbstractType
 {
-    class ArrayType : AbstractType
-    {
-        /// <summary>
-        /// Array suffix
-        /// </summary>
-        public string ArraySuffix { get; set; }
+	/// <summary>
+	/// Array suffix
+	/// </summary>
+	public string ArraySuffix { get; set; }
 
-        public override string GenericSuffix => ""; // no suffix
+	public override string GenericSuffix => ""; // no suffix
 
-        public ArrayType(BuiltinType type, string suffix = "[]")
-        {
-            BaseType = type;
-            ArraySuffix = suffix;
-        }
+	public ArrayType(BuiltinType type, string suffix = "[]")
+	{
+		BaseType = type;
+		ArraySuffix = suffix;
+	}
 
-        public override string Name => BaseType.Name + ArraySuffix;
+	public override string Name => BaseType.Name + ArraySuffix;
 
-        public override string TypeComment
-        {
-            get { throw new NotSupportedException(); }
-        }
+	public override string TypeComment => throw new NotSupportedException();
 
-        public override IEnumerable<Member> GenerateMembers()
-        {
-            throw new NotSupportedException();
-        }
-    }
+	public override IEnumerable<Member> GenerateMembers() => throw new NotSupportedException();
 }

@@ -1,30 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlmResharpenedGenerator.Members;
 
-using GlmResharpenedGenerator.Members;
+namespace GlmResharpenedGenerator.Types;
 
-namespace GlmResharpenedGenerator.Types
+internal class AnyType : AbstractType
 {
-    class AnyType : AbstractType
-    {
-        public AnyType(string name)
-        {
-            Name = name;
-        }
+	public AnyType(string name) => Name = name;
 
-        public override string Name { get; }
+	public override string Name { get; }
 
-        public override string TypeComment
-        {
-            get { throw new NotSupportedException(); }
-        }
+	public override string TypeComment => throw new NotSupportedException();
 
-        public override IEnumerable<Member> GenerateMembers()
-        {
-            throw new NotSupportedException();
-        }
-    }
+	public override IEnumerable<Member> GenerateMembers() => throw new NotSupportedException();
 }
