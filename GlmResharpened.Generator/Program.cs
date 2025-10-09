@@ -8,7 +8,7 @@ file static class Program
 	private const string GeneratorProjectName = $"{SolutionName}.Generator";
 	private const string LibProjectName = $"{SolutionName}.Generated";
 	private const string TestProjectName = $"{SolutionName}.Test";
-	private static readonly bool DeletePreviousGenerated = false;
+	private static readonly bool DeletePreviousGenerated = true;
 
 	private static readonly ManagedDirectories ManagedDirs = new(SolutionName, LibProjectName, TestProjectName, GeneratorProjectName);
 

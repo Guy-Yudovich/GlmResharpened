@@ -22,38 +22,38 @@ public class DecimalVec2Test
     public void Constructors()
     {
         {
-            var v = new decvec2(-7.5m);
-            Assert.That(-7.5m, Is.EqualTo(v.x));
-            Assert.That(-7.5m, Is.EqualTo(v.y));
+            var v = new decvec2(1.5m);
+            Assert.That(1.5m, Is.EqualTo(v.x));
+            Assert.That(1.5m, Is.EqualTo(v.y));
         }
         {
-            var v = new decvec2(-1m, 5.5m);
-            Assert.That(-1m, Is.EqualTo(v.x));
-            Assert.That(5.5m, Is.EqualTo(v.y));
+            var v = new decvec2(-6.5m, 0.5m);
+            Assert.That(-6.5m, Is.EqualTo(v.x));
+            Assert.That(0.5m, Is.EqualTo(v.y));
         }
         {
-            var v = new decvec2(new decvec2(4.5m, -7.5m));
-            Assert.That(4.5m, Is.EqualTo(v.x));
-            Assert.That(-7.5m, Is.EqualTo(v.y));
+            var v = new decvec2(new decvec2(6.5m, 6.5m));
+            Assert.That(6.5m, Is.EqualTo(v.x));
+            Assert.That(6.5m, Is.EqualTo(v.y));
         }
         {
-            var v = new decvec2(new decvec3(4m, 0m, -0.5m));
-            Assert.That(4m, Is.EqualTo(v.x));
-            Assert.That(0m, Is.EqualTo(v.y));
+            var v = new decvec2(new decvec3(1m, -2.5m, 9m));
+            Assert.That(1m, Is.EqualTo(v.x));
+            Assert.That(-2.5m, Is.EqualTo(v.y));
         }
         {
-            var v = new decvec2(new decvec4(-4m, -1m, -2.5m, 0.5m));
-            Assert.That(-4m, Is.EqualTo(v.x));
-            Assert.That(-1m, Is.EqualTo(v.y));
+            var v = new decvec2(new decvec4(-3m, 6.5m, 7m, -8m));
+            Assert.That(-3m, Is.EqualTo(v.x));
+            Assert.That(6.5m, Is.EqualTo(v.y));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new decvec2(-2.5m, -1.5m);
-        Assert.That(-2.5m, Is.EqualTo(v[0]));
-        Assert.That(-1.5m, Is.EqualTo(v[1]));
+        var v = new decvec2(-4m, -5m);
+        Assert.That(-4m, Is.EqualTo(v[0]));
+        Assert.That(-5m, Is.EqualTo(v[1]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = 0m; } );
@@ -68,42 +68,42 @@ public class DecimalVec2Test
         
         v[1] = 0m;
         Assert.That(0m, Is.EqualTo(v[1]));
-        v[1] = 1m;
-        Assert.That(1m, Is.EqualTo(v[1]));
-        v[1] = 2m;
-        Assert.That(2m, Is.EqualTo(v[1]));
-        v[0] = 3m;
-        Assert.That(3m, Is.EqualTo(v[0]));
-        v[0] = 4m;
-        Assert.That(4m, Is.EqualTo(v[0]));
+        v[0] = 1m;
+        Assert.That(1m, Is.EqualTo(v[0]));
+        v[0] = 2m;
+        Assert.That(2m, Is.EqualTo(v[0]));
+        v[1] = 3m;
+        Assert.That(3m, Is.EqualTo(v[1]));
+        v[1] = 4m;
+        Assert.That(4m, Is.EqualTo(v[1]));
         v[1] = 5m;
         Assert.That(5m, Is.EqualTo(v[1]));
         v[1] = 6m;
         Assert.That(6m, Is.EqualTo(v[1]));
-        v[0] = 7m;
-        Assert.That(7m, Is.EqualTo(v[0]));
+        v[1] = 7m;
+        Assert.That(7m, Is.EqualTo(v[1]));
         v[0] = 8m;
         Assert.That(8m, Is.EqualTo(v[0]));
         v[0] = 9m;
         Assert.That(9m, Is.EqualTo(v[0]));
-        v[1] = -1m;
-        Assert.That(-1m, Is.EqualTo(v[1]));
-        v[1] = -2m;
-        Assert.That(-2m, Is.EqualTo(v[1]));
-        v[1] = -3m;
-        Assert.That(-3m, Is.EqualTo(v[1]));
+        v[0] = -1m;
+        Assert.That(-1m, Is.EqualTo(v[0]));
+        v[0] = -2m;
+        Assert.That(-2m, Is.EqualTo(v[0]));
+        v[0] = -3m;
+        Assert.That(-3m, Is.EqualTo(v[0]));
         v[0] = -4m;
         Assert.That(-4m, Is.EqualTo(v[0]));
         v[0] = -5m;
         Assert.That(-5m, Is.EqualTo(v[0]));
         v[0] = -6m;
         Assert.That(-6m, Is.EqualTo(v[0]));
-        v[0] = -7m;
-        Assert.That(-7m, Is.EqualTo(v[0]));
+        v[1] = -7m;
+        Assert.That(-7m, Is.EqualTo(v[1]));
         v[1] = -8m;
         Assert.That(-8m, Is.EqualTo(v[1]));
-        v[0] = -9m;
-        Assert.That(-9m, Is.EqualTo(v[0]));
+        v[1] = -9m;
+        Assert.That(-9m, Is.EqualTo(v[1]));
         v[1] = -9.5m;
         Assert.That(-9.5m, Is.EqualTo(v[1]));
         v[1] = -8.5m;
@@ -112,8 +112,8 @@ public class DecimalVec2Test
         Assert.That(-7.5m, Is.EqualTo(v[1]));
         v[1] = -6.5m;
         Assert.That(-6.5m, Is.EqualTo(v[1]));
-        v[0] = -5.5m;
-        Assert.That(-5.5m, Is.EqualTo(v[0]));
+        v[1] = -5.5m;
+        Assert.That(-5.5m, Is.EqualTo(v[1]));
         v[1] = -4.5m;
         Assert.That(-4.5m, Is.EqualTo(v[1]));
         v[1] = -3.5m;
@@ -124,35 +124,35 @@ public class DecimalVec2Test
         Assert.That(-1.5m, Is.EqualTo(v[1]));
         v[0] = -0.5m;
         Assert.That(-0.5m, Is.EqualTo(v[0]));
-        v[0] = 0.5m;
-        Assert.That(0.5m, Is.EqualTo(v[0]));
+        v[1] = 0.5m;
+        Assert.That(0.5m, Is.EqualTo(v[1]));
         v[0] = 1.5m;
         Assert.That(1.5m, Is.EqualTo(v[0]));
-        v[1] = 2.5m;
-        Assert.That(2.5m, Is.EqualTo(v[1]));
+        v[0] = 2.5m;
+        Assert.That(2.5m, Is.EqualTo(v[0]));
         v[1] = 3.5m;
         Assert.That(3.5m, Is.EqualTo(v[1]));
         v[1] = 4.5m;
         Assert.That(4.5m, Is.EqualTo(v[1]));
         v[0] = 5.5m;
         Assert.That(5.5m, Is.EqualTo(v[0]));
-        v[0] = 6.5m;
-        Assert.That(6.5m, Is.EqualTo(v[0]));
-        v[0] = 7.5m;
-        Assert.That(7.5m, Is.EqualTo(v[0]));
+        v[1] = 6.5m;
+        Assert.That(6.5m, Is.EqualTo(v[1]));
+        v[1] = 7.5m;
+        Assert.That(7.5m, Is.EqualTo(v[1]));
         v[0] = 8.5m;
         Assert.That(8.5m, Is.EqualTo(v[0]));
-        v[1] = 9.5m;
-        Assert.That(9.5m, Is.EqualTo(v[1]));
+        v[0] = 9.5m;
+        Assert.That(9.5m, Is.EqualTo(v[0]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new decvec2(-9m, 2m);
+        var v = new decvec2(4.5m, -4m);
         var vals = v.Values;
-        Assert.That(-9m, Is.EqualTo(vals[0]));
-        Assert.That(2m, Is.EqualTo(vals[1]));
+        Assert.That(4.5m, Is.EqualTo(vals[0]));
+        Assert.That(-4m, Is.EqualTo(vals[1]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
 
@@ -184,9 +184,9 @@ public class DecimalVec2Test
     [Test]
     public void Operators()
     {
-        var v1 = new decvec2(-5m, -8m);
-        var v2 = new decvec2(-5m, -8m);
-        var v3 = new decvec2(-8m, -5m);
+        var v1 = new decvec2(8m, 2.5m);
+        var v2 = new decvec2(8m, 2.5m);
+        var v3 = new decvec2(2.5m, 8m);
         Assert.That(v1 == new decvec2(v1));
         Assert.That(v2 == new decvec2(v2));
         Assert.That(v3 == new decvec2(v3));
@@ -198,7 +198,7 @@ public class DecimalVec2Test
     [Test]
     public void StringInterop()
     {
-        var v = new decvec2(6m, 0m);
+        var v = new decvec2(-5.5m, 0.5m);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -244,7 +244,7 @@ public class DecimalVec2Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new decvec2(-2.5m, 6m);
+        var v0 = new decvec2(0.5m, -1m);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<decvec2>(s0);
@@ -258,43 +258,43 @@ public class DecimalVec2Test
     public void InvariantId()
     {
         {
-            var v0 = new decvec2(4.5m, 8.5m);
+            var v0 = new decvec2(-6.5m, 5.5m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-4m, 3.5m);
+            var v0 = new decvec2(1.5m, 2m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-0.5m, -5.5m);
+            var v0 = new decvec2(5.5m, 8m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-1m, 5.5m);
+            var v0 = new decvec2(7m, -9m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-6.5m, 4m);
+            var v0 = new decvec2(5.5m, -0.5m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(9m, 6.5m);
+            var v0 = new decvec2(-1.5m, 2m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-5m, 0.5m);
+            var v0 = new decvec2(0.5m, 7.5m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-1m, 9.5m);
+            var v0 = new decvec2(8.5m, -2m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(4.5m, -9m);
+            var v0 = new decvec2(-3m, 5.5m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new decvec2(-1m, -2.5m);
+            var v0 = new decvec2(-3.5m, 7m);
             Assert.That(v0, Is.EqualTo(+v0));
         }
     }
@@ -303,43 +303,43 @@ public class DecimalVec2Test
     public void InvariantDouble()
     {
         {
-            var v0 = new decvec2(-3m, -3.5m);
+            var v0 = new decvec2(-8m, 4m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(-4.5m, 7.5m);
+            var v0 = new decvec2(2m, -1.5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(-8m, -9m);
+            var v0 = new decvec2(2m, -9.5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(-2m, 7m);
+            var v0 = new decvec2(-2.5m, 3.5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(4.5m, 6m);
+            var v0 = new decvec2(-1.5m, 5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(-6m, -7m);
+            var v0 = new decvec2(7m, 1.5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(-6.5m, 4m);
+            var v0 = new decvec2(2.5m, 7.5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(4m, 3.5m);
+            var v0 = new decvec2(-6m, 7m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(-5.5m, -2m);
+            var v0 = new decvec2(-6.5m, -5m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new decvec2(9m, 8m);
+            var v0 = new decvec2(-7.5m, -6m);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
     }
@@ -348,43 +348,43 @@ public class DecimalVec2Test
     public void InvariantTriple()
     {
         {
-            var v0 = new decvec2(7.5m, 7m);
+            var v0 = new decvec2(-5.5m, 7.5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(4.5m, 4.5m);
+            var v0 = new decvec2(8m, -7.5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(-5.5m, -3m);
+            var v0 = new decvec2(-7m, 5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(-6.5m, 5.5m);
+            var v0 = new decvec2(7.5m, -3m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(-1.5m, 5m);
+            var v0 = new decvec2(6.5m, 8.5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(5.5m, 2m);
+            var v0 = new decvec2(7m, 1m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(7m, 0.5m);
+            var v0 = new decvec2(-6m, 9.5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(-6m, -2m);
+            var v0 = new decvec2(7m, -0.5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(0m, 4.5m);
+            var v0 = new decvec2(3.5m, -0.5m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new decvec2(4m, 0m);
+            var v0 = new decvec2(8m, 6m);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
     }
@@ -393,53 +393,53 @@ public class DecimalVec2Test
     public void InvariantCommutative()
     {
         {
-            var v0 = new decvec2(-8m, -6.5m);
-            var v1 = new decvec2(-6.5m, -5.5m);
+            var v0 = new decvec2(-3.5m, 4m);
+            var v1 = new decvec2(9m, -3.5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(2m, 9.5m);
-            var v1 = new decvec2(-4m, -9m);
+            var v0 = new decvec2(-2.5m, 3m);
+            var v1 = new decvec2(7m, 7.5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(-9.5m, -9m);
-            var v1 = new decvec2(8m, 2m);
+            var v0 = new decvec2(0m, 3.5m);
+            var v1 = new decvec2(6m, -5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(6m, -2m);
-            var v1 = new decvec2(-4m, 2.5m);
+            var v0 = new decvec2(0m, -7.5m);
+            var v1 = new decvec2(7m, -0.5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(-6m, -9.5m);
-            var v1 = new decvec2(9.5m, 4m);
+            var v0 = new decvec2(-9.5m, 2m);
+            var v1 = new decvec2(1m, -0.5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(-0.5m, 6m);
-            var v1 = new decvec2(3.5m, -3.5m);
+            var v0 = new decvec2(9m, -5m);
+            var v1 = new decvec2(-1m, 9m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(-8.5m, -8m);
-            var v1 = new decvec2(4m, -4m);
+            var v0 = new decvec2(2.5m, -2.5m);
+            var v1 = new decvec2(-4m, -8m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(1.5m, 0.5m);
-            var v1 = new decvec2(4m, -9m);
+            var v0 = new decvec2(-3.5m, 1m);
+            var v1 = new decvec2(3.5m, 8.5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(-3.5m, -0.5m);
-            var v1 = new decvec2(6.5m, -6m);
+            var v0 = new decvec2(-9m, 5.5m);
+            var v1 = new decvec2(9m, 0m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new decvec2(-1.5m, 4m);
-            var v1 = new decvec2(9m, -8.5m);
+            var v0 = new decvec2(8.5m, 5m);
+            var v1 = new decvec2(-8.5m, 6.5m);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
     }
@@ -448,63 +448,63 @@ public class DecimalVec2Test
     public void InvariantAssociative()
     {
         {
-            var v0 = new decvec2(-8.5m, 5.5m);
-            var v1 = new decvec2(4.5m, 4.5m);
-            var v2 = new decvec2(-1m, -5.5m);
+            var v0 = new decvec2(7m, -8m);
+            var v1 = new decvec2(0.5m, 7.5m);
+            var v2 = new decvec2(8.5m, 8.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(7m, 9.5m);
-            var v1 = new decvec2(-1m, -7.5m);
-            var v2 = new decvec2(-7m, 5m);
+            var v0 = new decvec2(3m, -8.5m);
+            var v1 = new decvec2(8m, 1.5m);
+            var v2 = new decvec2(1.5m, 1.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(-8.5m, 0.5m);
-            var v1 = new decvec2(9m, 5.5m);
-            var v2 = new decvec2(9.5m, 5m);
+            var v0 = new decvec2(-3m, -6m);
+            var v1 = new decvec2(-6m, 9m);
+            var v2 = new decvec2(-9m, 9m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(-1.5m, -3m);
-            var v1 = new decvec2(5m, 7m);
-            var v2 = new decvec2(-6.5m, -1m);
+            var v0 = new decvec2(3m, 1m);
+            var v1 = new decvec2(5.5m, -6m);
+            var v2 = new decvec2(-8.5m, -4m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(6m, -5.5m);
-            var v1 = new decvec2(-7.5m, 3.5m);
-            var v2 = new decvec2(-1m, -4.5m);
+            var v0 = new decvec2(-0.5m, -7m);
+            var v1 = new decvec2(-1.5m, 6m);
+            var v2 = new decvec2(-5m, 5.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(-4.5m, -1.5m);
-            var v1 = new decvec2(9.5m, -4.5m);
-            var v2 = new decvec2(-1m, 7m);
+            var v0 = new decvec2(-0.5m, -3.5m);
+            var v1 = new decvec2(3m, 8m);
+            var v2 = new decvec2(-5.5m, 6.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(2.5m, -3m);
-            var v1 = new decvec2(-1m, 3m);
-            var v2 = new decvec2(-5m, 4.5m);
+            var v0 = new decvec2(-2.5m, -6m);
+            var v1 = new decvec2(-7.5m, 4m);
+            var v2 = new decvec2(9m, 5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(6.5m, 9m);
-            var v1 = new decvec2(2.5m, 9.5m);
-            var v2 = new decvec2(-8m, 2.5m);
+            var v0 = new decvec2(-3.5m, 1.5m);
+            var v1 = new decvec2(-8m, 5m);
+            var v2 = new decvec2(-3.5m, -1.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(9.5m, 4m);
-            var v1 = new decvec2(4m, 1m);
-            var v2 = new decvec2(1.5m, 2.5m);
+            var v0 = new decvec2(-5.5m, -0.5m);
+            var v1 = new decvec2(5m, -1m);
+            var v2 = new decvec2(7m, -1.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new decvec2(0m, -4m);
-            var v1 = new decvec2(-3m, -5.5m);
-            var v2 = new decvec2(-2.5m, -2.5m);
+            var v0 = new decvec2(6m, 1.5m);
+            var v1 = new decvec2(7.5m, -6m);
+            var v2 = new decvec2(7m, -8.5m);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
     }
@@ -513,43 +513,43 @@ public class DecimalVec2Test
     public void InvariantIdNeg()
     {
         {
-            var v0 = new decvec2(-1.5m, -7m);
+            var v0 = new decvec2(-4.5m, -5.5m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(6.5m, -3m);
+            var v0 = new decvec2(5.5m, -7.5m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(-0.5m, -3.5m);
+            var v0 = new decvec2(-9.5m, 4.5m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(5.5m, 3m);
+            var v0 = new decvec2(-8m, -9.5m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(-2.5m, -4.5m);
+            var v0 = new decvec2(-9.5m, -3m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(0.5m, -3m);
+            var v0 = new decvec2(6m, 6m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(-2m, -0.5m);
+            var v0 = new decvec2(0m, -2m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(-5m, 9.5m);
+            var v0 = new decvec2(-8.5m, 2.5m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(2.5m, -5.5m);
+            var v0 = new decvec2(-5.5m, -3m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new decvec2(3.5m, -6.5m);
+            var v0 = new decvec2(-5m, -2m);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
     }
@@ -558,53 +558,53 @@ public class DecimalVec2Test
     public void InvariantCommutativeNeg()
     {
         {
-            var v0 = new decvec2(-7.5m, -8.5m);
-            var v1 = new decvec2(-1.5m, -1m);
+            var v0 = new decvec2(8.5m, 4m);
+            var v1 = new decvec2(-2m, 7.5m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(1.5m, -7.5m);
-            var v1 = new decvec2(4.5m, -7m);
+            var v0 = new decvec2(-7m, 8m);
+            var v1 = new decvec2(4.5m, 4.5m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(-2.5m, 1m);
-            var v1 = new decvec2(-9m, -6m);
+            var v0 = new decvec2(-3m, -4.5m);
+            var v1 = new decvec2(5.5m, -7m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(6.5m, -0.5m);
-            var v1 = new decvec2(-5.5m, 1m);
+            var v0 = new decvec2(4.5m, -8.5m);
+            var v1 = new decvec2(6.5m, -2m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(-7m, -3m);
-            var v1 = new decvec2(-2.5m, 5m);
+            var v0 = new decvec2(-3.5m, 9.5m);
+            var v1 = new decvec2(-3.5m, -2.5m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(-3m, 6m);
-            var v1 = new decvec2(-6.5m, 0m);
+            var v0 = new decvec2(-4m, 7.5m);
+            var v1 = new decvec2(2m, 0.5m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(-4.5m, -9.5m);
-            var v1 = new decvec2(3m, 1.5m);
+            var v0 = new decvec2(-7.5m, 1m);
+            var v1 = new decvec2(-8.5m, 1m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(5m, 6m);
-            var v1 = new decvec2(-6.5m, 4.5m);
+            var v0 = new decvec2(4.5m, -1.5m);
+            var v1 = new decvec2(5m, 0m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(5m, 3m);
-            var v1 = new decvec2(9m, -4m);
+            var v0 = new decvec2(-7.5m, 7.5m);
+            var v1 = new decvec2(6.5m, 9.5m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new decvec2(-1m, -8m);
-            var v1 = new decvec2(-0.5m, 4.5m);
+            var v0 = new decvec2(-6m, -6.5m);
+            var v1 = new decvec2(0m, -6m);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
     }
@@ -613,63 +613,63 @@ public class DecimalVec2Test
     public void InvariantAssociativeNeg()
     {
         {
-            var v0 = new decvec2(4.5m, -5m);
-            var v1 = new decvec2(7.5m, -3.5m);
-            var v2 = new decvec2(-9m, -9m);
+            var v0 = new decvec2(2.5m, 3m);
+            var v1 = new decvec2(4.5m, -6.5m);
+            var v2 = new decvec2(3.5m, 2m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(-1m, 2m);
-            var v1 = new decvec2(8m, -8.5m);
-            var v2 = new decvec2(9.5m, 8m);
+            var v0 = new decvec2(4m, -2m);
+            var v1 = new decvec2(9m, 4.5m);
+            var v2 = new decvec2(2.5m, -3m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(2.5m, 7.5m);
-            var v1 = new decvec2(-6.5m, -9m);
-            var v2 = new decvec2(-4.5m, -3.5m);
+            var v0 = new decvec2(-7.5m, -4m);
+            var v1 = new decvec2(8.5m, -5m);
+            var v2 = new decvec2(-4m, 7.5m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(1.5m, 9m);
-            var v1 = new decvec2(0m, 6.5m);
-            var v2 = new decvec2(5.5m, -9.5m);
+            var v0 = new decvec2(6m, 5.5m);
+            var v1 = new decvec2(1.5m, -2m);
+            var v2 = new decvec2(-9m, -4.5m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(-3m, 7.5m);
-            var v1 = new decvec2(-2m, -4.5m);
-            var v2 = new decvec2(0.5m, 7m);
+            var v0 = new decvec2(9m, 8m);
+            var v1 = new decvec2(-9m, 8.5m);
+            var v2 = new decvec2(-7m, -3.5m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(9.5m, -6.5m);
-            var v1 = new decvec2(5.5m, -5m);
-            var v2 = new decvec2(6.5m, 6m);
+            var v0 = new decvec2(5m, 1m);
+            var v1 = new decvec2(-1.5m, -7m);
+            var v2 = new decvec2(7m, -9.5m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(8.5m, -6.5m);
-            var v1 = new decvec2(8m, -5m);
-            var v2 = new decvec2(-3m, -5.5m);
+            var v0 = new decvec2(1m, 3.5m);
+            var v1 = new decvec2(4m, -3.5m);
+            var v2 = new decvec2(-9.5m, -7m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(8.5m, 8m);
-            var v1 = new decvec2(9m, 7m);
-            var v2 = new decvec2(-1.5m, 5.5m);
+            var v0 = new decvec2(5.5m, 0m);
+            var v1 = new decvec2(3.5m, 4m);
+            var v2 = new decvec2(-4m, 3.5m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(8m, 2m);
-            var v1 = new decvec2(8m, 9m);
-            var v2 = new decvec2(3.5m, -5.5m);
+            var v0 = new decvec2(-0.5m, -6m);
+            var v1 = new decvec2(7.5m, 3m);
+            var v2 = new decvec2(0.5m, 3m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new decvec2(7m, 7.5m);
-            var v1 = new decvec2(-9.5m, -8m);
-            var v2 = new decvec2(-3m, -7.5m);
+            var v0 = new decvec2(1.5m, -8.5m);
+            var v1 = new decvec2(-5.5m, 8m);
+            var v2 = new decvec2(-4m, -4.5m);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
     }
@@ -678,53 +678,53 @@ public class DecimalVec2Test
     public void TriangleInequality()
     {
         {
-            var v0 = new decvec2(-7.5m, 3m);
-            var v1 = new decvec2(-5.5m, -7.5m);
+            var v0 = new decvec2(5.5m, -6.5m);
+            var v1 = new decvec2(-2m, -8m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(-3m, 4.5m);
-            var v1 = new decvec2(-3.5m, 2m);
+            var v0 = new decvec2(5.5m, 6m);
+            var v1 = new decvec2(-7.5m, 9.5m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(-6m, -4.5m);
-            var v1 = new decvec2(-9m, -8m);
+            var v0 = new decvec2(1.5m, 2.5m);
+            var v1 = new decvec2(-7m, 3.5m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(5m, -7.5m);
-            var v1 = new decvec2(-8.5m, -1m);
+            var v0 = new decvec2(-2.5m, -3m);
+            var v1 = new decvec2(-7m, 7.5m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(-3m, 2m);
-            var v1 = new decvec2(6.5m, 6m);
+            var v0 = new decvec2(-6.5m, -7m);
+            var v1 = new decvec2(8m, 2m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(9.5m, -0.5m);
-            var v1 = new decvec2(3m, -2m);
+            var v0 = new decvec2(3m, -7m);
+            var v1 = new decvec2(-9m, 0m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(7.5m, 3.5m);
-            var v1 = new decvec2(-8.5m, -3m);
+            var v0 = new decvec2(-9.5m, 7m);
+            var v1 = new decvec2(-8m, 6m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(8m, -4m);
-            var v1 = new decvec2(7.5m, 5.5m);
+            var v0 = new decvec2(5.5m, 6m);
+            var v1 = new decvec2(8m, 3.5m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(-9.5m, -4m);
-            var v1 = new decvec2(-5m, -1.5m);
+            var v0 = new decvec2(8.5m, -6.5m);
+            var v1 = new decvec2(-6.5m, -1m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new decvec2(-8.5m, -6m);
-            var v1 = new decvec2(-8m, 0m);
+            var v0 = new decvec2(-6.5m, 9.5m);
+            var v1 = new decvec2(-8m, 4m);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
     }
@@ -733,43 +733,43 @@ public class DecimalVec2Test
     public void InvariantNorm()
     {
         {
-            var v0 = new decvec2(8.5m, -2.5m);
+            var v0 = new decvec2(9.5m, 4.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(1.5m, 7.5m);
+            var v0 = new decvec2(7.5m, -0.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(-6m, -6.5m);
+            var v0 = new decvec2(-5.5m, 6m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(-8.5m, 9m);
+            var v0 = new decvec2(-8.5m, 7.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(-8.5m, -2.5m);
+            var v0 = new decvec2(-3m, -3m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(8m, -9.5m);
+            var v0 = new decvec2(-8.5m, -6.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(3m, 3.5m);
+            var v0 = new decvec2(-3.5m, 8.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(-6m, -5m);
+            var v0 = new decvec2(-9m, 2.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(3m, -7.5m);
+            var v0 = new decvec2(-3.5m, -4.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new decvec2(5m, -5.5m);
+            var v0 = new decvec2(-3m, -8.5m);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
     }
@@ -777,14 +777,14 @@ public class DecimalVec2Test
     [Test]
     public void RandomUniform0()
     {
-        var random = new Random(1496600442);
+        var random = new Random(1069796811);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.Random(random, (-3), (1));
+            var v = decvec2.Random(random, (-3), (0));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -792,24 +792,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-1.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-1.5).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.75).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.75).Within(3.0));
     }
 
     [Test]
     public void RandomUniform1()
     {
-        var random = new Random(540900962);
+        var random = new Random(672397722);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomUniform(random, (-1), (3));
+            var v = decvec2.RandomUniform(random, (4), (8));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -817,8 +817,8 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(6).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(6).Within(1.0));
         
         Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
         Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
@@ -827,14 +827,14 @@ public class DecimalVec2Test
     [Test]
     public void RandomUniform2()
     {
-        var random = new Random(486672158);
+        var random = new Random(825497835);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.Random(random, (-3), (1));
+            var v = decvec2.Random(random, (-3), (-2));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -842,24 +842,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-2.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-2.5).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.08333333333333333).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.08333333333333333).Within(3.0));
     }
 
     [Test]
     public void RandomUniform3()
     {
-        var random = new Random(1752912352);
+        var random = new Random(1638264877);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomUniform(random, (0), (4));
+            var v = decvec2.RandomUniform(random, (-5), (-1));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -867,8 +867,8 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(2).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(2).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-3).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-3).Within(1.0));
         
         Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
         Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
@@ -877,14 +877,14 @@ public class DecimalVec2Test
     [Test]
     public void RandomUniform4()
     {
-        var random = new Random(1118764476);
+        var random = new Random(327990595);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.Random(random, (-2), (1));
+            var v = decvec2.Random(random, (-4), (0));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -892,24 +892,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-0.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-0.5).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-2).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-2).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.75).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.75).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian0()
     {
-        var random = new Random(2125355327);
+        var random = new Random(274765762);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomNormal(random, -0.30111314836010017m, 4.2123037410025965m);
+            var v = decvec2.RandomNormal(random, 1.7561894244310396m, 7.773609076521177m);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -917,24 +917,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-0.30111314836010017).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-0.30111314836010017).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(1.7561894244310396).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(1.7561894244310396).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(4.2123037410025965).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(4.2123037410025965).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(7.773609076521177).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(7.773609076521177).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian1()
     {
-        var random = new Random(1767855991);
+        var random = new Random(21410407);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomGaussian(random, 0.8587491618742931m, 8.35208034531776m);
+            var v = decvec2.RandomGaussian(random, -1.5950580684445137m, 3.768394782100057m);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -942,24 +942,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.8587491618742931).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.8587491618742931).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-1.5950580684445137).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-1.5950580684445137).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(8.35208034531776).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(8.35208034531776).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(3.768394782100057).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(3.768394782100057).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian2()
     {
-        var random = new Random(357379546);
+        var random = new Random(1763892442);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomNormal(random, -0.5780704797143446m, 2.0623155506617925m);
+            var v = decvec2.RandomNormal(random, -1.9146254825939544m, 5.795501924955985m);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -967,24 +967,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-0.5780704797143446).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-0.5780704797143446).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-1.9146254825939544).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-1.9146254825939544).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(2.0623155506617925).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(2.0623155506617925).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(5.795501924955985).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(5.795501924955985).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian3()
     {
-        var random = new Random(1433860194);
+        var random = new Random(1462890028);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomGaussian(random, 1.009913045451936m, 3.389194301976447m);
+            var v = decvec2.RandomGaussian(random, -0.104799998041615m, 4.536579500202359m);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -992,24 +992,24 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.009913045451936).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.009913045451936).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.104799998041615).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.104799998041615).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(3.389194301976447).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(3.389194301976447).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(4.536579500202359).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(4.536579500202359).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian4()
     {
-        var random = new Random(1602745745);
+        var random = new Random(2066749336);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = decvec2.RandomNormal(random, 1.6119778135847196m, 7.540388115467684m);
+            var v = decvec2.RandomNormal(random, 1.46870330882664m, 5.565478119796831m);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -1017,17 +1017,17 @@ public class DecimalVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.6119778135847196).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.6119778135847196).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(1.46870330882664).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(1.46870330882664).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(7.540388115467684).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(7.540388115467684).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(5.565478119796831).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(5.565478119796831).Within(3.0));
     }
 
     [Test]
     public void RandomNormal0()
     {
-        var random = new Random(1521887092);
+        var random = new Random(1722779086);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1052,7 +1052,7 @@ public class DecimalVec2Test
     [Test]
     public void RandomNormal1()
     {
-        var random = new Random(226960645);
+        var random = new Random(1915949720);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1077,7 +1077,7 @@ public class DecimalVec2Test
     [Test]
     public void RandomNormal2()
     {
-        var random = new Random(1809157673);
+        var random = new Random(690287871);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1102,7 +1102,7 @@ public class DecimalVec2Test
     [Test]
     public void RandomNormal3()
     {
-        var random = new Random(386747411);
+        var random = new Random(2020926671);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1127,7 +1127,7 @@ public class DecimalVec2Test
     [Test]
     public void RandomNormal4()
     {
-        var random = new Random(1348002184);
+        var random = new Random(531435992);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
