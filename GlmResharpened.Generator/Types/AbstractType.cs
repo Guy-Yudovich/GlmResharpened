@@ -93,18 +93,18 @@ internal abstract class AbstractType(BuiltinType? baseType, string? baseName = n
 	/// All members
 	/// </summary>
 	private Member[] members = null!;
-	private Field[] fields = null!;
-	private Constructor[] constructors = null!;
-	private Property[] properties = null!;
-	private Property[] staticProperties = null!;
-	private ImplicitOperator[] implicitOperators = null!;
-	private ExplicitOperator[] explicitOperators = null!;
-	private Operator[] operators = null!;
-	private Function[] functions = null!;
-	private Function[] staticFunctions = null!;
-	private Indexer[] indexer = null!;
-	private ComponentWiseStaticFunction[] componentWiseStaticFunctions = null!;
-	private ComponentWiseOperator[] componentWiseOp = null!;
+	private Member[] fields = null!;
+	private Member[] constructors = null!;
+	private Member[] properties = null!;
+	private Member[] staticProperties = null!;
+	private Member[] implicitOperators = null!;
+	private Member[] explicitOperators = null!;
+	private Member[] operators = null!;
+	private Member[] functions = null!;
+	private Member[] staticFunctions = null!;
+	private Member[] indexer = null!;
+	private Member[] componentWiseStaticFunctions = null!;
+	private Member[] componentWiseOp = null!;
 	private Member[] glmMembers = null!;
 
 	/// <summary>
@@ -125,18 +125,18 @@ internal abstract class AbstractType(BuiltinType? baseType, string? baseName = n
 		foreach (var member in members)
 			member.OriginalType = this;
 
-		fields = members.OfType<Field>().ToArray();
-		constructors = members.OfType<Constructor>().ToArray();
-		properties = members.Where(m => !m.Static).OfType<Property>().ToArray();
-		staticProperties = members.Where(m => m.Static).OfType<Property>().ToArray();
-		implicitOperators = members.OfType<ImplicitOperator>().ToArray();
-		explicitOperators = members.OfType<ExplicitOperator>().ToArray();
-		operators = members.OfType<Operator>().ToArray();
-		functions = members.Where(m => !m.Static && m.GetType() == typeof(Function)).OfType<Function>().ToArray();
-		staticFunctions = members.Where(m => m.Static && m.GetType() == typeof(Function)).OfType<Function>().ToArray();
-		indexer = members.OfType<Indexer>().ToArray();
-		componentWiseStaticFunctions = members.OfType<ComponentWiseStaticFunction>().ToArray();
-		componentWiseOp = members.OfType<ComponentWiseOperator>().ToArray();
+		fields = members.Where(m => m.MemberType is MemberType.Field).ToArray();
+		constructors = members.Where(m => m.MemberType is MemberType.Constructor).ToArray();
+		properties = members.Where(m => !m.Static && m.MemberType is MemberType.Property).ToArray();
+		staticProperties = members.Where(m => m.Static && m.MemberType is MemberType.Property).ToArray();
+		implicitOperators = members.Where(m => m.MemberType is MemberType.ImplicitOperator).ToArray();
+		explicitOperators = members.Where(m => m.MemberType is MemberType.ExplicitOperator).ToArray();
+		operators = members.Where(m => m.MemberType is MemberType.Operator).ToArray();
+		functions = members.Where(m => !m.Static && m.MemberType is MemberType.Function).ToArray();
+		staticFunctions = members.Where(m => m.Static && m.MemberType is MemberType.Function).ToArray();
+		indexer = members.Where(m => m.MemberType is MemberType.Indexer).ToArray();
+		componentWiseStaticFunctions = members.Where(m => m.MemberType is MemberType.ComponentWiseStaticFunction).ToArray();
+		componentWiseOp = members.Where(m => m.MemberType is MemberType.ComponentWiseOperator).ToArray();
 
 		glmMembers = members.SelectMany(m => m.GlmMembers()).ToArray();
 	}

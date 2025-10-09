@@ -22,38 +22,38 @@ public class BoolVec4Test
     public void Constructors()
     {
         {
-            var v = new bvec4(true);
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
-        }
-        {
-            var v = new bvec4(false, true, true, false);
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
-        }
-        {
-            var v = new bvec4(new bvec2(false, false));
+            var v = new bvec4(false);
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var v = new bvec4(new bvec3(true, true, false));
+            var v = new bvec4(true, false, false, false);
             Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var v = new bvec4(new bvec4(true, true, false, true));
+            var v = new bvec4(new bvec2(true, false));
             Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var v = new bvec4(new bvec3(true, false, true));
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var v = new bvec4(new bvec4(true, false, true, true));
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
             Assert.That(true, Is.EqualTo(v.w));
         }
     }
@@ -78,20 +78,20 @@ public class BoolVec4Test
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[5]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = false; } );
         
-        v[1] = false;
-        Assert.That(false, Is.EqualTo(v[1]));
-        v[1] = true;
-        Assert.That(true, Is.EqualTo(v[1]));
+        v[3] = false;
+        Assert.That(false, Is.EqualTo(v[3]));
+        v[2] = true;
+        Assert.That(true, Is.EqualTo(v[2]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new bvec4(true, true, false, true);
+        var v = new bvec4(true, false, true, true);
         var vals = v.Values;
         Assert.That(true, Is.EqualTo(vals[0]));
-        Assert.That(true, Is.EqualTo(vals[1]));
-        Assert.That(false, Is.EqualTo(vals[2]));
+        Assert.That(false, Is.EqualTo(vals[1]));
+        Assert.That(true, Is.EqualTo(vals[2]));
         Assert.That(true, Is.EqualTo(vals[3]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
@@ -133,9 +133,9 @@ public class BoolVec4Test
     [Test]
     public void Operators()
     {
-        var v1 = new bvec4(false, false, false, true);
-        var v2 = new bvec4(false, false, false, true);
-        var v3 = new bvec4(true, false, false, false);
+        var v1 = new bvec4(false, true, false, true);
+        var v2 = new bvec4(false, true, false, true);
+        var v3 = new bvec4(true, false, true, false);
         Assert.That(v1 == new bvec4(v1));
         Assert.That(v2 == new bvec4(v2));
         Assert.That(v3 == new bvec4(v3));
@@ -147,7 +147,7 @@ public class BoolVec4Test
     [Test]
     public void StringInterop()
     {
-        var v = new bvec4(true, false, true, true);
+        var v = new bvec4(false, true, true, true);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -182,7 +182,7 @@ public class BoolVec4Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new bvec4(true, true, false, false);
+        var v0 = new bvec4(false, true, true, false);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<bvec4>(s0);

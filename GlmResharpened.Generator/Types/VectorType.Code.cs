@@ -248,6 +248,22 @@ internal partial class VectorType
 				CodeString = Fields.Select(c => "v." + c).Aggregated(" && "),
 				Comment = $"Implicitly converts this to a bool, true when all components are true, false otherwise."
 			};
+			yield return new AnyMember("true", "true when all components are true, false otherwise.", BuiltinType.TypeBool, MemberType.ImplicitOperator)
+			{
+				Static = true,
+				Visibility = "public",
+				Code = [
+					"public static bool operator true(" + NameThat + " v) => " + Fields.Select(c => "v." + c).Aggregated(" && ") + ";",
+				]
+			};
+			yield return new AnyMember("false", "true when any component is false, false otherwise.", BuiltinType.TypeBool, MemberType.ImplicitOperator)
+			{
+				Static = true,
+				Visibility = "public",
+				Code = [
+					"public static bool operator false(" + NameThat + " v) => " + Fields.Select(c => "v." + c).Select(s => "!" + s).Aggregated(" || ") + ";",
+				]
+			};
 		}
 
 		// explicit casts

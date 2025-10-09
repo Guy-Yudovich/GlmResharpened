@@ -39,7 +39,7 @@ internal class Property : Member
 
 	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-	public Property(string name, AbstractType type) : base(name, "DUMMY << >> &&", type)
+	public Property(string name, AbstractType type) : base(name, "DUMMY << >> &&", type, MemberType.Property)
 	{
 		Name = name;
 		Type = type;

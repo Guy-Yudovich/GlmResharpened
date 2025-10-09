@@ -8,5 +8,5 @@ internal class ImplicitOperator : Function
 	public override string FunctionName => ReturnType.NameThat;
 	public override string ReturnName => "operator";
 
-	public ImplicitOperator(AbstractType type) : base(type, type.Name) => Static = true;
+	public ImplicitOperator(AbstractType type) : base(type, type.Name, MemberType.ImplicitOperator) => Static = true;
 }

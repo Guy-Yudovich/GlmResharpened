@@ -22,38 +22,38 @@ public class HalfVec2Test
     public void Constructors()
     {
         {
-            var v = new hvec2(((Half)(4.5)));
-            Assert.That(((Half)(4.5)), Is.EqualTo(v.x));
-            Assert.That(((Half)(4.5)), Is.EqualTo(v.y));
+            var v = new hvec2(((Half)(7)));
+            Assert.That(((Half)(7)), Is.EqualTo(v.x));
+            Assert.That(((Half)(7)), Is.EqualTo(v.y));
         }
         {
-            var v = new hvec2(((Half)(6)), ((Half)(-4.5)));
-            Assert.That(((Half)(6)), Is.EqualTo(v.x));
-            Assert.That(((Half)(-4.5)), Is.EqualTo(v.y));
+            var v = new hvec2(((Half)(8)), ((Half)(6)));
+            Assert.That(((Half)(8)), Is.EqualTo(v.x));
+            Assert.That(((Half)(6)), Is.EqualTo(v.y));
         }
         {
-            var v = new hvec2(new hvec2(((Half)(-7.5)), Half.Zero));
-            Assert.That(((Half)(-7.5)), Is.EqualTo(v.x));
+            var v = new hvec2(new hvec2(((Half)(-5)), Half.Zero));
+            Assert.That(((Half)(-5)), Is.EqualTo(v.x));
             Assert.That(Half.Zero, Is.EqualTo(v.y));
         }
         {
-            var v = new hvec2(new hvec3(Half.Zero, ((Half)(1.5)), ((Half)(4))));
-            Assert.That(Half.Zero, Is.EqualTo(v.x));
-            Assert.That(((Half)(1.5)), Is.EqualTo(v.y));
+            var v = new hvec2(new hvec3(((Half)(8.5)), ((Half)(7.5)), ((Half)(8.5))));
+            Assert.That(((Half)(8.5)), Is.EqualTo(v.x));
+            Assert.That(((Half)(7.5)), Is.EqualTo(v.y));
         }
         {
-            var v = new hvec2(new hvec4(((Half)(-0.5)), ((Half)(6)), ((Half)(-5)), ((Half)(-9.5))));
-            Assert.That(((Half)(-0.5)), Is.EqualTo(v.x));
-            Assert.That(((Half)(6)), Is.EqualTo(v.y));
+            var v = new hvec2(new hvec4(((Half)(-6)), ((Half)(-8)), ((Half)(4.5)), ((Half)(-8))));
+            Assert.That(((Half)(-6)), Is.EqualTo(v.x));
+            Assert.That(((Half)(-8)), Is.EqualTo(v.y));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new hvec2(((Half)(-9)), ((Half)(5.5)));
-        Assert.That(((Half)(-9)), Is.EqualTo(v[0]));
-        Assert.That(((Half)(5.5)), Is.EqualTo(v[1]));
+        var v = new hvec2(((Half)(-2)), ((Half)(-3.5)));
+        Assert.That(((Half)(-2)), Is.EqualTo(v[0]));
+        Assert.That(((Half)(-3.5)), Is.EqualTo(v[1]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = Half.Zero; } );
@@ -72,70 +72,70 @@ public class HalfVec2Test
         Assert.That(Half.One, Is.EqualTo(v[0]));
         v[1] = ((Half)(2));
         Assert.That(((Half)(2)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(3));
-        Assert.That(((Half)(3)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(4));
-        Assert.That(((Half)(4)), Is.EqualTo(v[1]));
-        v[0] = ((Half)(5));
-        Assert.That(((Half)(5)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(3));
+        Assert.That(((Half)(3)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(4));
+        Assert.That(((Half)(4)), Is.EqualTo(v[0]));
+        v[1] = ((Half)(5));
+        Assert.That(((Half)(5)), Is.EqualTo(v[1]));
         v[1] = ((Half)(6));
         Assert.That(((Half)(6)), Is.EqualTo(v[1]));
         v[1] = ((Half)(7));
         Assert.That(((Half)(7)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(8));
-        Assert.That(((Half)(8)), Is.EqualTo(v[1]));
+        v[0] = ((Half)(8));
+        Assert.That(((Half)(8)), Is.EqualTo(v[0]));
         v[1] = ((Half)(9));
         Assert.That(((Half)(9)), Is.EqualTo(v[1]));
-        v[0] = ((Half)(-1));
-        Assert.That(((Half)(-1)), Is.EqualTo(v[0]));
-        v[0] = ((Half)(-2));
-        Assert.That(((Half)(-2)), Is.EqualTo(v[0]));
-        v[0] = ((Half)(-3));
-        Assert.That(((Half)(-3)), Is.EqualTo(v[0]));
+        v[1] = ((Half)(-1));
+        Assert.That(((Half)(-1)), Is.EqualTo(v[1]));
+        v[1] = ((Half)(-2));
+        Assert.That(((Half)(-2)), Is.EqualTo(v[1]));
+        v[1] = ((Half)(-3));
+        Assert.That(((Half)(-3)), Is.EqualTo(v[1]));
         v[0] = ((Half)(-4));
         Assert.That(((Half)(-4)), Is.EqualTo(v[0]));
-        v[0] = ((Half)(-5));
-        Assert.That(((Half)(-5)), Is.EqualTo(v[0]));
+        v[1] = ((Half)(-5));
+        Assert.That(((Half)(-5)), Is.EqualTo(v[1]));
         v[0] = ((Half)(-6));
         Assert.That(((Half)(-6)), Is.EqualTo(v[0]));
-        v[0] = ((Half)(-7));
-        Assert.That(((Half)(-7)), Is.EqualTo(v[0]));
-        v[1] = ((Half)(-8));
-        Assert.That(((Half)(-8)), Is.EqualTo(v[1]));
+        v[1] = ((Half)(-7));
+        Assert.That(((Half)(-7)), Is.EqualTo(v[1]));
+        v[0] = ((Half)(-8));
+        Assert.That(((Half)(-8)), Is.EqualTo(v[0]));
         v[1] = ((Half)(-9));
         Assert.That(((Half)(-9)), Is.EqualTo(v[1]));
         v[1] = ((Half)(-9.5));
         Assert.That(((Half)(-9.5)), Is.EqualTo(v[1]));
-        v[0] = ((Half)(-8.5));
-        Assert.That(((Half)(-8.5)), Is.EqualTo(v[0]));
+        v[1] = ((Half)(-8.5));
+        Assert.That(((Half)(-8.5)), Is.EqualTo(v[1]));
         v[0] = ((Half)(-7.5));
         Assert.That(((Half)(-7.5)), Is.EqualTo(v[0]));
         v[1] = ((Half)(-6.5));
         Assert.That(((Half)(-6.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(-5.5));
-        Assert.That(((Half)(-5.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(-4.5));
-        Assert.That(((Half)(-4.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(-3.5));
-        Assert.That(((Half)(-3.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(-2.5));
-        Assert.That(((Half)(-2.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(-1.5));
-        Assert.That(((Half)(-1.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(-0.5));
-        Assert.That(((Half)(-0.5)), Is.EqualTo(v[1]));
+        v[0] = ((Half)(-5.5));
+        Assert.That(((Half)(-5.5)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(-4.5));
+        Assert.That(((Half)(-4.5)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(-3.5));
+        Assert.That(((Half)(-3.5)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(-2.5));
+        Assert.That(((Half)(-2.5)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(-1.5));
+        Assert.That(((Half)(-1.5)), Is.EqualTo(v[0]));
+        v[0] = ((Half)(-0.5));
+        Assert.That(((Half)(-0.5)), Is.EqualTo(v[0]));
         v[0] = ((Half)(0.5));
         Assert.That(((Half)(0.5)), Is.EqualTo(v[0]));
         v[1] = ((Half)(1.5));
         Assert.That(((Half)(1.5)), Is.EqualTo(v[1]));
-        v[0] = ((Half)(2.5));
-        Assert.That(((Half)(2.5)), Is.EqualTo(v[0]));
+        v[1] = ((Half)(2.5));
+        Assert.That(((Half)(2.5)), Is.EqualTo(v[1]));
         v[1] = ((Half)(3.5));
         Assert.That(((Half)(3.5)), Is.EqualTo(v[1]));
         v[1] = ((Half)(4.5));
         Assert.That(((Half)(4.5)), Is.EqualTo(v[1]));
-        v[1] = ((Half)(5.5));
-        Assert.That(((Half)(5.5)), Is.EqualTo(v[1]));
+        v[0] = ((Half)(5.5));
+        Assert.That(((Half)(5.5)), Is.EqualTo(v[0]));
         v[1] = ((Half)(6.5));
         Assert.That(((Half)(6.5)), Is.EqualTo(v[1]));
         v[1] = ((Half)(7.5));
@@ -149,9 +149,9 @@ public class HalfVec2Test
     [Test]
     public void PropertyValues()
     {
-        var v = new hvec2(((Half)(-0.5)), ((Half)(3.5)));
+        var v = new hvec2(((Half)(4)), ((Half)(3.5)));
         var vals = v.Values;
-        Assert.That(((Half)(-0.5)), Is.EqualTo(vals[0]));
+        Assert.That(((Half)(4)), Is.EqualTo(vals[0]));
         Assert.That(((Half)(3.5)), Is.EqualTo(vals[1]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
@@ -193,9 +193,9 @@ public class HalfVec2Test
     [Test]
     public void Operators()
     {
-        var v1 = new hvec2(((Half)(-6)), ((Half)(6.5)));
-        var v2 = new hvec2(((Half)(-6)), ((Half)(6.5)));
-        var v3 = new hvec2(((Half)(6.5)), ((Half)(-6)));
+        var v1 = new hvec2(((Half)(5)), ((Half)(2)));
+        var v2 = new hvec2(((Half)(5)), ((Half)(2)));
+        var v3 = new hvec2(((Half)(2)), ((Half)(5)));
         Assert.That(v1 == new hvec2(v1));
         Assert.That(v2 == new hvec2(v2));
         Assert.That(v3 == new hvec2(v3));
@@ -207,7 +207,7 @@ public class HalfVec2Test
     [Test]
     public void StringInterop()
     {
-        var v = new hvec2(((Half)(-9)), ((Half)(9)));
+        var v = new hvec2(((Half)(5)), ((Half)(2.5)));
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -253,7 +253,7 @@ public class HalfVec2Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new hvec2(((Half)(-6.5)), ((Half)(4.5)));
+        var v0 = new hvec2(((Half)(-7.5)), ((Half)(4)));
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<hvec2>(s0);
@@ -267,43 +267,43 @@ public class HalfVec2Test
     public void InvariantId()
     {
         {
-            var v0 = new hvec2(((Half)(-8)), ((Half)(-5)));
+            var v0 = new hvec2(((Half)(-8.5)), ((Half)(-5.5)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-3)), ((Half)(5)));
+            var v0 = new hvec2(((Half)(-7)), ((Half)(7.5)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-1)), Half.One);
+            var v0 = new hvec2(Half.One, ((Half)(-4.5)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-8)), Half.Zero);
+            var v0 = new hvec2(((Half)(-7)), ((Half)(2)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(2)), ((Half)(7.5)));
+            var v0 = new hvec2(((Half)(-4.5)), ((Half)(4)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(6)), ((Half)(-5.5)));
+            var v0 = new hvec2(((Half)(6)), ((Half)(-6)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-6.5)), ((Half)(6.5)));
+            var v0 = new hvec2(((Half)(-9.5)), ((Half)(5.5)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-3.5)), ((Half)(-2)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(7)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-4)), ((Half)(6)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(-9.5)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new hvec2(((Half)(-3)), ((Half)(-8.5)));
+            var v0 = new hvec2(((Half)(-7.5)), ((Half)(-3.5)));
             Assert.That(v0, Is.EqualTo(+v0));
         }
     }
@@ -312,43 +312,43 @@ public class HalfVec2Test
     public void InvariantDouble()
     {
         {
-            var v0 = new hvec2(((Half)(4.5)), ((Half)(9.5)));
+            var v0 = new hvec2(((Half)(-2.5)), ((Half)(-4)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(Half.One, ((Half)(-9.5)));
+            var v0 = new hvec2(((Half)(8.5)), ((Half)(-3)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-0.5)), ((Half)(-7)));
+            var v0 = new hvec2(((Half)(-6.5)), ((Half)(-7.5)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-6)), ((Half)(-6.5)));
+            var v0 = new hvec2(((Half)(-0.5)), ((Half)(-6.5)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-6)), ((Half)(-5.5)));
+            var v0 = new hvec2(((Half)(-2.5)), ((Half)(5)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(4.5)), ((Half)(-1.5)));
+            var v0 = new hvec2(((Half)(-4)), Half.Zero);
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-2)), ((Half)(9.5)));
+            var v0 = new hvec2(((Half)(5)), ((Half)(2)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-1)), ((Half)(5.5)));
+            var v0 = new hvec2(((Half)(-8.5)), ((Half)(4.5)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(7)), ((Half)(6.5)));
+            var v0 = new hvec2(((Half)(6)), ((Half)(-4.5)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-9)), ((Half)(-7.5)));
+            var v0 = new hvec2(((Half)(4.5)), ((Half)(3)));
             Assert.That(v0 + v0, Is.EqualTo((byte)2 * v0));
         }
     }
@@ -357,43 +357,43 @@ public class HalfVec2Test
     public void InvariantTriple()
     {
         {
-            var v0 = new hvec2(((Half)(-0.5)), ((Half)(-8)));
+            var v0 = new hvec2(((Half)(-6.5)), ((Half)(4.5)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-3.5)), ((Half)(-9)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(3)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(Half.One, ((Half)(-3)));
+            var v0 = new hvec2(((Half)(-6.5)), ((Half)(8)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-1.5)), ((Half)(1.5)));
+            var v0 = new hvec2(((Half)(-8.5)), ((Half)(5.5)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(0.5)), ((Half)(1.5)));
+            var v0 = new hvec2(((Half)(-3.5)), ((Half)(8.5)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-1.5)), ((Half)(-8.5)));
+            var v0 = new hvec2(((Half)(9.5)), ((Half)(-6)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-7.5)), Half.Zero);
+            var v0 = new hvec2(((Half)(-9.5)), ((Half)(2)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-9.5)), ((Half)(-1.5)));
+            var v0 = new hvec2(((Half)(-0.5)), ((Half)(-5.5)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(1.5)), ((Half)(-8)));
+            var v0 = new hvec2(((Half)(-9)), ((Half)(7)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-7.5)), ((Half)(3.5)));
+            var v0 = new hvec2(((Half)(-3)), ((Half)(-4.5)));
             Assert.That(v0 + v0 + v0, Is.EqualTo((byte)3 * v0));
         }
     }
@@ -402,53 +402,53 @@ public class HalfVec2Test
     public void InvariantCommutative()
     {
         {
-            var v0 = new hvec2(((Half)(-7)), ((Half)(4.5)));
-            var v1 = new hvec2(((Half)(4)), ((Half)(-3.5)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(3.5)));
+            var v1 = new hvec2(((Half)(-2.5)), ((Half)(-0.5)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(2)), ((Half)(-1)));
-            var v1 = new hvec2(((Half)(-1)), ((Half)(9)));
+            var v0 = new hvec2(((Half)(7.5)), ((Half)(2)));
+            var v1 = new hvec2(((Half)(9)), Half.Zero);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-8.5)), ((Half)(2.5)));
-            var v1 = new hvec2(((Half)(7)), ((Half)(4.5)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(9.5)));
+            var v1 = new hvec2(((Half)(6.5)), ((Half)(6)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(9)), ((Half)(-5)));
-            var v1 = new hvec2(((Half)(5)), ((Half)(-7.5)));
+            var v0 = new hvec2(((Half)(-1.5)), ((Half)(4)));
+            var v1 = new hvec2(((Half)(-2)), ((Half)(4.5)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-4)), ((Half)(6)));
-            var v1 = new hvec2(Half.Zero, ((Half)(5.5)));
+            var v0 = new hvec2(((Half)(-9.5)), ((Half)(9)));
+            var v1 = new hvec2(((Half)(-4)), Half.Zero);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-6.5)), ((Half)(-1.5)));
-            var v1 = new hvec2(((Half)(9)), ((Half)(-2)));
+            var v0 = new hvec2(((Half)(-6)), ((Half)(-9.5)));
+            var v1 = new hvec2(((Half)(4)), Half.Zero);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-7)), ((Half)(9.5)));
-            var v1 = new hvec2(((Half)(9)), ((Half)(9.5)));
+            var v0 = new hvec2(((Half)(-4)), ((Half)(8)));
+            var v1 = new hvec2(((Half)(4)), ((Half)(-2)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(-8)), Half.Zero);
-            var v1 = new hvec2(((Half)(-5.5)), ((Half)(1.5)));
+            var v0 = new hvec2(((Half)(8.5)), ((Half)(2.5)));
+            var v1 = new hvec2(((Half)(9)), ((Half)(-3.5)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(9.5)), ((Half)(-6)));
-            var v1 = new hvec2(((Half)(3.5)), ((Half)(2)));
+            var v0 = new hvec2(((Half)(0.5)), ((Half)(0.5)));
+            var v1 = new hvec2(((Half)(-8.5)), ((Half)(2)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new hvec2(((Half)(5)), ((Half)(1.5)));
-            var v1 = new hvec2(((Half)(-5.5)), ((Half)(4.5)));
+            var v0 = new hvec2(((Half)(2)), ((Half)(-0.5)));
+            var v1 = new hvec2(((Half)(-1.5)), ((Half)(3)));
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
     }
@@ -457,63 +457,63 @@ public class HalfVec2Test
     public void InvariantAssociative()
     {
         {
-            var v0 = new hvec2(((Half)(2)), ((Half)(7.5)));
-            var v1 = new hvec2(((Half)(-2)), Half.One);
-            var v2 = new hvec2(((Half)(-4)), ((Half)(0.5)));
+            var v0 = new hvec2(((Half)(9)), Half.Zero);
+            var v1 = new hvec2(((Half)(-3)), ((Half)(2)));
+            var v2 = new hvec2(((Half)(3.5)), ((Half)(8.5)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(-3)), ((Half)(2)));
-            var v1 = new hvec2(((Half)(-5)), ((Half)(9.5)));
-            var v2 = new hvec2(((Half)(-1)), ((Half)(-3)));
+            var v0 = new hvec2(((Half)(-2)), ((Half)(3.5)));
+            var v1 = new hvec2(((Half)(-8.5)), ((Half)(6.5)));
+            var v2 = new hvec2(((Half)(4.5)), ((Half)(0.5)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(5)), ((Half)(-6)));
-            var v1 = new hvec2(((Half)(3)), ((Half)(-1)));
-            var v2 = new hvec2(((Half)(-9.5)), ((Half)(-8.5)));
+            var v0 = new hvec2(((Half)(-4.5)), ((Half)(-2.5)));
+            var v1 = new hvec2(((Half)(0.5)), ((Half)(9.5)));
+            var v2 = new hvec2(((Half)(-7)), ((Half)(-9)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(0.5)), ((Half)(-5)));
-            var v1 = new hvec2(((Half)(-2.5)), ((Half)(-7)));
-            var v2 = new hvec2(((Half)(5)), ((Half)(2.5)));
+            var v0 = new hvec2(((Half)(7)), Half.One);
+            var v1 = new hvec2(((Half)(-4.5)), ((Half)(2)));
+            var v2 = new hvec2(((Half)(9)), ((Half)(-6)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(4.5)), ((Half)(-2.5)));
-            var v1 = new hvec2(((Half)(6)), ((Half)(2)));
-            var v2 = new hvec2(((Half)(8.5)), Half.Zero);
+            var v0 = new hvec2(((Half)(7)), ((Half)(3)));
+            var v1 = new hvec2(((Half)(-8)), ((Half)(4.5)));
+            var v2 = new hvec2(((Half)(3)), ((Half)(6)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(-3)), ((Half)(3.5)));
-            var v1 = new hvec2(((Half)(-0.5)), ((Half)(-9.5)));
-            var v2 = new hvec2(((Half)(2.5)), ((Half)(-3.5)));
+            var v0 = new hvec2(((Half)(3)), ((Half)(-3.5)));
+            var v1 = new hvec2(((Half)(9)), ((Half)(-1)));
+            var v2 = new hvec2(((Half)(-1)), ((Half)(-9)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(7.5)), ((Half)(-5.5)));
-            var v1 = new hvec2(((Half)(-4)), ((Half)(-1)));
-            var v2 = new hvec2(((Half)(9.5)), ((Half)(5.5)));
+            var v0 = new hvec2(((Half)(-4)), ((Half)(5)));
+            var v1 = new hvec2(((Half)(-4.5)), ((Half)(-5.5)));
+            var v2 = new hvec2(((Half)(-5.5)), ((Half)(7.5)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(-7.5)), ((Half)(0.5)));
-            var v1 = new hvec2(((Half)(2.5)), ((Half)(-4)));
-            var v2 = new hvec2(((Half)(-0.5)), Half.Zero);
+            var v0 = new hvec2(((Half)(-6)), ((Half)(5.5)));
+            var v1 = new hvec2(((Half)(-8.5)), ((Half)(-9)));
+            var v2 = new hvec2(((Half)(-7)), ((Half)(-7.5)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(4)), ((Half)(-2.5)));
-            var v1 = new hvec2(((Half)(5)), ((Half)(0.5)));
-            var v2 = new hvec2(((Half)(-7)), ((Half)(-8.5)));
+            var v0 = new hvec2(Half.Zero, ((Half)(9.5)));
+            var v1 = new hvec2(Half.One, ((Half)(-4)));
+            var v2 = new hvec2(((Half)(4)), ((Half)(9)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(4)), ((Half)(-4.5)));
-            var v1 = new hvec2(((Half)(2.5)), ((Half)(-9.5)));
-            var v2 = new hvec2(((Half)(6)), ((Half)(-3.5)));
+            var v0 = new hvec2(((Half)(9.5)), ((Half)(7)));
+            var v1 = new hvec2(((Half)(0.5)), ((Half)(7.5)));
+            var v2 = new hvec2(((Half)(4.5)), ((Half)(0.5)));
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
     }
@@ -522,43 +522,43 @@ public class HalfVec2Test
     public void InvariantIdNeg()
     {
         {
-            var v0 = new hvec2(((Half)(0.5)), ((Half)(4)));
+            var v0 = new hvec2(((Half)(-9)), ((Half)(4.5)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-4)), ((Half)(-9)));
+            var v0 = new hvec2(((Half)(0.5)), ((Half)(-8)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(4)), ((Half)(2)));
+            var v0 = new hvec2(((Half)(9.5)), ((Half)(-4)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(8)), ((Half)(8.5)));
+            var v0 = new hvec2(((Half)(-9)), ((Half)(2)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-4)), ((Half)(4)));
+            var v0 = new hvec2(((Half)(2)), ((Half)(-6)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-1.5)), ((Half)(-4.5)));
+            var v0 = new hvec2(((Half)(-2)), ((Half)(-6)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(7)), ((Half)(-3)));
+            var v0 = new hvec2(((Half)(8)), ((Half)(9)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(2.5)), ((Half)(2.5)));
+            var v0 = new hvec2(((Half)(4)), ((Half)(0.5)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-6.5)), Half.One);
+            var v0 = new hvec2(((Half)(-8)), ((Half)(-5.5)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-1.5)), ((Half)(8.5)));
+            var v0 = new hvec2(((Half)(-3)), ((Half)(8.5)));
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
     }
@@ -567,53 +567,53 @@ public class HalfVec2Test
     public void InvariantCommutativeNeg()
     {
         {
-            var v0 = new hvec2(((Half)(-5)), Half.Zero);
-            var v1 = new hvec2(((Half)(1.5)), ((Half)(-1)));
+            var v0 = new hvec2(((Half)(5.5)), ((Half)(5.5)));
+            var v1 = new hvec2(Half.One, ((Half)(5.5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-5)), ((Half)(-1.5)));
-            var v1 = new hvec2(((Half)(7)), ((Half)(-7.5)));
+            var v0 = new hvec2(((Half)(0.5)), ((Half)(3.5)));
+            var v1 = new hvec2(((Half)(-2)), ((Half)(4)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(1.5)), ((Half)(4)));
-            var v1 = new hvec2(((Half)(6)), ((Half)(2)));
+            var v0 = new hvec2(((Half)(-4)), ((Half)(-1.5)));
+            var v1 = new hvec2(((Half)(5)), ((Half)(2)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(9)), ((Half)(-6)));
-            var v1 = new hvec2(((Half)(0.5)), ((Half)(1.5)));
+            var v0 = new hvec2(((Half)(8.5)), Half.One);
+            var v1 = new hvec2(((Half)(8)), ((Half)(1.5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(3)), ((Half)(-2)));
-            var v1 = new hvec2(((Half)(-5)), ((Half)(-2)));
+            var v0 = new hvec2(Half.Zero, ((Half)(-5.5)));
+            var v1 = new hvec2(((Half)(-2)), ((Half)(1.5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(3)), ((Half)(2.5)));
-            var v1 = new hvec2(((Half)(-7.5)), ((Half)(0.5)));
+            var v0 = new hvec2(((Half)(-3)), ((Half)(-8.5)));
+            var v1 = new hvec2(((Half)(-8)), ((Half)(-7)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(9.5)), ((Half)(9)));
-            var v1 = new hvec2(((Half)(2.5)), ((Half)(-1)));
+            var v0 = new hvec2(((Half)(-6)), ((Half)(-3)));
+            var v1 = new hvec2(((Half)(-8.5)), ((Half)(-7.5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(2.5)), ((Half)(-6.5)));
-            var v1 = new hvec2(((Half)(2.5)), ((Half)(2)));
+            var v0 = new hvec2(((Half)(-0.5)), ((Half)(-0.5)));
+            var v1 = new hvec2(Half.One, ((Half)(-3.5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(-2.5)), ((Half)(-4)));
-            var v1 = new hvec2(((Half)(-6.5)), ((Half)(-1)));
+            var v0 = new hvec2(((Half)(5)), ((Half)(-8)));
+            var v1 = new hvec2(((Half)(-7)), ((Half)(-3.5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new hvec2(((Half)(6.5)), ((Half)(-6)));
-            var v1 = new hvec2(((Half)(-8)), ((Half)(-3.5)));
+            var v0 = new hvec2(((Half)(8.5)), ((Half)(-2)));
+            var v1 = new hvec2(((Half)(-4.5)), ((Half)(5)));
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
     }
@@ -622,63 +622,63 @@ public class HalfVec2Test
     public void InvariantAssociativeNeg()
     {
         {
-            var v0 = new hvec2(((Half)(7.5)), ((Half)(-5.5)));
-            var v1 = new hvec2(((Half)(-2)), ((Half)(-9.5)));
-            var v2 = new hvec2(((Half)(-8)), ((Half)(9)));
+            var v0 = new hvec2(((Half)(-8.5)), ((Half)(5.5)));
+            var v1 = new hvec2(((Half)(-8.5)), ((Half)(4)));
+            var v2 = new hvec2(((Half)(-7.5)), ((Half)(8)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(5.5)), ((Half)(0.5)));
-            var v1 = new hvec2(((Half)(2)), ((Half)(-2.5)));
-            var v2 = new hvec2(((Half)(-3)), ((Half)(1.5)));
+            var v0 = new hvec2(((Half)(-8.5)), ((Half)(-4)));
+            var v1 = new hvec2(((Half)(5.5)), ((Half)(-5)));
+            var v2 = new hvec2(((Half)(-8.5)), ((Half)(-3)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(-1.5)), ((Half)(-5)));
-            var v1 = new hvec2(((Half)(-1)), ((Half)(-4)));
-            var v2 = new hvec2(((Half)(-3)), ((Half)(-3.5)));
+            var v0 = new hvec2(((Half)(-6.5)), ((Half)(-5.5)));
+            var v1 = new hvec2(((Half)(-7)), ((Half)(-8)));
+            var v2 = new hvec2(((Half)(-2)), ((Half)(3.5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(-9.5)), ((Half)(-7.5)));
-            var v1 = new hvec2(((Half)(9.5)), ((Half)(9)));
-            var v2 = new hvec2(((Half)(4.5)), ((Half)(7)));
+            var v0 = new hvec2(((Half)(8.5)), ((Half)(4)));
+            var v1 = new hvec2(((Half)(4)), ((Half)(6.5)));
+            var v2 = new hvec2(((Half)(5)), ((Half)(-6.5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(4)), ((Half)(8.5)));
-            var v1 = new hvec2(Half.Zero, Half.One);
-            var v2 = new hvec2(((Half)(3.5)), ((Half)(-8.5)));
+            var v0 = new hvec2(((Half)(9)), ((Half)(-7)));
+            var v1 = new hvec2(((Half)(-9)), ((Half)(-3.5)));
+            var v2 = new hvec2(((Half)(-0.5)), ((Half)(-9.5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(-6.5)), ((Half)(5.5)));
-            var v1 = new hvec2(((Half)(3)), ((Half)(4)));
-            var v2 = new hvec2(((Half)(9.5)), ((Half)(0.5)));
+            var v0 = new hvec2(((Half)(-2.5)), ((Half)(2)));
+            var v1 = new hvec2(((Half)(-5)), ((Half)(8)));
+            var v2 = new hvec2(((Half)(5.5)), ((Half)(4)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(1.5)), ((Half)(-5.5)));
-            var v1 = new hvec2(((Half)(-3)), ((Half)(-9.5)));
-            var v2 = new hvec2(((Half)(-0.5)), ((Half)(-2.5)));
+            var v0 = new hvec2(((Half)(6.5)), ((Half)(-2)));
+            var v1 = new hvec2(((Half)(9)), ((Half)(5)));
+            var v2 = new hvec2(((Half)(-7.5)), ((Half)(6.5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(9.5)), Half.One);
-            var v1 = new hvec2(((Half)(-9)), ((Half)(7.5)));
-            var v2 = new hvec2(((Half)(-1)), ((Half)(-8.5)));
+            var v0 = new hvec2(((Half)(6.5)), ((Half)(5.5)));
+            var v1 = new hvec2(((Half)(2)), ((Half)(-6.5)));
+            var v2 = new hvec2(((Half)(-8.5)), ((Half)(7.5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(8)), ((Half)(-7)));
-            var v1 = new hvec2(((Half)(7.5)), ((Half)(-4.5)));
-            var v2 = new hvec2(((Half)(-8.5)), ((Half)(-1)));
+            var v0 = new hvec2(((Half)(3)), ((Half)(5)));
+            var v1 = new hvec2(((Half)(9.5)), ((Half)(7)));
+            var v2 = new hvec2(Half.Zero, ((Half)(5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new hvec2(((Half)(2.5)), ((Half)(-1.5)));
-            var v1 = new hvec2(((Half)(-0.5)), ((Half)(4)));
-            var v2 = new hvec2(((Half)(-5)), ((Half)(-9)));
+            var v0 = new hvec2(((Half)(-7)), ((Half)(-4.5)));
+            var v1 = new hvec2(((Half)(0.5)), ((Half)(8.5)));
+            var v2 = new hvec2(((Half)(4.5)), ((Half)(5)));
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
     }
@@ -687,53 +687,53 @@ public class HalfVec2Test
     public void TriangleInequality()
     {
         {
-            var v0 = new hvec2(((Half)(7)), ((Half)(-8)));
-            var v1 = new hvec2(((Half)(-7)), ((Half)(3)));
+            var v0 = new hvec2(((Half)(-8.5)), ((Half)(-3)));
+            var v1 = new hvec2(((Half)(5)), Half.One);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(1.5)), ((Half)(-1.5)));
-            var v1 = new hvec2(Half.One, ((Half)(4)));
+            var v0 = new hvec2(((Half)(-9)), ((Half)(3.5)));
+            var v1 = new hvec2(((Half)(9)), ((Half)(3)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(-2)), ((Half)(-4)));
-            var v1 = new hvec2(((Half)(1.5)), ((Half)(-1)));
+            var v0 = new hvec2(((Half)(7)), ((Half)(-0.5)));
+            var v1 = new hvec2(((Half)(-7)), ((Half)(0.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(-3)), ((Half)(-5)));
-            var v1 = new hvec2(((Half)(-5)), ((Half)(-3.5)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(-5.5)));
+            var v1 = new hvec2(((Half)(6.5)), ((Half)(4.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(-5.5)), ((Half)(-9.5)));
-            var v1 = new hvec2(((Half)(0.5)), ((Half)(9)));
+            var v0 = new hvec2(((Half)(5)), ((Half)(-4)));
+            var v1 = new hvec2(((Half)(0.5)), ((Half)(-6.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(6)), ((Half)(5.5)));
-            var v1 = new hvec2(((Half)(4.5)), ((Half)(5)));
+            var v0 = new hvec2(((Half)(1.5)), ((Half)(-3)));
+            var v1 = new hvec2(((Half)(7)), ((Half)(0.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(-9.5)), ((Half)(6)));
-            var v1 = new hvec2(((Half)(4.5)), ((Half)(2)));
+            var v0 = new hvec2(((Half)(5.5)), ((Half)(-5.5)));
+            var v1 = new hvec2(((Half)(0.5)), ((Half)(-6.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(6)), ((Half)(1.5)));
-            var v1 = new hvec2(((Half)(9)), ((Half)(0.5)));
+            var v0 = new hvec2(((Half)(-0.5)), ((Half)(-9)));
+            var v1 = new hvec2(((Half)(-3.5)), ((Half)(9.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(9.5)), ((Half)(7)));
-            var v1 = new hvec2(((Half)(1.5)), ((Half)(4.5)));
+            var v0 = new hvec2(((Half)(-0.5)), ((Half)(2.5)));
+            var v1 = new hvec2(((Half)(-8)), ((Half)(-4)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new hvec2(((Half)(4)), ((Half)(7)));
-            var v1 = new hvec2(((Half)(-8)), ((Half)(7.5)));
+            var v0 = new hvec2(((Half)(-6.5)), ((Half)(-9.5)));
+            var v1 = new hvec2(((Half)(-2)), ((Half)(3.5)));
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
     }
@@ -742,15 +742,23 @@ public class HalfVec2Test
     public void InvariantNorm()
     {
         {
-            var v0 = new hvec2(((Half)(4.5)), ((Half)(-4)));
+            var v0 = new hvec2(Half.One, ((Half)(2.5)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new hvec2(((Half)(-9.5)), ((Half)(2.5)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(5)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new hvec2(((Half)(9.5)), ((Half)(9.5)));
+            var v0 = new hvec2(((Half)(5.5)), ((Half)(3.5)));
+            Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
+        }
+        {
+            var v0 = new hvec2(((Half)(-3.5)), ((Half)(-8.5)));
+            Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
+        }
+        {
+            var v0 = new hvec2(((Half)(7)), ((Half)(2.5)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
@@ -758,27 +766,19 @@ public class HalfVec2Test
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new hvec2(((Half)(-9)), ((Half)(-8.5)));
+            var v0 = new hvec2(((Half)(7)), ((Half)(-9.5)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new hvec2(((Half)(9.5)), ((Half)(4)));
+            var v0 = new hvec2(((Half)(-5)), ((Half)(9)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new hvec2(((Half)(-9)), ((Half)(7.5)));
+            var v0 = new hvec2(((Half)(-7)), ((Half)(-2)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new hvec2(((Half)(6)), ((Half)(3.5)));
-            Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
-        }
-        {
-            var v0 = new hvec2(((Half)(-1.5)), ((Half)(6.5)));
-            Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
-        }
-        {
-            var v0 = new hvec2(Half.Zero, ((Half)(4.5)));
+            var v0 = new hvec2(((Half)(-1)), ((Half)(-5)));
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
     }
@@ -786,14 +786,14 @@ public class HalfVec2Test
     [Test]
     public void RandomUniform0()
     {
-        var random = new Random(1772633357);
+        var random = new Random(704348402);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.Random(random, (sbyte)(-5), (sbyte)(-2));
+            var v = hvec2.Random(random, (sbyte)(2), (sbyte)(5));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -801,8 +801,8 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-3.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-3.5).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(3.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(3.5).Within(1.0));
         
         Assert.That(variance.x, Is.EqualTo(0.75).Within(3.0));
         Assert.That(variance.y, Is.EqualTo(0.75).Within(3.0));
@@ -811,14 +811,14 @@ public class HalfVec2Test
     [Test]
     public void RandomUniform1()
     {
-        var random = new Random(22548799);
+        var random = new Random(242658442);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomUniform(random, (sbyte)(-3), (sbyte)(-2));
+            var v = hvec2.RandomUniform(random, (sbyte)(-5), (sbyte)(-3));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -826,17 +826,17 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-2.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-2.5).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-4).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-4).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.08333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.08333333333333333).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.3333333333333333).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.3333333333333333).Within(3.0));
     }
 
     [Test]
     public void RandomUniform2()
     {
-        var random = new Random(548736911);
+        var random = new Random(2045385186);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -861,14 +861,14 @@ public class HalfVec2Test
     [Test]
     public void RandomUniform3()
     {
-        var random = new Random(1915025801);
+        var random = new Random(779832983);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomUniform(random, (sbyte)(0), (sbyte)(2));
+            var v = hvec2.RandomUniform(random, (sbyte)(0), (sbyte)(3));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -876,24 +876,24 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(1.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(1.5).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.3333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.3333333333333333).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.75).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.75).Within(3.0));
     }
 
     [Test]
     public void RandomUniform4()
     {
-        var random = new Random(604751519);
+        var random = new Random(791844534);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.Random(random, (sbyte)(1), (sbyte)(3));
+            var v = hvec2.Random(random, (sbyte)(-3), (sbyte)(1));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -901,24 +901,24 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(2).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(2).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-1).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-1).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.3333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.3333333333333333).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian0()
     {
-        var random = new Random(2145488485);
+        var random = new Random(622365942);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomNormal(random, ((Half)(-0.18658655983702577)), ((Half)(2.2777706907492927)));
+            var v = hvec2.RandomNormal(random, ((Half)(-0.6893494439727392)), ((Half)(0.01292737667119474)));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -926,24 +926,24 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-0.18658655983702577).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-0.18658655983702577).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.6893494439727392).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.6893494439727392).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(2.2777706907492927).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(2.2777706907492927).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.01292737667119474).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.01292737667119474).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian1()
     {
-        var random = new Random(298171331);
+        var random = new Random(1275952261);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomGaussian(random, ((Half)(0.34771791582355194)), ((Half)(9.264233167871941)));
+            var v = hvec2.RandomGaussian(random, ((Half)(-0.6335441873565055)), ((Half)(1.1910597147378417)));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -951,24 +951,24 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.34771791582355194).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.34771791582355194).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.6335441873565055).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.6335441873565055).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(9.264233167871941).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(9.264233167871941).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.1910597147378417).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.1910597147378417).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian2()
     {
-        var random = new Random(1078537726);
+        var random = new Random(1076174460);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomNormal(random, ((Half)(0.14259853313798)), ((Half)(0.2996635391841007)));
+            var v = hvec2.RandomNormal(random, ((Half)(-0.5125566602277367)), ((Half)(8.793542896766933)));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -976,24 +976,24 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.14259853313798).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.14259853313798).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.5125566602277367).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.5125566602277367).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.2996635391841007).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.2996635391841007).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(8.793542896766933).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(8.793542896766933).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian3()
     {
-        var random = new Random(1739650952);
+        var random = new Random(982129828);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomGaussian(random, ((Half)(0.5861788590374304)), ((Half)(6.319712645523117)));
+            var v = hvec2.RandomGaussian(random, ((Half)(-0.553322118964662)), ((Half)(5.9348540082270524)));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -1001,24 +1001,24 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.5861788590374304).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.5861788590374304).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.553322118964662).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.553322118964662).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(6.319712645523117).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(6.319712645523117).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(5.9348540082270524).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(5.9348540082270524).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian4()
     {
-        var random = new Random(196026613);
+        var random = new Random(1826026610);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = hvec2.RandomNormal(random, ((Half)(-0.4740726754414255)), ((Half)(0.06963978990430003)));
+            var v = hvec2.RandomNormal(random, ((Half)(-1.1012511882471159)), ((Half)(3.871265348918394)));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -1026,17 +1026,17 @@ public class HalfVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-0.4740726754414255).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-0.4740726754414255).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-1.1012511882471159).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-1.1012511882471159).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.06963978990430003).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.06963978990430003).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(3.871265348918394).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(3.871265348918394).Within(3.0));
     }
 
     [Test]
     public void RandomNormal0()
     {
-        var random = new Random(1446018162);
+        var random = new Random(277785749);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1061,7 +1061,7 @@ public class HalfVec2Test
     [Test]
     public void RandomNormal1()
     {
-        var random = new Random(1576318287);
+        var random = new Random(1990970006);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1086,7 +1086,7 @@ public class HalfVec2Test
     [Test]
     public void RandomNormal2()
     {
-        var random = new Random(967048795);
+        var random = new Random(937338967);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1111,7 +1111,7 @@ public class HalfVec2Test
     [Test]
     public void RandomNormal3()
     {
-        var random = new Random(821503497);
+        var random = new Random(2021471282);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
@@ -1136,7 +1136,7 @@ public class HalfVec2Test
     [Test]
     public void RandomNormal4()
     {
-        var random = new Random(813348368);
+        var random = new Random(271580710);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         

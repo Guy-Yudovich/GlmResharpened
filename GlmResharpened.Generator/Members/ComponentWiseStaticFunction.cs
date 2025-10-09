@@ -65,7 +65,7 @@ internal class ComponentWiseStaticFunction : Member
 			Comment = CommentOverride;
 	}
 
-	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString) : base(name, "DUMMY << >> &&", returnType)
+	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString) : base(name, "DUMMY << >> &&", returnType, MemberType.ComponentWiseStaticFunction)
 	{
 		Fields = fields;
 		ReturnType = returnType;
@@ -75,7 +75,7 @@ internal class ComponentWiseStaticFunction : Member
 		Static = true;
 	}
 
-	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString) : base(name, "DUMMY << >> &&", returnType)
+	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString) : base(name, "DUMMY << >> &&", returnType, MemberType.ComponentWiseStaticFunction)
 	{
 		Fields = fields;
 		ReturnType = returnType;
@@ -85,7 +85,7 @@ internal class ComponentWiseStaticFunction : Member
 		Static = true;
 	}
 
-	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString) : base(name, "DUMMY << >> &&", returnType)
+	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString) : base(name, "DUMMY << >> &&", returnType, MemberType.ComponentWiseStaticFunction)
 	{
 		Fields = fields;
 		ReturnType = returnType;

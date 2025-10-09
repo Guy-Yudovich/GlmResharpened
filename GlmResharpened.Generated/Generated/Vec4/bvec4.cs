@@ -1071,6 +1071,16 @@ public struct bvec4 : IReadOnlyList<bool>, IEquatable<bvec4>
     /// Implicitly converts this to a bool, true when all components are true, false otherwise.
     /// </summary>
     public static implicit operator bool(bvec4 v) => ((v.x && v.y) && (v.z && v.w));
+    
+    /// <summary>
+    /// true when all components are true, false otherwise.
+    /// </summary>
+    public static bool operator true(bvec4 v) => ((v.x && v.y) && (v.z && v.w));
+    
+    /// <summary>
+    /// true when any component is false, false otherwise.
+    /// </summary>
+    public static bool operator false(bvec4 v) => ((!v.x || !v.y) || (!v.z || !v.w));
     #endregion
 
     #region Explicit Operators

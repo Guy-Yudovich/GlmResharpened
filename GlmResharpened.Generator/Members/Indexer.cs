@@ -45,7 +45,7 @@ internal class Indexer : Member
 
 	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-	public Indexer(AbstractType type) : base("", "DUMMY << >> &&", type) => Type = type;
+	public Indexer(AbstractType type) : base("", "DUMMY << >> &&", type, MemberType.Indexer) => Type = type;
 
 	public override IEnumerable<string> Lines
 	{

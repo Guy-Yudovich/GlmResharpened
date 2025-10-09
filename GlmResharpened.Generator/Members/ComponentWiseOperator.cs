@@ -56,7 +56,7 @@ internal class ComponentWiseOperator : Member
 		Comment = Comment.Replace("<", "&lt;");
 	}
 
-	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString) : base("operator " + name, "DUMMY << >> &&", returnType)
+	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString) : base("operator " + name, "DUMMY << >> &&", returnType, MemberType.ComponentWiseOperator)
 	{
 		Fields = fields;
 		ReturnType = returnType;
@@ -66,7 +66,7 @@ internal class ComponentWiseOperator : Member
 		Static = true;
 	}
 
-	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString) : base("operator " + name, "DUMMY << >> &&", returnType)
+	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString) : base("operator " + name, "DUMMY << >> &&", returnType, MemberType.ComponentWiseOperator)
 	{
 		Fields = fields;
 		ReturnType = returnType;
@@ -76,7 +76,7 @@ internal class ComponentWiseOperator : Member
 		Static = true;
 	}
 
-	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString) : base("operator " + name, "DUMMY << >> &&", returnType)
+	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString) : base("operator " + name, "DUMMY << >> &&", returnType, MemberType.ComponentWiseOperator)
 	{
 		Fields = fields;
 		ReturnType = returnType;

@@ -2,12 +2,48 @@
 
 namespace GlmResharpenedGenerator.Members;
 
-internal abstract class Member(string name, string comment, AbstractType originalType)
+internal enum MemberType
+{
+	Field,
+	Constructor,
+	Property,
+	StaticProperty,
+	ImplicitOperator,
+	ExplicitOperator,
+	Operator,
+	Function,
+	Indexer,
+	ComponentWiseStaticFunction,
+	ComponentWiseOperator
+}
+
+internal sealed class AnyMember(string name, string comment, AbstractType originalType, MemberType memberType) : Member(name, comment, originalType, memberType)
+{
+	required public string[] Code { get; set; }
+
+	public override IEnumerable<string> Lines
+	{
+		get
+		{
+			foreach (var line in base.Lines)
+				yield return line;
+			foreach (var codeLine in Code)
+				yield return codeLine;
+		}
+	}
+}
+
+internal abstract class Member(string name, string comment, AbstractType originalType, MemberType memberType)
 {
 	/// <summary>
 	/// Original type ref
 	/// </summary>
 	public AbstractType OriginalType { get; set; } = originalType;
+
+	/// <summary>
+	/// Member type
+	/// </summary>
+	public MemberType MemberType { get; set; } = memberType;
 
 	/// <summary>
 	/// Name of the member

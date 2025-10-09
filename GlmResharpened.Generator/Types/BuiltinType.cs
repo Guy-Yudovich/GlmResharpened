@@ -218,7 +218,7 @@ internal class BuiltinType : AbstractType
 	public override string MathClass => HasOwnFunctions ? Name : "Math";
 
 	public override string OneValue => OneValueConstant;
-	public override string ZeroValue => TestMode && Generic ? "\"null\"" : ZeroValueConstant;
+	public override string ZeroValue => TestMode && Generic ? "null" : ZeroValueConstant;
 
 	public int HashCodeMultiplier { get; set; } = 397;
 

@@ -61,7 +61,7 @@ internal class Constructor : Member
 		}
 	}
 
-	public Constructor(AbstractType type, IEnumerable<string> fields) : base(type.Name, "DUMMY << >> &&", type)
+	public Constructor(AbstractType type, IEnumerable<string> fields) : base(type.Name, "DUMMY << >> &&", type, MemberType.Constructor)
 	{
 		Fields = fields;
 		Type = type;

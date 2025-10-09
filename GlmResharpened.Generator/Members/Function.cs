@@ -39,7 +39,8 @@ internal class Function : Member
 
 	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-	public Function(AbstractType returnType, string name) : base(name, "DUMMY << >> &&", returnType)
+	public Function(AbstractType returnType, string name) : this(returnType, name, MemberType.Function) { }
+	protected Function(AbstractType returnType, string name, MemberType memberType) : base(name, "DUMMY << >> &&", returnType, memberType)
 	{
 		ReturnType = returnType;
 		Name = name;

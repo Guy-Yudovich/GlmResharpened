@@ -110,8 +110,8 @@ internal partial class SwizzleType
 				var subvals = BaseType.RandomSmallVals(swizzle.Length);
 
 				yield return "{";
-				yield return $"var v0 = {Construct(VectorType, vals)};".Indent();
-				yield return $"var v1 = {(swizzle.Length == 1 ? (BaseType.Generic ? subvals[0] : ConstantStringFor(subvals[0])) : Construct(vecType, subvals))};".Indent();
+				yield return $"{VectorType.NameThat} v0 = {Construct(VectorType, vals)};".Indent();
+				yield return $"{(swizzle.Length == 1 ? (VectorType.BaseType.NameThat == "T" ? "string" : VectorType.BaseType.NameThat) : vecType.NameThat)} v1 = {(swizzle.Length == 1 ? ConstantStringFor(subvals[0]) : Construct(vecType, subvals))};".Indent();
 				yield return $"var v2 = v0.{ToRgba(swizzle)};".Indent();
 				yield return $"v0.{ToRgba(swizzle)} = v1;".Indent();
 				yield return $"var v3 = v0.{ToRgba(swizzle)};".Indent();
