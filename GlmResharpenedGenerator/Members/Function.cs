@@ -22,7 +22,7 @@ internal class Function : Member
 	/// <summary>
 	/// Lines of code
 	/// </summary>
-	public IEnumerable<string> Code { get; set; }
+	public IEnumerable<string> Code { get; set; } = null!;
 
 	/// <summary>
 	/// Code as a string
@@ -39,7 +39,7 @@ internal class Function : Member
 
 	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-	public Function(AbstractType returnType, string name)
+	public Function(AbstractType returnType, string name) : base(name, "DUMMY << >> &&", returnType)
 	{
 		ReturnType = returnType;
 		Name = name;

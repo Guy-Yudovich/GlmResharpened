@@ -6,6 +6,8 @@ namespace GlmResharpenedGenerator.Types;
 
 internal class BuiltinType : AbstractType
 {
+	private BuiltinType() : base(null) { }
+
 	public static IEnumerable<BuiltinType> BaseTypes
 	{
 		get
@@ -185,16 +187,16 @@ internal class BuiltinType : AbstractType
 	};
 
 	public required string TypeName { get; set; }
-	public required string Prefix { get; set; }
-	public bool Generic { get; set; }
-	public bool IsComplex { get; set; }
-	public bool Decimal { get; set; }
+	public string Prefix { get; set; } = "";
+	public bool Generic { get; set; } = false;
+	public bool IsComplex { get; set; } = false;
+	public bool Decimal { get; set; } = false;
 
 	public bool HasArithmetics { get; set; } = true;
 	public bool HasComparisons => HasArithmetics && !Generic && !IsComplex;
 	public string LengthType { get; set; } = "float";
-	public required string AbsOverrideType { get; set; }
-	public required string AbsOverrideTypePrefix { get; set; }
+	public string AbsOverrideType { get; set; } = "";
+	public string AbsOverrideTypePrefix { get; set; } = "";
 	public bool IsSigned { get; set; } = true;
 	public bool IsInteger { get; set; } = false;
 	public bool IsFloatingPoint { get; set; }
@@ -210,7 +212,7 @@ internal class BuiltinType : AbstractType
 
 	public bool IsBool { get; set; }
 
-        public string OneValueConstant { get; set; } = "1";
+	public string? OneValueConstant { get; set; } = "1";
 	public string ZeroValueConstant { get; set; } = "0";
 
 	public override string MathClass => HasOwnFunctions ? Name : "Math";

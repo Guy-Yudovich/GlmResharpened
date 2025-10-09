@@ -22,44 +22,44 @@ public class DoubleVec3Test
     public void Constructors()
     {
         {
-            var v = new dvec3(-6.5d);
-            Assert.That(-6.5d, Is.EqualTo(v.x));
-            Assert.That(-6.5d, Is.EqualTo(v.y));
-            Assert.That(-6.5d, Is.EqualTo(v.z));
+            var v = new dvec3(-0.5d);
+            Assert.That(-0.5d, Is.EqualTo(v.x));
+            Assert.That(-0.5d, Is.EqualTo(v.y));
+            Assert.That(-0.5d, Is.EqualTo(v.z));
         }
         {
-            var v = new dvec3(-4d, 8d, -8d);
-            Assert.That(-4d, Is.EqualTo(v.x));
-            Assert.That(8d, Is.EqualTo(v.y));
-            Assert.That(-8d, Is.EqualTo(v.z));
+            var v = new dvec3(-9d, 8.5d, -1d);
+            Assert.That(-9d, Is.EqualTo(v.x));
+            Assert.That(8.5d, Is.EqualTo(v.y));
+            Assert.That(-1d, Is.EqualTo(v.z));
         }
         {
-            var v = new dvec3(new dvec2(-7d, -9.5d));
-            Assert.That(-7d, Is.EqualTo(v.x));
-            Assert.That(-9.5d, Is.EqualTo(v.y));
+            var v = new dvec3(new dvec2(9.5d, 5.5d));
+            Assert.That(9.5d, Is.EqualTo(v.x));
+            Assert.That(5.5d, Is.EqualTo(v.y));
             Assert.That(0.0, Is.EqualTo(v.z));
         }
         {
-            var v = new dvec3(new dvec3(9.5d, -4.5d, 1.5d));
-            Assert.That(9.5d, Is.EqualTo(v.x));
-            Assert.That(-4.5d, Is.EqualTo(v.y));
-            Assert.That(1.5d, Is.EqualTo(v.z));
+            var v = new dvec3(new dvec3(-4.5d, 9d, 2.5d));
+            Assert.That(-4.5d, Is.EqualTo(v.x));
+            Assert.That(9d, Is.EqualTo(v.y));
+            Assert.That(2.5d, Is.EqualTo(v.z));
         }
         {
-            var v = new dvec3(new dvec4(-4d, 4d, 3.5d, -3.5d));
-            Assert.That(-4d, Is.EqualTo(v.x));
-            Assert.That(4d, Is.EqualTo(v.y));
-            Assert.That(3.5d, Is.EqualTo(v.z));
+            var v = new dvec3(new dvec4(5.5d, -5.5d, 7d, 1.5d));
+            Assert.That(5.5d, Is.EqualTo(v.x));
+            Assert.That(-5.5d, Is.EqualTo(v.y));
+            Assert.That(7d, Is.EqualTo(v.z));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new dvec3(-2d, 1.0, 1.5d);
-        Assert.That(-2d, Is.EqualTo(v[0]));
-        Assert.That(1.0, Is.EqualTo(v[1]));
-        Assert.That(1.5d, Is.EqualTo(v[2]));
+        var v = new dvec3(7d, -7.5d, -1d);
+        Assert.That(7d, Is.EqualTo(v[0]));
+        Assert.That(-7.5d, Is.EqualTo(v[1]));
+        Assert.That(-1d, Is.EqualTo(v[2]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = 0.0; } );
@@ -72,94 +72,94 @@ public class DoubleVec3Test
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[5]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = 0.0; } );
         
-        v[0] = 0.0;
-        Assert.That(0.0, Is.EqualTo(v[0]));
+        v[2] = 0.0;
+        Assert.That(0.0, Is.EqualTo(v[2]));
         v[2] = 1.0;
         Assert.That(1.0, Is.EqualTo(v[2]));
-        v[2] = 2d;
-        Assert.That(2d, Is.EqualTo(v[2]));
-        v[0] = 3d;
-        Assert.That(3d, Is.EqualTo(v[0]));
-        v[0] = 4d;
-        Assert.That(4d, Is.EqualTo(v[0]));
-        v[2] = 5d;
-        Assert.That(5d, Is.EqualTo(v[2]));
+        v[0] = 2d;
+        Assert.That(2d, Is.EqualTo(v[0]));
+        v[1] = 3d;
+        Assert.That(3d, Is.EqualTo(v[1]));
+        v[1] = 4d;
+        Assert.That(4d, Is.EqualTo(v[1]));
+        v[1] = 5d;
+        Assert.That(5d, Is.EqualTo(v[1]));
         v[1] = 6d;
         Assert.That(6d, Is.EqualTo(v[1]));
         v[1] = 7d;
         Assert.That(7d, Is.EqualTo(v[1]));
-        v[0] = 8d;
-        Assert.That(8d, Is.EqualTo(v[0]));
+        v[2] = 8d;
+        Assert.That(8d, Is.EqualTo(v[2]));
         v[1] = 9d;
         Assert.That(9d, Is.EqualTo(v[1]));
         v[1] = -1d;
         Assert.That(-1d, Is.EqualTo(v[1]));
-        v[1] = -2d;
-        Assert.That(-2d, Is.EqualTo(v[1]));
-        v[2] = -3d;
-        Assert.That(-3d, Is.EqualTo(v[2]));
-        v[2] = -4d;
-        Assert.That(-4d, Is.EqualTo(v[2]));
-        v[2] = -5d;
-        Assert.That(-5d, Is.EqualTo(v[2]));
-        v[0] = -6d;
-        Assert.That(-6d, Is.EqualTo(v[0]));
-        v[2] = -7d;
-        Assert.That(-7d, Is.EqualTo(v[2]));
+        v[2] = -2d;
+        Assert.That(-2d, Is.EqualTo(v[2]));
+        v[1] = -3d;
+        Assert.That(-3d, Is.EqualTo(v[1]));
+        v[1] = -4d;
+        Assert.That(-4d, Is.EqualTo(v[1]));
+        v[0] = -5d;
+        Assert.That(-5d, Is.EqualTo(v[0]));
+        v[1] = -6d;
+        Assert.That(-6d, Is.EqualTo(v[1]));
+        v[0] = -7d;
+        Assert.That(-7d, Is.EqualTo(v[0]));
         v[1] = -8d;
         Assert.That(-8d, Is.EqualTo(v[1]));
-        v[1] = -9d;
-        Assert.That(-9d, Is.EqualTo(v[1]));
-        v[2] = -9.5d;
-        Assert.That(-9.5d, Is.EqualTo(v[2]));
-        v[1] = -8.5d;
-        Assert.That(-8.5d, Is.EqualTo(v[1]));
-        v[2] = -7.5d;
-        Assert.That(-7.5d, Is.EqualTo(v[2]));
-        v[0] = -6.5d;
-        Assert.That(-6.5d, Is.EqualTo(v[0]));
+        v[0] = -9d;
+        Assert.That(-9d, Is.EqualTo(v[0]));
+        v[1] = -9.5d;
+        Assert.That(-9.5d, Is.EqualTo(v[1]));
+        v[0] = -8.5d;
+        Assert.That(-8.5d, Is.EqualTo(v[0]));
+        v[0] = -7.5d;
+        Assert.That(-7.5d, Is.EqualTo(v[0]));
+        v[2] = -6.5d;
+        Assert.That(-6.5d, Is.EqualTo(v[2]));
         v[1] = -5.5d;
         Assert.That(-5.5d, Is.EqualTo(v[1]));
-        v[2] = -4.5d;
-        Assert.That(-4.5d, Is.EqualTo(v[2]));
-        v[0] = -3.5d;
-        Assert.That(-3.5d, Is.EqualTo(v[0]));
-        v[0] = -2.5d;
-        Assert.That(-2.5d, Is.EqualTo(v[0]));
-        v[1] = -1.5d;
-        Assert.That(-1.5d, Is.EqualTo(v[1]));
-        v[1] = -0.5d;
-        Assert.That(-0.5d, Is.EqualTo(v[1]));
-        v[2] = 0.5d;
-        Assert.That(0.5d, Is.EqualTo(v[2]));
-        v[1] = 1.5d;
-        Assert.That(1.5d, Is.EqualTo(v[1]));
+        v[0] = -4.5d;
+        Assert.That(-4.5d, Is.EqualTo(v[0]));
+        v[2] = -3.5d;
+        Assert.That(-3.5d, Is.EqualTo(v[2]));
+        v[1] = -2.5d;
+        Assert.That(-2.5d, Is.EqualTo(v[1]));
+        v[2] = -1.5d;
+        Assert.That(-1.5d, Is.EqualTo(v[2]));
+        v[0] = -0.5d;
+        Assert.That(-0.5d, Is.EqualTo(v[0]));
+        v[0] = 0.5d;
+        Assert.That(0.5d, Is.EqualTo(v[0]));
+        v[2] = 1.5d;
+        Assert.That(1.5d, Is.EqualTo(v[2]));
         v[1] = 2.5d;
         Assert.That(2.5d, Is.EqualTo(v[1]));
-        v[0] = 3.5d;
-        Assert.That(3.5d, Is.EqualTo(v[0]));
-        v[1] = 4.5d;
-        Assert.That(4.5d, Is.EqualTo(v[1]));
-        v[0] = 5.5d;
-        Assert.That(5.5d, Is.EqualTo(v[0]));
-        v[1] = 6.5d;
-        Assert.That(6.5d, Is.EqualTo(v[1]));
+        v[2] = 3.5d;
+        Assert.That(3.5d, Is.EqualTo(v[2]));
+        v[0] = 4.5d;
+        Assert.That(4.5d, Is.EqualTo(v[0]));
+        v[1] = 5.5d;
+        Assert.That(5.5d, Is.EqualTo(v[1]));
+        v[2] = 6.5d;
+        Assert.That(6.5d, Is.EqualTo(v[2]));
         v[2] = 7.5d;
         Assert.That(7.5d, Is.EqualTo(v[2]));
         v[2] = 8.5d;
         Assert.That(8.5d, Is.EqualTo(v[2]));
-        v[0] = 9.5d;
-        Assert.That(9.5d, Is.EqualTo(v[0]));
+        v[2] = 9.5d;
+        Assert.That(9.5d, Is.EqualTo(v[2]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new dvec3(2.5d, 4d, 5d);
+        var v = new dvec3(-7d, 7.5d, 2.5d);
         var vals = v.Values;
-        Assert.That(2.5d, Is.EqualTo(vals[0]));
-        Assert.That(4d, Is.EqualTo(vals[1]));
-        Assert.That(5d, Is.EqualTo(vals[2]));
+        Assert.That(-7d, Is.EqualTo(vals[0]));
+        Assert.That(7.5d, Is.EqualTo(vals[1]));
+        Assert.That(2.5d, Is.EqualTo(vals[2]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
 
@@ -214,9 +214,9 @@ public class DoubleVec3Test
     [Test]
     public void Operators()
     {
-        var v1 = new dvec3(5d, -9.5d, 4.5d);
-        var v2 = new dvec3(5d, -9.5d, 4.5d);
-        var v3 = new dvec3(4.5d, -9.5d, 5d);
+        var v1 = new dvec3(2d, 8.5d, 8.5d);
+        var v2 = new dvec3(2d, 8.5d, 8.5d);
+        var v3 = new dvec3(8.5d, 8.5d, 2d);
         Assert.That(v1 == new dvec3(v1));
         Assert.That(v2 == new dvec3(v2));
         Assert.That(v3 == new dvec3(v3));
@@ -228,7 +228,7 @@ public class DoubleVec3Test
     [Test]
     public void StringInterop()
     {
-        var v = new dvec3(6d, 6d, 9.5d);
+        var v = new dvec3(3d, 6d, -6d);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -274,7 +274,7 @@ public class DoubleVec3Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new dvec3(-8d, -2.5d, -1.5d);
+        var v0 = new dvec3(-7d, 1.0, 0.0);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<dvec3>(s0);
@@ -288,43 +288,43 @@ public class DoubleVec3Test
     public void InvariantId()
     {
         {
-            var v0 = new dvec3(5.5d, -8.5d, -7d);
+            var v0 = new dvec3(6.5d, 0.0, 5.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(5d, -8d, -7d);
+            var v0 = new dvec3(6d, -3.5d, -0.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(-3.5d, 8d, 5.5d);
+            var v0 = new dvec3(-2d, -6d, -7d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(-2.5d, 8.5d, 7.5d);
+            var v0 = new dvec3(-2d, 9d, -9.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(1.5d, 9d, 4.5d);
+            var v0 = new dvec3(0.5d, 1.0, -3d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(9.5d, -4.5d, 9.5d);
+            var v0 = new dvec3(-7.5d, -1d, -2.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(9d, 4.5d, 9.5d);
+            var v0 = new dvec3(9.5d, 7d, 1.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(5.5d, 1.0, 6.5d);
+            var v0 = new dvec3(2d, -5d, -7.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(-8.5d, 3.5d, -3d);
+            var v0 = new dvec3(6d, 7d, 8.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new dvec3(4.5d, -6.5d, -1.5d);
+            var v0 = new dvec3(-4d, -6d, 1.5d);
             Assert.That(v0, Is.EqualTo(+v0));
         }
     }
@@ -333,43 +333,43 @@ public class DoubleVec3Test
     public void InvariantDouble()
     {
         {
-            var v0 = new dvec3(5.5d, -0.5d, 2d);
+            var v0 = new dvec3(4d, -2.5d, -1.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(-7d, 8.5d, -5d);
+            var v0 = new dvec3(-9d, -6.5d, 1.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(-9.5d, -2.5d, -9.5d);
+            var v0 = new dvec3(-3d, -2.5d, 4d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(-8.5d, 7.5d, 2.5d);
+            var v0 = new dvec3(-1.5d, -9.5d, 9d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(5d, 6d, -3d);
+            var v0 = new dvec3(3.5d, 8.5d, 3d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(-4.5d, 4d, 4d);
+            var v0 = new dvec3(-2d, 5.5d, -1.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(7d, -6d, -9d);
+            var v0 = new dvec3(4d, 8.5d, -2.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(5.5d, 0.0, -7d);
+            var v0 = new dvec3(-4d, 4d, -8.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(1.5d, 5d, 9.5d);
+            var v0 = new dvec3(5d, 7.5d, -8.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new dvec3(-4d, 0.0, 8d);
+            var v0 = new dvec3(9d, -1.5d, 1.5d);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
     }
@@ -378,43 +378,43 @@ public class DoubleVec3Test
     public void InvariantTriple()
     {
         {
-            var v0 = new dvec3(2.5d, 3.5d, -7.5d);
+            var v0 = new dvec3(6d, -1d, -5d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(6d, 2d, -9.5d);
+            var v0 = new dvec3(2.5d, 3d, 8d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(3.5d, 7.5d, -8.5d);
+            var v0 = new dvec3(9.5d, 0.0, 4.5d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(-4.5d, 3.5d, -7d);
+            var v0 = new dvec3(-8d, -7.5d, -6d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(0.0, 0.0, 4d);
+            var v0 = new dvec3(8d, 7d, -0.5d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(8d, 0.0, 6.5d);
+            var v0 = new dvec3(7.5d, 0.0, 2d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(4d, 1.0, 0.5d);
+            var v0 = new dvec3(6d, 4.5d, -5.5d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(-1.5d, -8.5d, 6.5d);
+            var v0 = new dvec3(-7.5d, -4.5d, -9.5d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(7d, 5.5d, 4.5d);
+            var v0 = new dvec3(7d, 9d, 0.5d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new dvec3(-4d, -9.5d, -6.5d);
+            var v0 = new dvec3(3.5d, 7.5d, 3d);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
     }
@@ -423,53 +423,53 @@ public class DoubleVec3Test
     public void InvariantCommutative()
     {
         {
-            var v0 = new dvec3(1.5d, 8d, -0.5d);
-            var v1 = new dvec3(9d, 0.0, 8.5d);
+            var v0 = new dvec3(-5d, 8.5d, -8d);
+            var v1 = new dvec3(2d, -9.5d, 3.5d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(-0.5d, 9d, 1.5d);
-            var v1 = new dvec3(-0.5d, 4.5d, 2d);
+            var v0 = new dvec3(2d, 6d, 7d);
+            var v1 = new dvec3(6d, -0.5d, -5d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(-6.5d, 6.5d, 5d);
-            var v1 = new dvec3(-6.5d, -3d, 3d);
+            var v0 = new dvec3(5d, 7.5d, 4.5d);
+            var v1 = new dvec3(7.5d, 7d, -8d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(7.5d, 6.5d, 8.5d);
-            var v1 = new dvec3(7.5d, 2.5d, 3.5d);
+            var v0 = new dvec3(5d, 7d, -4d);
+            var v1 = new dvec3(3.5d, -0.5d, -6.5d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(0.5d, 4d, 2.5d);
-            var v1 = new dvec3(-2.5d, 9.5d, 5.5d);
+            var v0 = new dvec3(-9.5d, 4.5d, 9d);
+            var v1 = new dvec3(5.5d, 3.5d, 6d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(9d, 8d, -3.5d);
-            var v1 = new dvec3(-8d, 6.5d, 6.5d);
+            var v0 = new dvec3(4.5d, -2.5d, 8.5d);
+            var v1 = new dvec3(2.5d, 5d, -7.5d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(4d, 2.5d, 1.0);
-            var v1 = new dvec3(-1.5d, 9d, -9.5d);
+            var v0 = new dvec3(0.5d, -2d, 5d);
+            var v1 = new dvec3(7d, -2d, 0.5d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(-5d, -9.5d, -5.5d);
-            var v1 = new dvec3(-6d, -1d, 4d);
+            var v0 = new dvec3(-1.5d, 6d, 8d);
+            var v1 = new dvec3(3.5d, 1.5d, -3d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(-8d, 7.5d, 1.0);
-            var v1 = new dvec3(2.5d, 9d, -6.5d);
+            var v0 = new dvec3(2.5d, 7.5d, 9d);
+            var v1 = new dvec3(-9d, 7d, 4d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new dvec3(-3d, 3.5d, -7d);
-            var v1 = new dvec3(5.5d, -9d, 6.5d);
+            var v0 = new dvec3(-5.5d, -8.5d, 8d);
+            var v1 = new dvec3(5.5d, -7.5d, -4.5d);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
     }
@@ -478,63 +478,63 @@ public class DoubleVec3Test
     public void InvariantAssociative()
     {
         {
-            var v0 = new dvec3(-4.5d, -4d, 4.5d);
-            var v1 = new dvec3(-4.5d, -1.5d, 6d);
-            var v2 = new dvec3(8.5d, -5d, -7d);
+            var v0 = new dvec3(-6d, 0.5d, -7.5d);
+            var v1 = new dvec3(3.5d, 6.5d, -1d);
+            var v2 = new dvec3(-2d, 2d, 7d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(-9d, -3d, 2d);
-            var v1 = new dvec3(6d, -3d, -1.5d);
-            var v2 = new dvec3(-7d, -3.5d, 5.5d);
+            var v0 = new dvec3(-8d, 3d, 3d);
+            var v1 = new dvec3(-9d, 3.5d, 7d);
+            var v2 = new dvec3(5d, -3d, 3d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(-3d, 3.5d, -6.5d);
-            var v1 = new dvec3(0.0, -0.5d, 0.5d);
-            var v2 = new dvec3(3.5d, 8.5d, 9d);
+            var v0 = new dvec3(8.5d, 0.0, 1.0);
+            var v1 = new dvec3(-0.5d, 2.5d, -6d);
+            var v2 = new dvec3(5d, 1.0, 3.5d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(2d, -7.5d, -2d);
-            var v1 = new dvec3(5d, -6d, 3d);
-            var v2 = new dvec3(-5d, -4.5d, -9d);
+            var v0 = new dvec3(-6d, 4.5d, -9.5d);
+            var v1 = new dvec3(0.5d, 2d, -5d);
+            var v2 = new dvec3(1.0, 5d, 0.0);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(9.5d, -1d, -0.5d);
-            var v1 = new dvec3(7.5d, -3.5d, -2.5d);
-            var v2 = new dvec3(9d, -4d, 3.5d);
+            var v0 = new dvec3(-2d, -2d, -3.5d);
+            var v1 = new dvec3(-1.5d, 3.5d, 2.5d);
+            var v2 = new dvec3(-8.5d, -6d, 5.5d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(-8.5d, 1.0, 9.5d);
-            var v1 = new dvec3(-6d, -2.5d, -1d);
-            var v2 = new dvec3(8.5d, 1.5d, 2d);
+            var v0 = new dvec3(1.0, -2.5d, -6d);
+            var v1 = new dvec3(5d, 0.0, 8.5d);
+            var v2 = new dvec3(0.5d, 6.5d, 9d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(-1.5d, -5.5d, -5.5d);
-            var v1 = new dvec3(3d, 1.5d, -0.5d);
-            var v2 = new dvec3(6.5d, 6.5d, 2.5d);
+            var v0 = new dvec3(-9d, -3.5d, 8.5d);
+            var v1 = new dvec3(5d, -2.5d, 4.5d);
+            var v2 = new dvec3(-7d, 5.5d, 7d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(5d, -3d, 6.5d);
-            var v1 = new dvec3(8.5d, 2.5d, -1.5d);
-            var v2 = new dvec3(9d, -8d, -5d);
+            var v0 = new dvec3(-2.5d, -2.5d, 1.0);
+            var v1 = new dvec3(-1.5d, -8d, -1.5d);
+            var v2 = new dvec3(7d, 4.5d, 0.0);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(6d, -5d, 6d);
-            var v1 = new dvec3(5.5d, 1.5d, -6d);
-            var v2 = new dvec3(7.5d, -3d, 7.5d);
+            var v0 = new dvec3(-7d, 9d, 6d);
+            var v1 = new dvec3(9d, 8d, -7d);
+            var v2 = new dvec3(-8.5d, 3d, -5d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new dvec3(-1d, -2.5d, 5.5d);
-            var v1 = new dvec3(1.0, 7d, -4.5d);
-            var v2 = new dvec3(1.0, -3.5d, 0.0);
+            var v0 = new dvec3(-7d, -1d, 3.5d);
+            var v1 = new dvec3(-8.5d, 0.0, 5d);
+            var v2 = new dvec3(5d, -6.5d, -9d);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
     }
@@ -543,43 +543,43 @@ public class DoubleVec3Test
     public void InvariantIdNeg()
     {
         {
-            var v0 = new dvec3(-1.5d, 1.5d, -8.5d);
+            var v0 = new dvec3(-4.5d, 3.5d, -4d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(-6d, 9d, 7d);
+            var v0 = new dvec3(2.5d, -2.5d, -5d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(-3.5d, 4.5d, -4.5d);
+            var v0 = new dvec3(-1d, 5d, 0.5d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(4d, 4.5d, -8d);
+            var v0 = new dvec3(-0.5d, -7.5d, -6d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(3d, 5.5d, -2d);
+            var v0 = new dvec3(-9.5d, -6d, 5d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(-2d, 6d, 1.5d);
+            var v0 = new dvec3(5.5d, -3.5d, -4d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(-5.5d, 0.5d, -7d);
+            var v0 = new dvec3(2d, -9d, -0.5d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(-9d, 6d, -8d);
+            var v0 = new dvec3(0.5d, 4.5d, 8d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(-3.5d, 7d, -9d);
+            var v0 = new dvec3(9.5d, 1.5d, 8d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new dvec3(1.0, 0.0, 0.0);
+            var v0 = new dvec3(5.5d, 5.5d, 5d);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
     }
@@ -588,53 +588,53 @@ public class DoubleVec3Test
     public void InvariantCommutativeNeg()
     {
         {
-            var v0 = new dvec3(9d, -1d, 8d);
-            var v1 = new dvec3(-2d, -0.5d, 6.5d);
+            var v0 = new dvec3(-1d, 3.5d, -8.5d);
+            var v1 = new dvec3(0.5d, 2d, 5.5d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(-1d, -9.5d, 0.5d);
-            var v1 = new dvec3(-9d, -4.5d, -8d);
+            var v0 = new dvec3(-1.5d, -2.5d, -8.5d);
+            var v1 = new dvec3(-6d, -7.5d, 5d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(5d, 9.5d, 4.5d);
-            var v1 = new dvec3(-2.5d, 1.5d, 3.5d);
+            var v0 = new dvec3(7.5d, 9d, -4.5d);
+            var v1 = new dvec3(8.5d, -3.5d, 0.0);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(8.5d, 5d, 3.5d);
-            var v1 = new dvec3(9.5d, -4d, 2d);
+            var v0 = new dvec3(-2d, -5d, 5d);
+            var v1 = new dvec3(-8d, 5.5d, -9d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(9.5d, -9d, -5.5d);
-            var v1 = new dvec3(0.0, 6d, -4.5d);
+            var v0 = new dvec3(4d, 1.0, 2d);
+            var v1 = new dvec3(4.5d, -3.5d, -7d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(3.5d, 1.0, -8.5d);
-            var v1 = new dvec3(6d, -9.5d, -5d);
+            var v0 = new dvec3(-4d, 3.5d, 8d);
+            var v1 = new dvec3(8.5d, 2d, 2.5d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(-9.5d, 4d, -1.5d);
-            var v1 = new dvec3(-8.5d, 8d, -5.5d);
+            var v0 = new dvec3(-2.5d, 7.5d, 3.5d);
+            var v1 = new dvec3(-8.5d, 5.5d, -3.5d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(8d, 3.5d, 5.5d);
-            var v1 = new dvec3(4.5d, 2d, -8.5d);
+            var v0 = new dvec3(-2.5d, 6.5d, 4.5d);
+            var v1 = new dvec3(-2d, -5.5d, -1.5d);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(-1d, -7d, -6.5d);
-            var v1 = new dvec3(4d, 2.5d, 9.5d);
+            var v0 = new dvec3(-7.5d, -7d, 0.0);
+            var v1 = new dvec3(7.5d, -8.5d, 0.0);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new dvec3(-4.5d, -1d, 7.5d);
-            var v1 = new dvec3(6d, -2d, -1d);
+            var v0 = new dvec3(-9.5d, 2.5d, 7.5d);
+            var v1 = new dvec3(2d, -4.5d, 1.0);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
     }
@@ -643,63 +643,63 @@ public class DoubleVec3Test
     public void InvariantAssociativeNeg()
     {
         {
-            var v0 = new dvec3(-7d, 3.5d, 2d);
-            var v1 = new dvec3(2d, 3d, -3.5d);
-            var v2 = new dvec3(0.5d, 6.5d, -3.5d);
+            var v0 = new dvec3(8.5d, -5.5d, 3d);
+            var v1 = new dvec3(-8.5d, -5d, 5d);
+            var v2 = new dvec3(1.0, 8d, -1.5d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(-4.5d, -2.5d, -8d);
-            var v1 = new dvec3(-4d, 5.5d, -3d);
-            var v2 = new dvec3(-6.5d, 6d, 0.0);
+            var v0 = new dvec3(6d, -9.5d, -3d);
+            var v1 = new dvec3(-7.5d, -2d, 7d);
+            var v2 = new dvec3(-1d, -1d, 1.0);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(-6d, -2d, -6d);
-            var v1 = new dvec3(8d, -6d, -9.5d);
-            var v2 = new dvec3(0.0, -3d, -8.5d);
+            var v0 = new dvec3(-5.5d, -5d, -3d);
+            var v1 = new dvec3(-3d, 9.5d, 3d);
+            var v2 = new dvec3(-7d, 8d, -7.5d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(2.5d, -2d, 5d);
-            var v1 = new dvec3(-1.5d, 2.5d, -4d);
-            var v2 = new dvec3(-6d, -7.5d, -1.5d);
+            var v0 = new dvec3(7.5d, 4d, -4d);
+            var v1 = new dvec3(-1d, -4.5d, -3.5d);
+            var v2 = new dvec3(1.0, 2d, 6.5d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(1.0, 0.5d, -6.5d);
-            var v1 = new dvec3(9.5d, -1.5d, -6.5d);
-            var v2 = new dvec3(1.5d, -5.5d, -6d);
+            var v0 = new dvec3(-6d, 5d, 8.5d);
+            var v1 = new dvec3(-7d, 0.0, 1.0);
+            var v2 = new dvec3(-9d, -7.5d, -4d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(3d, 2d, -8.5d);
-            var v1 = new dvec3(0.0, 5.5d, 8.5d);
-            var v2 = new dvec3(9d, 0.5d, -7.5d);
+            var v0 = new dvec3(-5.5d, 6d, -1.5d);
+            var v1 = new dvec3(6.5d, 9d, -9d);
+            var v2 = new dvec3(5d, 0.5d, 2.5d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(-6.5d, 7d, -7d);
-            var v1 = new dvec3(-6.5d, 2d, 1.5d);
-            var v2 = new dvec3(4d, 8.5d, -4.5d);
+            var v0 = new dvec3(6.5d, -3.5d, -5.5d);
+            var v1 = new dvec3(0.0, 3d, 5d);
+            var v2 = new dvec3(-5.5d, 3d, 4d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(-9.5d, 7.5d, 5.5d);
-            var v1 = new dvec3(3d, 8.5d, -4d);
-            var v2 = new dvec3(-5.5d, -7.5d, -6d);
+            var v0 = new dvec3(-5d, 5.5d, 4.5d);
+            var v1 = new dvec3(-2.5d, -9.5d, 9d);
+            var v2 = new dvec3(-1d, 5.5d, 4d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(-7d, -6d, -5.5d);
-            var v1 = new dvec3(2.5d, -7d, 1.5d);
-            var v2 = new dvec3(4d, 6.5d, -1d);
+            var v0 = new dvec3(2d, 6d, -5d);
+            var v1 = new dvec3(-1d, 3.5d, -8d);
+            var v2 = new dvec3(0.5d, 3.5d, 2d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new dvec3(0.0, 2.5d, -7d);
-            var v1 = new dvec3(7d, -9d, 1.0);
-            var v2 = new dvec3(1.5d, 3.5d, -4d);
+            var v0 = new dvec3(3.5d, 1.0, 4.5d);
+            var v1 = new dvec3(4.5d, 5d, 5.5d);
+            var v2 = new dvec3(4.5d, 5d, -7d);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
     }
@@ -708,53 +708,53 @@ public class DoubleVec3Test
     public void TriangleInequality()
     {
         {
-            var v0 = new dvec3(2.5d, 9.5d, 3.5d);
-            var v1 = new dvec3(-1d, -8d, -1d);
+            var v0 = new dvec3(-8d, 3d, 7d);
+            var v1 = new dvec3(-7d, 0.0, -0.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(8d, 9d, -7d);
-            var v1 = new dvec3(8.5d, -8d, -5.5d);
+            var v0 = new dvec3(7.5d, 1.0, -2.5d);
+            var v1 = new dvec3(-5d, -8.5d, -1.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(-0.5d, 5.5d, 5.5d);
-            var v1 = new dvec3(1.0, -6d, -3d);
+            var v0 = new dvec3(-4d, 3.5d, 5d);
+            var v1 = new dvec3(-9d, 5.5d, -7.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(-8d, -2d, 6d);
-            var v1 = new dvec3(8.5d, -5d, 2.5d);
+            var v0 = new dvec3(-5d, -6.5d, 3d);
+            var v1 = new dvec3(5.5d, 1.0, -7d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(-0.5d, 2d, -5.5d);
-            var v1 = new dvec3(4d, -2.5d, 2d);
+            var v0 = new dvec3(-3d, 4d, -0.5d);
+            var v1 = new dvec3(-0.5d, 0.0, 1.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(-8.5d, -2.5d, 8.5d);
-            var v1 = new dvec3(9d, 0.5d, -9.5d);
+            var v0 = new dvec3(-4.5d, -1d, -1.5d);
+            var v1 = new dvec3(3d, 5.5d, 7.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(-5.5d, -3.5d, 3d);
-            var v1 = new dvec3(-4d, 7d, -2d);
+            var v0 = new dvec3(-2.5d, -2.5d, -7d);
+            var v1 = new dvec3(4.5d, 5.5d, 6d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(-8d, 6d, 8d);
-            var v1 = new dvec3(-1d, -6d, -3d);
+            var v0 = new dvec3(2d, 3.5d, 1.5d);
+            var v1 = new dvec3(-7d, -9d, -2.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(5.5d, -3d, 3d);
-            var v1 = new dvec3(-6d, -0.5d, -1d);
+            var v0 = new dvec3(5d, -2d, 4.5d);
+            var v1 = new dvec3(-3d, 4.5d, 8d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new dvec3(4.5d, 3.5d, -5.5d);
-            var v1 = new dvec3(0.0, -8.5d, -5d);
+            var v0 = new dvec3(-3.5d, -6.5d, 2d);
+            var v1 = new dvec3(0.5d, 3d, 5.5d);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
     }
@@ -763,43 +763,43 @@ public class DoubleVec3Test
     public void InvariantNorm()
     {
         {
-            var v0 = new dvec3(6.5d, -4.5d, 1.5d);
+            var v0 = new dvec3(1.5d, -3d, -6d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(-6d, 9.5d, 0.0);
+            var v0 = new dvec3(2d, -3d, -5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(7.5d, -4.5d, -6.5d);
+            var v0 = new dvec3(7.5d, -7d, 8.5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(-8d, 5d, -4.5d);
+            var v0 = new dvec3(3d, -6d, -9d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(9d, -8d, -9d);
+            var v0 = new dvec3(-9.5d, -4.5d, 3.5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(1.0, -4.5d, 2.5d);
+            var v0 = new dvec3(2d, 3.5d, -6.5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(-2d, -6.5d, -3.5d);
+            var v0 = new dvec3(-9.5d, -5.5d, -4.5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(-5d, 6d, -8d);
+            var v0 = new dvec3(3d, 1.0, 2d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(1.5d, 9d, 8d);
+            var v0 = new dvec3(-3d, -0.5d, 1.5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new dvec3(-2d, 9.5d, -5.5d);
+            var v0 = new dvec3(2d, 9d, -9.5d);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
     }
@@ -808,53 +808,53 @@ public class DoubleVec3Test
     public void InvariantCrossDot()
     {
         {
-            var v0 = new dvec3(-9.5d, 9d, -2.5d);
-            var v1 = new dvec3(-6d, -2.5d, 1.0);
+            var v0 = new dvec3(-6d, -9d, 1.0);
+            var v1 = new dvec3(8.5d, -5.5d, 6d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(7.5d, 5.5d, 8d);
-            var v1 = new dvec3(9d, 6.5d, 5.5d);
+            var v0 = new dvec3(-5d, 4.5d, -6d);
+            var v1 = new dvec3(6.5d, -7d, -2d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(8.5d, 8.5d, 0.5d);
-            var v1 = new dvec3(8d, 6d, -6d);
+            var v0 = new dvec3(7.5d, 1.5d, -2.5d);
+            var v1 = new dvec3(4.5d, -7.5d, 9.5d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(7d, 1.0, 4d);
-            var v1 = new dvec3(-6.5d, -5.5d, -1d);
+            var v0 = new dvec3(-5.5d, 9.5d, 8.5d);
+            var v1 = new dvec3(7d, 1.0, 5.5d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(6d, 3.5d, -5.5d);
-            var v1 = new dvec3(7.5d, 2d, 9.5d);
+            var v0 = new dvec3(-7.5d, -9.5d, -1.5d);
+            var v1 = new dvec3(4.5d, -1.5d, -2d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(-6.5d, 0.0, -8d);
-            var v1 = new dvec3(-1d, -1.5d, -5.5d);
+            var v0 = new dvec3(8d, -8d, -0.5d);
+            var v1 = new dvec3(8.5d, -2.5d, -8.5d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(-0.5d, -2d, -3d);
-            var v1 = new dvec3(-5d, 2.5d, 0.0);
+            var v0 = new dvec3(2.5d, -2.5d, -5d);
+            var v1 = new dvec3(0.5d, 1.5d, -7d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(5d, -4d, 2.5d);
-            var v1 = new dvec3(-9d, -4.5d, -2d);
+            var v0 = new dvec3(-8.5d, 8d, -1d);
+            var v1 = new dvec3(0.5d, 3d, 3d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(-7.5d, 7.5d, 2.5d);
-            var v1 = new dvec3(-1d, 3.5d, 8.5d);
+            var v0 = new dvec3(6.5d, -4.5d, 0.5d);
+            var v1 = new dvec3(4d, -5d, -3.5d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new dvec3(8d, 6.5d, -3.5d);
-            var v1 = new dvec3(-7d, 9d, 4.5d);
+            var v0 = new dvec3(-1.5d, 7d, -8d);
+            var v1 = new dvec3(6d, -6d, 4d);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
     }
@@ -862,14 +862,68 @@ public class DoubleVec3Test
     [Test]
     public void RandomUniform0()
     {
-        var random = new Random(523699042);
+        var random = new Random(2001144367);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.Random(random, (-1), (3));
+            var v = dvec3.Random(random, (-1), (2));
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(0.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(0.5).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(0.5).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(0.75).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.75).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(0.75).Within(3.0));
+    }
+
+    [Test]
+    public void RandomUniform1()
+    {
+        var random = new Random(40880589);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = dvec3.RandomUniform(random, (4), (6));
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(5).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(5).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(0.3333333333333333).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.3333333333333333).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(0.3333333333333333).Within(3.0));
+    }
+
+    [Test]
+    public void RandomUniform2()
+    {
+        var random = new Random(304224691);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = dvec3.Random(random, (0), (2));
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -881,60 +935,6 @@ public class DoubleVec3Test
         Assert.That(avg.y, Is.EqualTo(1).Within(1.0));
         Assert.That(avg.z, Is.EqualTo(1).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(1.3333333333333333).Within(3.0));
-    }
-
-    [Test]
-    public void RandomUniform1()
-    {
-        var random = new Random(51816194);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = dvec3.RandomUniform(random, (2), (5));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(3.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(3.5).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(3.5).Within(1.0));
-        
-        Assert.That(variance.x, Is.EqualTo(0.75).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.75).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(0.75).Within(3.0));
-    }
-
-    [Test]
-    public void RandomUniform2()
-    {
-        var random = new Random(839844848);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = dvec3.Random(random, (1), (3));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(2).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(2).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(2).Within(1.0));
-        
         Assert.That(variance.x, Is.EqualTo(0.3333333333333333).Within(3.0));
         Assert.That(variance.y, Is.EqualTo(0.3333333333333333).Within(3.0));
         Assert.That(variance.z, Is.EqualTo(0.3333333333333333).Within(3.0));
@@ -943,14 +943,14 @@ public class DoubleVec3Test
     [Test]
     public void RandomUniform3()
     {
-        var random = new Random(861698619);
+        var random = new Random(1456589944);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.RandomUniform(random, (-5), (-3));
+            var v = dvec3.RandomUniform(random, (2), (6));
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -958,36 +958,9 @@ public class DoubleVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-4).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-4).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(-4).Within(1.0));
-        
-        Assert.That(variance.x, Is.EqualTo(0.3333333333333333).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.3333333333333333).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(0.3333333333333333).Within(3.0));
-    }
-
-    [Test]
-    public void RandomUniform4()
-    {
-        var random = new Random(984443612);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = dvec3.Random(random, (-2), (2));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(0).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(0).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(4).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(4).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(4).Within(1.0));
         
         Assert.That(variance.x, Is.EqualTo(1.3333333333333333).Within(3.0));
         Assert.That(variance.y, Is.EqualTo(1.3333333333333333).Within(3.0));
@@ -995,16 +968,16 @@ public class DoubleVec3Test
     }
 
     [Test]
-    public void RandomGaussian0()
+    public void RandomUniform4()
     {
-        var random = new Random(953129079);
+        var random = new Random(1345762301);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.RandomNormal(random, -0.12075761245598904d, 3.296484441168832d);
+            var v = dvec3.Random(random, (2), (3));
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -1012,26 +985,53 @@ public class DoubleVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-0.12075761245598904).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-0.12075761245598904).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(-0.12075761245598904).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2.5).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(2.5).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(3.296484441168832).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(3.296484441168832).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(3.296484441168832).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.08333333333333333).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.08333333333333333).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(0.08333333333333333).Within(3.0));
+    }
+
+    [Test]
+    public void RandomGaussian0()
+    {
+        var random = new Random(1632601524);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = dvec3.RandomNormal(random, 0.6820819688411812d, 3.6712151224125247d);
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(0.6820819688411812).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(0.6820819688411812).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(0.6820819688411812).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(3.6712151224125247).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(3.6712151224125247).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(3.6712151224125247).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian1()
     {
-        var random = new Random(344555176);
+        var random = new Random(2099401909);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.RandomGaussian(random, 0.08201220728550673d, 4.977599235706776d);
+            var v = dvec3.RandomGaussian(random, -0.9874604619049749d, 5.564418181574167d);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -1039,26 +1039,26 @@ public class DoubleVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.08201220728550673).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.08201220728550673).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(0.08201220728550673).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.9874604619049749).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.9874604619049749).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(-0.9874604619049749).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(4.977599235706776).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(4.977599235706776).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(4.977599235706776).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(5.564418181574167).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(5.564418181574167).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(5.564418181574167).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian2()
     {
-        var random = new Random(1384191280);
+        var random = new Random(1859816222);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.RandomNormal(random, 1.868694851113807d, 6.234007555169057d);
+            var v = dvec3.RandomNormal(random, 0.8187836254103034d, 8.43318120969142d);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -1066,26 +1066,26 @@ public class DoubleVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.868694851113807).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.868694851113807).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(1.868694851113807).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(0.8187836254103034).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(0.8187836254103034).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(0.8187836254103034).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(6.234007555169057).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(6.234007555169057).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(6.234007555169057).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(8.43318120969142).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(8.43318120969142).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(8.43318120969142).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian3()
     {
-        var random = new Random(1415611398);
+        var random = new Random(866083826);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.RandomGaussian(random, 1.9995735902337235d, 6.902672954324015d);
+            var v = dvec3.RandomGaussian(random, 0.09824490831151822d, 2.839705451782656d);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -1093,26 +1093,26 @@ public class DoubleVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.9995735902337235).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.9995735902337235).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(1.9995735902337235).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(0.09824490831151822).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(0.09824490831151822).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(0.09824490831151822).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(6.902672954324015).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(6.902672954324015).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(6.902672954324015).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2.839705451782656).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2.839705451782656).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2.839705451782656).Within(3.0));
     }
 
     [Test]
     public void RandomGaussian4()
     {
-        var random = new Random(1105330616);
+        var random = new Random(602777412);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = dvec3.RandomNormal(random, 0.5304199655216282d, 4.239656517393727d);
+            var v = dvec3.RandomNormal(random, -0.7435719309111926d, 3.1490672860057405d);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -1120,19 +1120,19 @@ public class DoubleVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.5304199655216282).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.5304199655216282).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(0.5304199655216282).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-0.7435719309111926).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-0.7435719309111926).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(-0.7435719309111926).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(4.239656517393727).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(4.239656517393727).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(4.239656517393727).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(3.1490672860057405).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(3.1490672860057405).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(3.1490672860057405).Within(3.0));
     }
 
     [Test]
     public void RandomNormal0()
     {
-        var random = new Random(1644902434);
+        var random = new Random(338449334);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
@@ -1159,7 +1159,7 @@ public class DoubleVec3Test
     [Test]
     public void RandomNormal1()
     {
-        var random = new Random(1630268679);
+        var random = new Random(1294760670);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
@@ -1186,7 +1186,7 @@ public class DoubleVec3Test
     [Test]
     public void RandomNormal2()
     {
-        var random = new Random(1098776808);
+        var random = new Random(1970973728);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
@@ -1213,7 +1213,7 @@ public class DoubleVec3Test
     [Test]
     public void RandomNormal3()
     {
-        var random = new Random(1340148242);
+        var random = new Random(472854101);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
@@ -1240,7 +1240,7 @@ public class DoubleVec3Test
     [Test]
     public void RandomNormal4()
     {
-        var random = new Random(1679367340);
+        var random = new Random(1385339691);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         

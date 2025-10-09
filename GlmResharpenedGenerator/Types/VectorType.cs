@@ -2,12 +2,7 @@
 
 internal partial class VectorType : AbstractType
 {
-	public VectorType(BuiltinType type, int comps)
-	{
-		Components = comps;
-		BaseType = type;
-		BaseName = type.Prefix + "vec";
-	}
+	public VectorType(BuiltinType type, int comps) : base(type, type.Prefix + "vec") => Components = comps;
 
 	public int Components { get; set; }
 
@@ -41,7 +36,7 @@ internal partial class VectorType : AbstractType
 	public string SubCompParameterString(int start, int end) => SubCompParameters(start, end).CommaSeparated();
 	public IEnumerable<string> SubCompArgs(int start, int end) => "xyzw".Substring(start, end - start + 1).Select(c => c.ToString());
 
-	public SwizzleType SwizzleType => new() { Components = Components, BaseName = "swizzle_" + BaseName, BaseType = BaseType };
+	public SwizzleType SwizzleType => new(BaseType) { Components = Components, BaseName = "swizzle_" + BaseName };
 
 	public string HashCodeFor(int c) => (c == 0 ? "" : $"(({HashCodeFor(c - 1)}) * {BaseType.HashCodeMultiplier}) ^ ") + HashCodeOf(ArgOf(c).ToString());
 

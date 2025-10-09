@@ -3,7 +3,7 @@ using GlmResharpenedGenerator.Tests;
 
 namespace GlmResharpenedGenerator.Types;
 
-internal abstract class AbstractType
+internal abstract class AbstractType(BuiltinType? baseType, string? baseName = null)
 {
 	/// <summary>
 	/// true iff test generation is active
@@ -28,7 +28,7 @@ internal abstract class AbstractType
 	/// <summary>
 	/// Base name (e.g. vec, mat, quat)
 	/// </summary>
-	public string BaseName { get; set; } = "vec";
+	public string BaseName { get; set; } = baseName ?? baseType?.NameThat ?? null!;
 	/// <summary>
 	/// Name of the base type
 	/// </summary>
@@ -52,7 +52,7 @@ internal abstract class AbstractType
 	/// <summary>
 	/// Reference to base type
 	/// </summary>
-	public required BuiltinType BaseType { get; set; }
+	public BuiltinType? BaseType { get; set; } = baseType;
 
 	/// <summary>
 	/// Namespace of this type
@@ -92,20 +92,20 @@ internal abstract class AbstractType
 	/// <summary>
 	/// All members
 	/// </summary>
-	private required Member[] members;
-	private required Field[] fields;
-	private required Constructor[] constructors;
-	private required Property[] properties;
-	private required Property[] staticProperties;
-	private required ImplicitOperator[] implicitOperators;
-	private required ExplicitOperator[] explicitOperators;
-	private required Operator[] operators;
-	private required Function[] functions;
-	private required Function[] staticFunctions;
-	private required Indexer[] indexer;
-	private required ComponentWiseStaticFunction[] componentWiseStaticFunctions;
-	private required ComponentWiseOperator[] componentWiseOp;
-	private required Member[] glmMembers;
+	private Member[] members = null!;
+	private Field[] fields = null!;
+	private Constructor[] constructors = null!;
+	private Property[] properties = null!;
+	private Property[] staticProperties = null!;
+	private ImplicitOperator[] implicitOperators = null!;
+	private ExplicitOperator[] explicitOperators = null!;
+	private Operator[] operators = null!;
+	private Function[] functions = null!;
+	private Function[] staticFunctions = null!;
+	private Indexer[] indexer = null!;
+	private ComponentWiseStaticFunction[] componentWiseStaticFunctions = null!;
+	private ComponentWiseOperator[] componentWiseOp = null!;
+	private Member[] glmMembers = null!;
 
 	/// <summary>
 	/// Generate all members

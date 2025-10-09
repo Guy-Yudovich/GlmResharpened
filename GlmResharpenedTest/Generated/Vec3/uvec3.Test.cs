@@ -22,44 +22,44 @@ public class UintVec3Test
     public void Constructors()
     {
         {
-            var v = new uvec3(0u);
-            Assert.That(0u, Is.EqualTo(v.x));
-            Assert.That(0u, Is.EqualTo(v.y));
-            Assert.That(0u, Is.EqualTo(v.z));
+            var v = new uvec3(8u);
+            Assert.That(8u, Is.EqualTo(v.x));
+            Assert.That(8u, Is.EqualTo(v.y));
+            Assert.That(8u, Is.EqualTo(v.z));
         }
         {
-            var v = new uvec3(7u, 0u, 9u);
-            Assert.That(7u, Is.EqualTo(v.x));
-            Assert.That(0u, Is.EqualTo(v.y));
-            Assert.That(9u, Is.EqualTo(v.z));
-        }
-        {
-            var v = new uvec3(new uvec2(1u, 4u));
-            Assert.That(1u, Is.EqualTo(v.x));
-            Assert.That(4u, Is.EqualTo(v.y));
-            Assert.That(0u, Is.EqualTo(v.z));
-        }
-        {
-            var v = new uvec3(new uvec3(7u, 1u, 9u));
-            Assert.That(7u, Is.EqualTo(v.x));
-            Assert.That(1u, Is.EqualTo(v.y));
-            Assert.That(9u, Is.EqualTo(v.z));
-        }
-        {
-            var v = new uvec3(new uvec4(9u, 5u, 5u, 7u));
-            Assert.That(9u, Is.EqualTo(v.x));
-            Assert.That(5u, Is.EqualTo(v.y));
+            var v = new uvec3(3u, 2u, 5u);
+            Assert.That(3u, Is.EqualTo(v.x));
+            Assert.That(2u, Is.EqualTo(v.y));
             Assert.That(5u, Is.EqualTo(v.z));
+        }
+        {
+            var v = new uvec3(new uvec2(8u, 6u));
+            Assert.That(8u, Is.EqualTo(v.x));
+            Assert.That(6u, Is.EqualTo(v.y));
+            Assert.That(0u, Is.EqualTo(v.z));
+        }
+        {
+            var v = new uvec3(new uvec3(7u, 3u, 9u));
+            Assert.That(7u, Is.EqualTo(v.x));
+            Assert.That(3u, Is.EqualTo(v.y));
+            Assert.That(9u, Is.EqualTo(v.z));
+        }
+        {
+            var v = new uvec3(new uvec4(9u, 4u, 7u, 8u));
+            Assert.That(9u, Is.EqualTo(v.x));
+            Assert.That(4u, Is.EqualTo(v.y));
+            Assert.That(7u, Is.EqualTo(v.z));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new uvec3(8u, 6u, 9u);
-        Assert.That(8u, Is.EqualTo(v[0]));
-        Assert.That(6u, Is.EqualTo(v[1]));
-        Assert.That(9u, Is.EqualTo(v[2]));
+        var v = new uvec3(1u, 4u, 0u);
+        Assert.That(1u, Is.EqualTo(v[0]));
+        Assert.That(4u, Is.EqualTo(v[1]));
+        Assert.That(0u, Is.EqualTo(v[2]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = 0u; } );
@@ -76,32 +76,32 @@ public class UintVec3Test
         Assert.That(0u, Is.EqualTo(v[2]));
         v[0] = 1u;
         Assert.That(1u, Is.EqualTo(v[0]));
-        v[2] = 2u;
-        Assert.That(2u, Is.EqualTo(v[2]));
-        v[1] = 3u;
-        Assert.That(3u, Is.EqualTo(v[1]));
-        v[1] = 4u;
-        Assert.That(4u, Is.EqualTo(v[1]));
+        v[1] = 2u;
+        Assert.That(2u, Is.EqualTo(v[1]));
+        v[2] = 3u;
+        Assert.That(3u, Is.EqualTo(v[2]));
+        v[2] = 4u;
+        Assert.That(4u, Is.EqualTo(v[2]));
         v[2] = 5u;
         Assert.That(5u, Is.EqualTo(v[2]));
-        v[2] = 6u;
-        Assert.That(6u, Is.EqualTo(v[2]));
+        v[1] = 6u;
+        Assert.That(6u, Is.EqualTo(v[1]));
         v[0] = 7u;
         Assert.That(7u, Is.EqualTo(v[0]));
         v[1] = 8u;
         Assert.That(8u, Is.EqualTo(v[1]));
-        v[1] = 9u;
-        Assert.That(9u, Is.EqualTo(v[1]));
+        v[2] = 9u;
+        Assert.That(9u, Is.EqualTo(v[2]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new uvec3(2u, 7u, 9u);
+        var v = new uvec3(1u, 8u, 3u);
         var vals = v.Values;
-        Assert.That(2u, Is.EqualTo(vals[0]));
-        Assert.That(7u, Is.EqualTo(vals[1]));
-        Assert.That(9u, Is.EqualTo(vals[2]));
+        Assert.That(1u, Is.EqualTo(vals[0]));
+        Assert.That(8u, Is.EqualTo(vals[1]));
+        Assert.That(3u, Is.EqualTo(vals[2]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
 
@@ -140,9 +140,9 @@ public class UintVec3Test
     [Test]
     public void Operators()
     {
-        var v1 = new uvec3(7u, 5u, 5u);
-        var v2 = new uvec3(7u, 5u, 5u);
-        var v3 = new uvec3(5u, 5u, 7u);
+        var v1 = new uvec3(3u, 0u, 3u);
+        var v2 = new uvec3(3u, 0u, 3u);
+        var v3 = new uvec3(3u, 0u, 3u);
         Assert.That(v1 == new uvec3(v1));
         Assert.That(v2 == new uvec3(v2));
         Assert.That(v3 == new uvec3(v3));
@@ -154,7 +154,7 @@ public class UintVec3Test
     [Test]
     public void StringInterop()
     {
-        var v = new uvec3(8u, 6u, 1u);
+        var v = new uvec3(2u, 3u, 0u);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -200,7 +200,7 @@ public class UintVec3Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new uvec3(0u, 2u, 8u);
+        var v0 = new uvec3(3u, 8u, 3u);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<uvec3>(s0);
@@ -214,43 +214,43 @@ public class UintVec3Test
     public void InvariantId()
     {
         {
-            var v0 = new uvec3(9u, 4u, 9u);
+            var v0 = new uvec3(7u, 8u, 2u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(4u, 7u, 6u);
+            var v0 = new uvec3(4u, 1u, 3u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(8u, 1u, 1u);
+            var v0 = new uvec3(7u, 6u, 6u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(4u, 0u, 7u);
+            var v0 = new uvec3(0u, 7u, 4u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(5u, 6u, 2u);
+            var v0 = new uvec3(4u, 5u, 9u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(5u, 7u, 7u);
+            var v0 = new uvec3(1u, 9u, 6u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(9u, 2u, 1u);
+            var v0 = new uvec3(3u, 3u, 8u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(3u, 7u, 2u);
+            var v0 = new uvec3(8u, 3u, 7u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(2u, 5u, 4u);
+            var v0 = new uvec3(3u, 4u, 2u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new uvec3(5u, 1u, 6u);
+            var v0 = new uvec3(4u, 4u, 6u);
             Assert.That(v0, Is.EqualTo(+v0));
         }
     }
@@ -259,43 +259,43 @@ public class UintVec3Test
     public void InvariantDouble()
     {
         {
-            var v0 = new uvec3(1u, 1u, 0u);
+            var v0 = new uvec3(2u, 3u, 5u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(6u, 5u, 5u);
+            var v0 = new uvec3(3u, 2u, 6u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(4u, 7u, 5u);
+            var v0 = new uvec3(8u, 4u, 2u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(1u, 6u, 9u);
+            var v0 = new uvec3(3u, 0u, 2u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(3u, 8u, 9u);
+            var v0 = new uvec3(4u, 5u, 9u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(1u, 7u, 3u);
+            var v0 = new uvec3(5u, 3u, 4u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(3u, 5u, 8u);
+            var v0 = new uvec3(6u, 5u, 2u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(7u, 5u, 1u);
+            var v0 = new uvec3(5u, 2u, 4u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(4u, 9u, 6u);
+            var v0 = new uvec3(6u, 6u, 3u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new uvec3(2u, 0u, 2u);
+            var v0 = new uvec3(5u, 9u, 8u);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
     }
@@ -304,43 +304,43 @@ public class UintVec3Test
     public void InvariantTriple()
     {
         {
-            var v0 = new uvec3(0u, 1u, 7u);
+            var v0 = new uvec3(2u, 4u, 0u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(3u, 1u, 5u);
+            var v0 = new uvec3(5u, 5u, 6u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(6u, 4u, 5u);
+            var v0 = new uvec3(5u, 7u, 6u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(4u, 1u, 2u);
+            var v0 = new uvec3(7u, 0u, 4u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(3u, 9u, 9u);
+            var v0 = new uvec3(5u, 6u, 0u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(3u, 3u, 8u);
+            var v0 = new uvec3(3u, 3u, 1u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(0u, 0u, 4u);
+            var v0 = new uvec3(8u, 7u, 5u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(5u, 2u, 3u);
+            var v0 = new uvec3(7u, 6u, 2u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(5u, 4u, 9u);
+            var v0 = new uvec3(0u, 9u, 4u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new uvec3(0u, 1u, 8u);
+            var v0 = new uvec3(6u, 9u, 2u);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
     }
@@ -349,53 +349,53 @@ public class UintVec3Test
     public void InvariantCommutative()
     {
         {
-            var v0 = new uvec3(4u, 8u, 9u);
-            var v1 = new uvec3(4u, 4u, 6u);
+            var v0 = new uvec3(6u, 2u, 7u);
+            var v1 = new uvec3(4u, 0u, 0u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(3u, 6u, 8u);
-            var v1 = new uvec3(7u, 9u, 8u);
+            var v0 = new uvec3(5u, 8u, 8u);
+            var v1 = new uvec3(1u, 7u, 5u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(1u, 0u, 1u);
-            var v1 = new uvec3(2u, 5u, 7u);
+            var v0 = new uvec3(9u, 8u, 0u);
+            var v1 = new uvec3(6u, 3u, 5u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(1u, 8u, 3u);
-            var v1 = new uvec3(4u, 5u, 4u);
+            var v0 = new uvec3(8u, 6u, 3u);
+            var v1 = new uvec3(3u, 9u, 7u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(0u, 7u, 9u);
-            var v1 = new uvec3(4u, 5u, 7u);
+            var v0 = new uvec3(3u, 7u, 4u);
+            var v1 = new uvec3(3u, 9u, 8u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(0u, 4u, 9u);
-            var v1 = new uvec3(7u, 0u, 8u);
+            var v0 = new uvec3(7u, 1u, 3u);
+            var v1 = new uvec3(6u, 2u, 1u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(5u, 9u, 4u);
-            var v1 = new uvec3(7u, 6u, 6u);
+            var v0 = new uvec3(8u, 5u, 5u);
+            var v1 = new uvec3(5u, 6u, 3u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(4u, 1u, 9u);
-            var v1 = new uvec3(3u, 7u, 5u);
+            var v0 = new uvec3(8u, 1u, 0u);
+            var v1 = new uvec3(6u, 2u, 4u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(7u, 2u, 7u);
-            var v1 = new uvec3(6u, 7u, 5u);
+            var v0 = new uvec3(6u, 1u, 1u);
+            var v1 = new uvec3(2u, 6u, 7u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new uvec3(1u, 0u, 3u);
-            var v1 = new uvec3(4u, 4u, 6u);
+            var v0 = new uvec3(9u, 3u, 3u);
+            var v1 = new uvec3(9u, 1u, 2u);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
     }
@@ -404,63 +404,63 @@ public class UintVec3Test
     public void InvariantAssociative()
     {
         {
-            var v0 = new uvec3(4u, 4u, 2u);
-            var v1 = new uvec3(4u, 8u, 7u);
-            var v2 = new uvec3(0u, 0u, 6u);
+            var v0 = new uvec3(2u, 5u, 8u);
+            var v1 = new uvec3(0u, 4u, 8u);
+            var v2 = new uvec3(7u, 3u, 3u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(2u, 2u, 7u);
-            var v1 = new uvec3(3u, 6u, 5u);
-            var v2 = new uvec3(3u, 2u, 5u);
+            var v0 = new uvec3(1u, 5u, 0u);
+            var v1 = new uvec3(1u, 3u, 8u);
+            var v2 = new uvec3(7u, 0u, 0u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(2u, 0u, 7u);
-            var v1 = new uvec3(6u, 8u, 8u);
-            var v2 = new uvec3(4u, 0u, 4u);
+            var v0 = new uvec3(2u, 1u, 0u);
+            var v1 = new uvec3(5u, 8u, 6u);
+            var v2 = new uvec3(3u, 2u, 1u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(4u, 4u, 2u);
-            var v1 = new uvec3(6u, 5u, 2u);
-            var v2 = new uvec3(1u, 3u, 0u);
+            var v0 = new uvec3(5u, 8u, 3u);
+            var v1 = new uvec3(9u, 3u, 9u);
+            var v2 = new uvec3(0u, 9u, 6u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(0u, 1u, 9u);
-            var v1 = new uvec3(8u, 0u, 3u);
-            var v2 = new uvec3(0u, 0u, 7u);
+            var v0 = new uvec3(8u, 7u, 8u);
+            var v1 = new uvec3(1u, 7u, 1u);
+            var v2 = new uvec3(1u, 3u, 4u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(4u, 9u, 4u);
-            var v1 = new uvec3(2u, 1u, 9u);
-            var v2 = new uvec3(0u, 4u, 8u);
+            var v0 = new uvec3(8u, 9u, 2u);
+            var v1 = new uvec3(0u, 8u, 0u);
+            var v2 = new uvec3(0u, 9u, 3u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(4u, 8u, 6u);
-            var v1 = new uvec3(3u, 0u, 7u);
-            var v2 = new uvec3(3u, 5u, 5u);
+            var v0 = new uvec3(3u, 7u, 7u);
+            var v1 = new uvec3(2u, 7u, 1u);
+            var v2 = new uvec3(7u, 2u, 4u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(4u, 5u, 7u);
-            var v1 = new uvec3(4u, 2u, 3u);
-            var v2 = new uvec3(4u, 3u, 0u);
+            var v0 = new uvec3(0u, 2u, 2u);
+            var v1 = new uvec3(1u, 0u, 3u);
+            var v2 = new uvec3(2u, 8u, 2u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(5u, 4u, 0u);
-            var v1 = new uvec3(4u, 5u, 7u);
-            var v2 = new uvec3(0u, 0u, 0u);
+            var v0 = new uvec3(2u, 1u, 3u);
+            var v1 = new uvec3(9u, 3u, 4u);
+            var v2 = new uvec3(1u, 5u, 3u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new uvec3(9u, 1u, 3u);
-            var v1 = new uvec3(2u, 6u, 0u);
-            var v2 = new uvec3(4u, 6u, 5u);
+            var v0 = new uvec3(8u, 4u, 0u);
+            var v1 = new uvec3(3u, 9u, 3u);
+            var v2 = new uvec3(5u, 6u, 2u);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
     }
@@ -469,53 +469,53 @@ public class UintVec3Test
     public void TriangleInequality()
     {
         {
-            var v0 = new uvec3(1u, 1u, 7u);
-            var v1 = new uvec3(7u, 6u, 2u);
+            var v0 = new uvec3(8u, 7u, 1u);
+            var v1 = new uvec3(1u, 0u, 8u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(7u, 4u, 3u);
-            var v1 = new uvec3(7u, 1u, 6u);
+            var v0 = new uvec3(4u, 2u, 7u);
+            var v1 = new uvec3(4u, 3u, 1u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(2u, 9u, 4u);
-            var v1 = new uvec3(1u, 2u, 5u);
+            var v0 = new uvec3(0u, 0u, 2u);
+            var v1 = new uvec3(2u, 6u, 8u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(4u, 8u, 8u);
-            var v1 = new uvec3(9u, 3u, 5u);
+            var v0 = new uvec3(5u, 8u, 9u);
+            var v1 = new uvec3(4u, 4u, 4u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(8u, 0u, 7u);
-            var v1 = new uvec3(9u, 3u, 6u);
+            var v0 = new uvec3(1u, 9u, 6u);
+            var v1 = new uvec3(9u, 6u, 4u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(8u, 4u, 3u);
-            var v1 = new uvec3(7u, 1u, 1u);
+            var v0 = new uvec3(3u, 2u, 6u);
+            var v1 = new uvec3(4u, 8u, 3u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(8u, 7u, 8u);
-            var v1 = new uvec3(2u, 9u, 0u);
+            var v0 = new uvec3(0u, 2u, 1u);
+            var v1 = new uvec3(3u, 5u, 4u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(7u, 9u, 3u);
-            var v1 = new uvec3(7u, 5u, 8u);
+            var v0 = new uvec3(9u, 4u, 8u);
+            var v1 = new uvec3(4u, 2u, 0u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(7u, 6u, 6u);
-            var v1 = new uvec3(3u, 7u, 1u);
+            var v0 = new uvec3(6u, 4u, 8u);
+            var v1 = new uvec3(0u, 5u, 5u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new uvec3(2u, 1u, 8u);
-            var v1 = new uvec3(2u, 9u, 5u);
+            var v0 = new uvec3(4u, 3u, 3u);
+            var v1 = new uvec3(6u, 9u, 0u);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
     }
@@ -524,43 +524,43 @@ public class UintVec3Test
     public void InvariantNorm()
     {
         {
-            var v0 = new uvec3(1u, 1u, 3u);
+            var v0 = new uvec3(6u, 1u, 7u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(6u, 5u, 9u);
+            var v0 = new uvec3(3u, 8u, 9u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(0u, 7u, 4u);
+            var v0 = new uvec3(3u, 6u, 1u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(2u, 4u, 1u);
+            var v0 = new uvec3(8u, 8u, 4u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(2u, 5u, 7u);
+            var v0 = new uvec3(1u, 1u, 4u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(7u, 2u, 6u);
+            var v0 = new uvec3(6u, 5u, 5u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(2u, 3u, 7u);
+            var v0 = new uvec3(8u, 7u, 6u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(2u, 3u, 1u);
+            var v0 = new uvec3(8u, 0u, 2u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(5u, 7u, 4u);
+            var v0 = new uvec3(4u, 9u, 0u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new uvec3(2u, 0u, 9u);
+            var v0 = new uvec3(2u, 2u, 3u);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
     }
@@ -569,53 +569,53 @@ public class UintVec3Test
     public void InvariantCrossDot()
     {
         {
-            var v0 = new uvec3(3u, 7u, 6u);
-            var v1 = new uvec3(1u, 5u, 0u);
+            var v0 = new uvec3(2u, 2u, 3u);
+            var v1 = new uvec3(2u, 1u, 7u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(5u, 5u, 8u);
-            var v1 = new uvec3(8u, 1u, 7u);
+            var v0 = new uvec3(8u, 1u, 6u);
+            var v1 = new uvec3(6u, 8u, 2u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(4u, 9u, 3u);
-            var v1 = new uvec3(3u, 2u, 3u);
+            var v0 = new uvec3(5u, 2u, 3u);
+            var v1 = new uvec3(4u, 2u, 9u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(0u, 0u, 0u);
-            var v1 = new uvec3(6u, 1u, 9u);
+            var v0 = new uvec3(9u, 1u, 0u);
+            var v1 = new uvec3(9u, 0u, 1u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(5u, 5u, 2u);
-            var v1 = new uvec3(5u, 6u, 4u);
+            var v0 = new uvec3(7u, 7u, 9u);
+            var v1 = new uvec3(9u, 6u, 1u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(0u, 3u, 1u);
-            var v1 = new uvec3(2u, 5u, 0u);
+            var v0 = new uvec3(4u, 6u, 2u);
+            var v1 = new uvec3(9u, 5u, 1u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(0u, 1u, 6u);
-            var v1 = new uvec3(8u, 0u, 3u);
+            var v0 = new uvec3(3u, 1u, 5u);
+            var v1 = new uvec3(2u, 7u, 7u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(2u, 6u, 2u);
-            var v1 = new uvec3(5u, 3u, 1u);
+            var v0 = new uvec3(1u, 1u, 8u);
+            var v1 = new uvec3(5u, 3u, 9u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(5u, 4u, 8u);
-            var v1 = new uvec3(5u, 8u, 5u);
+            var v0 = new uvec3(8u, 4u, 7u);
+            var v1 = new uvec3(4u, 3u, 7u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
         {
-            var v0 = new uvec3(7u, 7u, 6u);
-            var v1 = new uvec3(7u, 6u, 9u);
+            var v0 = new uvec3(6u, 3u, 2u);
+            var v1 = new uvec3(2u, 4u, 4u);
             Assert.That(glm.Abs(glm.Dot(v0, glm.Cross(v0, v1))), Is.LessThan(0.1));
         }
     }
@@ -623,7 +623,115 @@ public class UintVec3Test
     [Test]
     public void RandomUniform0()
     {
-        var random = new Random(1765999322);
+        var random = new Random(114591995);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = uvec3.Random(random, (3), (8));
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(5).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(5).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2).Within(3.0));
+    }
+
+    [Test]
+    public void RandomUniform1()
+    {
+        var random = new Random(1191758131);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = uvec3.RandomUniform(random, (4), (9));
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(6).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(6).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(6).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2).Within(3.0));
+    }
+
+    [Test]
+    public void RandomUniform2()
+    {
+        var random = new Random(928414029);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = uvec3.Random(random, (3), (8));
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(5).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(5).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2).Within(3.0));
+    }
+
+    [Test]
+    public void RandomUniform3()
+    {
+        var random = new Random(1497985864);
+        var sum = new dvec3(0.0);
+        var sumSqr = new dvec3(0.0);
+        
+        const int count = 50000;
+        for (var _ = 0; _ < count; ++_)
+        {
+            var v = uvec3.RandomUniform(random, (5), (8));
+            sum += (dvec3)v;
+            sumSqr += glm.Pow2((dvec3)v);
+        }
+        
+        var avg = sum / (double)count;
+        var variance = sumSqr / (double)count - avg * avg;
+        
+        Assert.That(avg.x, Is.EqualTo(6).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(6).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(6).Within(1.0));
+        
+        Assert.That(variance.x, Is.EqualTo(0.6666666666666666).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.6666666666666666).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(0.6666666666666666).Within(3.0));
+    }
+
+    [Test]
+    public void RandomUniform4()
+    {
+        var random = new Random(1608813507);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
@@ -648,124 +756,16 @@ public class UintVec3Test
     }
 
     [Test]
-    public void RandomUniform1()
-    {
-        var random = new Random(977624913);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = uvec3.RandomUniform(random, (5), (9));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(6.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(6.5).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(6.5).Within(1.0));
-        
-        Assert.That(variance.x, Is.EqualTo(1.25).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.25).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(1.25).Within(3.0));
-    }
-
-    [Test]
-    public void RandomUniform2()
-    {
-        var random = new Random(1449853516);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = uvec3.Random(random, (5), (7));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(5.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(5.5).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(5.5).Within(1.0));
-        
-        Assert.That(variance.x, Is.EqualTo(0.25).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.25).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(0.25).Within(3.0));
-    }
-
-    [Test]
-    public void RandomUniform3()
-    {
-        var random = new Random(1427999745);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = uvec3.RandomUniform(random, (2), (7));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(4).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(4).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(4).Within(1.0));
-        
-        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(2).Within(3.0));
-    }
-
-    [Test]
-    public void RandomUniform4()
-    {
-        var random = new Random(1305254752);
-        var sum = new dvec3(0.0);
-        var sumSqr = new dvec3(0.0);
-        
-        const int count = 50000;
-        for (var _ = 0; _ < count; ++_)
-        {
-            var v = uvec3.Random(random, (0), (2));
-            sum += (dvec3)v;
-            sumSqr += glm.Pow2((dvec3)v);
-        }
-        
-        var avg = sum / (double)count;
-        var variance = sumSqr / (double)count - avg * avg;
-        
-        Assert.That(avg.x, Is.EqualTo(0.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.5).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(0.5).Within(1.0));
-        
-        Assert.That(variance.x, Is.EqualTo(0.25).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.25).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(0.25).Within(3.0));
-    }
-
-    [Test]
     public void RandomPoisson0()
     {
-        var random = new Random(2105788135);
+        var random = new Random(581516054);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = uvec3.RandomPoisson(random, 1.5732181938706051);
+            var v = uvec3.RandomPoisson(random, 1.595727150838695);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -773,26 +773,26 @@ public class UintVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.5732181938706051).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.5732181938706051).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(1.5732181938706051).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(1.595727150838695).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(1.595727150838695).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(1.595727150838695).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.5732181938706051).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.5732181938706051).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(1.5732181938706051).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.595727150838695).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.595727150838695).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(1.595727150838695).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson1()
     {
-        var random = new Random(571849155);
+        var random = new Random(931015981);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = uvec3.RandomPoisson(random, 2.4510163930016646);
+            var v = uvec3.RandomPoisson(random, 2.027531148180147);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -800,26 +800,26 @@ public class UintVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(2.4510163930016646).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(2.4510163930016646).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(2.4510163930016646).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2.027531148180147).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2.027531148180147).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(2.027531148180147).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(2.4510163930016646).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(2.4510163930016646).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(2.4510163930016646).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2.027531148180147).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2.027531148180147).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2.027531148180147).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson2()
     {
-        var random = new Random(565375997);
+        var random = new Random(1932066508);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = uvec3.RandomPoisson(random, 1.9869027768666405);
+            var v = uvec3.RandomPoisson(random, 0.7930135234692197);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -827,26 +827,26 @@ public class UintVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.9869027768666405).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.9869027768666405).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(1.9869027768666405).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(0.7930135234692197).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(0.7930135234692197).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(0.7930135234692197).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.9869027768666405).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.9869027768666405).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(1.9869027768666405).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.7930135234692197).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.7930135234692197).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(0.7930135234692197).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson3()
     {
-        var random = new Random(1846870601);
+        var random = new Random(1424701512);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = uvec3.RandomPoisson(random, 0.7520289184767888);
+            var v = uvec3.RandomPoisson(random, 2.0083612285127685);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -854,26 +854,26 @@ public class UintVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(0.7520289184767888).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(0.7520289184767888).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(0.7520289184767888).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2.0083612285127685).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2.0083612285127685).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(2.0083612285127685).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.7520289184767888).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.7520289184767888).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(0.7520289184767888).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2.0083612285127685).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2.0083612285127685).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2.0083612285127685).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson4()
     {
-        var random = new Random(1618854221);
+        var random = new Random(605902385);
         var sum = new dvec3(0.0);
         var sumSqr = new dvec3(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = uvec3.RandomPoisson(random, 3.4792013661839074);
+            var v = uvec3.RandomPoisson(random, 2.95649408384063);
             sum += (dvec3)v;
             sumSqr += glm.Pow2((dvec3)v);
         }
@@ -881,13 +881,13 @@ public class UintVec3Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(3.4792013661839074).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(3.4792013661839074).Within(1.0));
-        Assert.That(avg.z, Is.EqualTo(3.4792013661839074).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2.95649408384063).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2.95649408384063).Within(1.0));
+        Assert.That(avg.z, Is.EqualTo(2.95649408384063).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(3.4792013661839074).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(3.4792013661839074).Within(3.0));
-        Assert.That(variance.z, Is.EqualTo(3.4792013661839074).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2.95649408384063).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2.95649408384063).Within(3.0));
+        Assert.That(variance.z, Is.EqualTo(2.95649408384063).Within(3.0));
     }
 
 }

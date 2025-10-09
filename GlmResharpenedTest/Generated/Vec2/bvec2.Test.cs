@@ -27,19 +27,19 @@ public class BoolVec2Test
             Assert.That(true, Is.EqualTo(v.y));
         }
         {
-            var v = new bvec2(false, true);
+            var v = new bvec2(true, false);
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+        }
+        {
+            var v = new bvec2(new bvec2(true, false));
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+        }
+        {
+            var v = new bvec2(new bvec3(false, false, true));
             Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-        }
-        {
-            var v = new bvec2(new bvec2(true, true));
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-        }
-        {
-            var v = new bvec2(new bvec3(true, true, false));
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.y));
         }
         {
             var v = new bvec2(new bvec4(true, true, true, true));
@@ -51,9 +51,9 @@ public class BoolVec2Test
     [Test]
     public void Indexer()
     {
-        var v = new bvec2(false, true);
+        var v = new bvec2(false, false);
         Assert.That(false, Is.EqualTo(v[0]));
-        Assert.That(true, Is.EqualTo(v[1]));
+        Assert.That(false, Is.EqualTo(v[1]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = false; } );
@@ -66,8 +66,8 @@ public class BoolVec2Test
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[5]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = false; } );
         
-        v[0] = false;
-        Assert.That(false, Is.EqualTo(v[0]));
+        v[1] = false;
+        Assert.That(false, Is.EqualTo(v[1]));
         v[1] = true;
         Assert.That(true, Is.EqualTo(v[1]));
     }
@@ -75,9 +75,9 @@ public class BoolVec2Test
     [Test]
     public void PropertyValues()
     {
-        var v = new bvec2(true, false);
+        var v = new bvec2(false, false);
         var vals = v.Values;
-        Assert.That(true, Is.EqualTo(vals[0]));
+        Assert.That(false, Is.EqualTo(vals[0]));
         Assert.That(false, Is.EqualTo(vals[1]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
@@ -115,7 +115,7 @@ public class BoolVec2Test
     [Test]
     public void StringInterop()
     {
-        var v = new bvec2(false, false);
+        var v = new bvec2(false, true);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -150,7 +150,7 @@ public class BoolVec2Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new bvec2(false, true);
+        var v0 = new bvec2(false, false);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<bvec2>(s0);

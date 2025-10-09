@@ -12,7 +12,7 @@ internal class Constructor : Member
 	/// <summary>
 	/// ctor parameters
 	/// </summary>
-	public IEnumerable<string> Parameters { get; set; }
+	public IEnumerable<string> Parameters { get; set; } = null!;
 
 	/// <summary>
 	/// Single parameter
@@ -22,7 +22,7 @@ internal class Constructor : Member
 	/// <summary>
 	/// Constructor chain
 	/// </summary>
-	public string ConstructorChain { get; set; }
+	public string ConstructorChain { get; set; } = null!;
 
 	/// <summary>
 	/// Fields to initialize
@@ -32,9 +32,9 @@ internal class Constructor : Member
 	/// <summary>
 	/// Initializer ienumerable
 	/// </summary>
-	public IEnumerable<string> Initializers { get; set; }
+	public IEnumerable<string> Initializers { get; set; } = null!;
 
-	public IEnumerable<string> Code { get; set; }
+	public IEnumerable<string> Code { get; set; } = null!;
 
 	public override IEnumerable<string> Lines
 	{
@@ -61,7 +61,7 @@ internal class Constructor : Member
 		}
 	}
 
-	public Constructor(AbstractType type, IEnumerable<string> fields)
+	public Constructor(AbstractType type, IEnumerable<string> fields) : base(type.Name, "DUMMY << >> &&", type)
 	{
 		Fields = fields;
 		Type = type;

@@ -4,7 +4,7 @@ namespace GlmResharpenedGenerator.Types;
 
 internal class AnyType : AbstractType
 {
-	public AnyType(string name) => Name = name;
+	public AnyType(string name) : base(null) => Name = name;
 
 	public override string Name { get; }
 

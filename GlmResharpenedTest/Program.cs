@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Numerics;
 
+using GlmResharpened;
+
 namespace GlmResharpenedTest;
 
 internal class Program
 {
-	private static void Main(string[] args)
+	private static void Main()
 	{
 		var v = new vec4();
-		vec3 vv = v.swizzle.zxy;
-		vv = vv.swizzle.bgr;
+		var vv = v.swizzle.zxy;
+		var unused = vv.swizzle.bgr;
 		var iv = (ivec2)v;
 
 		iv += 2;
 		iv /= 3;
 		iv *= iv;
-		iv = 2 + iv;
+		var unused1 = 2 + iv;
 
-		vec3 g = vec3.UnitY;
+		var g = vec3.UnitY;
 		g = g.Normalized * 3;
 
 		cvec3 cg = g;
@@ -30,12 +32,12 @@ internal class Program
 
 		//cvec4 cv = v * c;
 		//c.Magnitude
-		cvec4 cv = cvec4.ImaginaryOnes;
+		var cv = cvec4.ImaginaryOnes;
 
-		dvec4 acv = cvec4.Abs(cv);
-		acv = dvec4.Tanh(acv);
+		var acv = cvec4.Abs(cv);
+		var unused2 = dvec4.Tanh(acv);
 
-		bvec2.Parse("true, false");
+		_ = bvec2.Parse("true, false");
 
 		double d;
 		_ = double.TryParse("1", out d);

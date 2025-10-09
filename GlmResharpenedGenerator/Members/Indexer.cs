@@ -17,11 +17,11 @@ internal class Indexer : Member
 	/// <summary>
 	/// Getter code
 	/// </summary>
-	public IEnumerable<string> Getter { get; set; }
+	public IEnumerable<string> Getter { get; set; } = null!;
 	/// <summary>
 	/// Setter code
 	/// </summary>
-	public IEnumerable<string> Setter { get; set; }
+	public IEnumerable<string> Setter { get; set; } = null!;
 
 	/// <summary>
 	/// Single-Line getter
@@ -35,17 +35,17 @@ internal class Indexer : Member
 	/// <summary>
 	/// Initial value
 	/// </summary>
-	public string Value { get; set; }
+	public string Value { get; set; } = null!;
 
 	/// <summary>
 	/// Indexer parameters
 	/// </summary>
-	public IEnumerable<string> Parameters { get; set; }
+	public IEnumerable<string> Parameters { get; set; } = null!;
 	public string ParameterString { set => Parameters = new[] { value }; }
 
 	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-	public Indexer(AbstractType type) => Type = type;
+	public Indexer(AbstractType type) : base("", "DUMMY << >> &&", type) => Type = type;
 
 	public override IEnumerable<string> Lines
 	{

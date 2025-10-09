@@ -36,12 +36,12 @@ internal class ComponentWiseOperator : Member
 	/// </summary>
 	public string[] ParameterNames { get; set; }
 
-	public string AdditionalComment { get; set; }
+	public string AdditionalComment { get; set; } = null!;
 
 	/// <summary>
 	/// If non-null, overrides return value
 	/// </summary>
-	public string ReturnOverride { get; set; }
+	public string ReturnOverride { get; set; } = null!;
 
 	/// <summary>
 	/// Fields
@@ -56,43 +56,34 @@ internal class ComponentWiseOperator : Member
 		Comment = Comment.Replace("<", "&lt;");
 	}
 
-	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString)
+	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString) : base("operator " + name, "DUMMY << >> &&", returnType)
 	{
 		Fields = fields;
 		ReturnType = returnType;
-		Name = "operator " + name;
 		ParameterTypes = new[] { para0 };
 		ParameterNames = new[] { paraName0 };
 		CompString = compString;
 		Static = true;
-
-		Comment = "DUMMY << >> &&";
 	}
 
-	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString)
+	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString) : base("operator " + name, "DUMMY << >> &&", returnType)
 	{
 		Fields = fields;
 		ReturnType = returnType;
-		Name = "operator " + name;
 		ParameterTypes = new[] { para0, para1 };
 		ParameterNames = new[] { paraName0, paraName1 };
 		CompString = compString;
 		Static = true;
-
-		Comment = "DUMMY << >> &&";
 	}
 
-	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString)
+	public ComponentWiseOperator(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString) : base("operator " + name, "DUMMY << >> &&", returnType)
 	{
 		Fields = fields;
 		ReturnType = returnType;
-		Name = "operator " + name;
 		ParameterTypes = new[] { para0, para1, para2 };
 		ParameterNames = new[] { paraName0, paraName1, paraName2 };
 		CompString = compString;
 		Static = true;
-
-		Comment = "DUMMY << >> &&";
 	}
 
 	private class ArgInfo

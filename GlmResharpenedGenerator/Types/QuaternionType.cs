@@ -6,11 +6,7 @@ internal class QuaternionType : AbstractType
 {
 	public int Components { get; set; } = 4;
 
-	public QuaternionType(BuiltinType type)
-	{
-		BaseType = type;
-		BaseName = type.Prefix + "quat";
-	}
+	public QuaternionType(BuiltinType type) : base(type, type.Prefix + "quat") { }
 
 	public override string Name => BaseName;
 

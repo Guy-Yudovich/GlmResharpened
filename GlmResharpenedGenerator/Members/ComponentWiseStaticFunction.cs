@@ -65,43 +65,34 @@ internal class ComponentWiseStaticFunction : Member
 			Comment = CommentOverride;
 	}
 
-	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString)
+	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, string compString) : base(name, "DUMMY << >> &&", returnType)
 	{
 		Fields = fields;
 		ReturnType = returnType;
-		Name = name;
 		ParameterTypes = new[] { para0 };
 		ParameterNames = new[] { paraName0 };
 		CompString = compString;
 		Static = true;
-
-		Comment = "DUMMY << >> &&";
 	}
 
-	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString)
+	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, string compString) : base(name, "DUMMY << >> &&", returnType)
 	{
 		Fields = fields;
 		ReturnType = returnType;
-		Name = name;
 		ParameterTypes = new[] { para0, para1 };
 		ParameterNames = new[] { paraName0, paraName1 };
 		CompString = compString;
 		Static = true;
-
-		Comment = "DUMMY << >> &&";
 	}
 
-	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString)
+	public ComponentWiseStaticFunction(IEnumerable<string> fields, AbstractType returnType, string name, AbstractType para0, string paraName0, AbstractType para1, string paraName1, AbstractType para2, string paraName2, string compString) : base(name, "DUMMY << >> &&", returnType)
 	{
 		Fields = fields;
 		ReturnType = returnType;
-		Name = name;
 		ParameterTypes = new[] { para0, para1, para2 };
 		ParameterNames = new[] { paraName0, paraName1, paraName2 };
 		CompString = compString;
 		Static = true;
-
-		Comment = "DUMMY << >> &&";
 	}
 
 	private class ArgInfo

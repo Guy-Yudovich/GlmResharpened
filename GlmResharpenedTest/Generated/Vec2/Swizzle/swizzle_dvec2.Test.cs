@@ -22,212 +22,212 @@ public class DoubleSwizzleVec2Test
     public void XYZW()
     {
         {
-            var ov = new dvec2(-4.5d, -1.5d);
+            var ov = new dvec2(-5.5d, 2.5d);
             var v = ov.swizzle.xx;
-            Assert.That(-4.5d, Is.EqualTo(v.x));
-            Assert.That(-4.5d, Is.EqualTo(v.y));
+            Assert.That(-5.5d, Is.EqualTo(v.x));
+            Assert.That(-5.5d, Is.EqualTo(v.y));
         }
         {
-            var ov = new dvec2(0.5d, -0.5d);
+            var ov = new dvec2(1.0, -7.5d);
             var v = ov.swizzle.xxx;
-            Assert.That(0.5d, Is.EqualTo(v.x));
-            Assert.That(0.5d, Is.EqualTo(v.y));
-            Assert.That(0.5d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(-7d, 2d);
-            var v = ov.swizzle.xxxx;
-            Assert.That(-7d, Is.EqualTo(v.x));
-            Assert.That(-7d, Is.EqualTo(v.y));
-            Assert.That(-7d, Is.EqualTo(v.z));
-            Assert.That(-7d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(6.5d, 0.0);
-            var v = ov.swizzle.xxxy;
-            Assert.That(6.5d, Is.EqualTo(v.x));
-            Assert.That(6.5d, Is.EqualTo(v.y));
-            Assert.That(6.5d, Is.EqualTo(v.z));
-            Assert.That(0.0, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(3d, 5.5d);
-            var v = ov.swizzle.xxy;
-            Assert.That(3d, Is.EqualTo(v.x));
-            Assert.That(3d, Is.EqualTo(v.y));
-            Assert.That(5.5d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(7.5d, -7.5d);
-            var v = ov.swizzle.xxyx;
-            Assert.That(7.5d, Is.EqualTo(v.x));
-            Assert.That(7.5d, Is.EqualTo(v.y));
-            Assert.That(-7.5d, Is.EqualTo(v.z));
-            Assert.That(7.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-9.5d, -1d);
-            var v = ov.swizzle.xxyy;
-            Assert.That(-9.5d, Is.EqualTo(v.x));
-            Assert.That(-9.5d, Is.EqualTo(v.y));
-            Assert.That(-1d, Is.EqualTo(v.z));
-            Assert.That(-1d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(8.5d, 1.0);
-            var v = ov.swizzle.xy;
-            Assert.That(8.5d, Is.EqualTo(v.x));
+            Assert.That(1.0, Is.EqualTo(v.x));
             Assert.That(1.0, Is.EqualTo(v.y));
+            Assert.That(1.0, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(2.5d, 1.5d);
-            var v = ov.swizzle.xyx;
-            Assert.That(2.5d, Is.EqualTo(v.x));
-            Assert.That(1.5d, Is.EqualTo(v.y));
-            Assert.That(2.5d, Is.EqualTo(v.z));
+            var ov = new dvec2(-0.5d, -8d);
+            var v = ov.swizzle.xxxx;
+            Assert.That(-0.5d, Is.EqualTo(v.x));
+            Assert.That(-0.5d, Is.EqualTo(v.y));
+            Assert.That(-0.5d, Is.EqualTo(v.z));
+            Assert.That(-0.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(4d, -3d);
-            var v = ov.swizzle.xyxx;
-            Assert.That(4d, Is.EqualTo(v.x));
-            Assert.That(-3d, Is.EqualTo(v.y));
+            var ov = new dvec2(-7.5d, -9.5d);
+            var v = ov.swizzle.xxxy;
+            Assert.That(-7.5d, Is.EqualTo(v.x));
+            Assert.That(-7.5d, Is.EqualTo(v.y));
+            Assert.That(-7.5d, Is.EqualTo(v.z));
+            Assert.That(-9.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-3.5d, 0.0);
+            var v = ov.swizzle.xxy;
+            Assert.That(-3.5d, Is.EqualTo(v.x));
+            Assert.That(-3.5d, Is.EqualTo(v.y));
+            Assert.That(0.0, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-4d, -8d);
+            var v = ov.swizzle.xxyx;
+            Assert.That(-4d, Is.EqualTo(v.x));
+            Assert.That(-4d, Is.EqualTo(v.y));
+            Assert.That(-8d, Is.EqualTo(v.z));
+            Assert.That(-4d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(9d, 4d);
+            var v = ov.swizzle.xxyy;
+            Assert.That(9d, Is.EqualTo(v.x));
+            Assert.That(9d, Is.EqualTo(v.y));
             Assert.That(4d, Is.EqualTo(v.z));
             Assert.That(4d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(7.5d, 4d);
-            var v = ov.swizzle.xyxy;
-            Assert.That(7.5d, Is.EqualTo(v.x));
-            Assert.That(4d, Is.EqualTo(v.y));
-            Assert.That(7.5d, Is.EqualTo(v.z));
-            Assert.That(4d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(3.5d, 1.5d);
-            var v = ov.swizzle.xyy;
-            Assert.That(3.5d, Is.EqualTo(v.x));
-            Assert.That(1.5d, Is.EqualTo(v.y));
-            Assert.That(1.5d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(6.5d, 9d);
-            var v = ov.swizzle.xyyx;
-            Assert.That(6.5d, Is.EqualTo(v.x));
-            Assert.That(9d, Is.EqualTo(v.y));
-            Assert.That(9d, Is.EqualTo(v.z));
-            Assert.That(6.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-2d, 5.5d);
-            var v = ov.swizzle.xyyy;
-            Assert.That(-2d, Is.EqualTo(v.x));
+            var ov = new dvec2(-2.5d, 5.5d);
+            var v = ov.swizzle.xy;
+            Assert.That(-2.5d, Is.EqualTo(v.x));
             Assert.That(5.5d, Is.EqualTo(v.y));
-            Assert.That(5.5d, Is.EqualTo(v.z));
-            Assert.That(5.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(6d, -6d);
-            var v = ov.swizzle.yx;
-            Assert.That(-6d, Is.EqualTo(v.x));
-            Assert.That(6d, Is.EqualTo(v.y));
-        }
-        {
-            var ov = new dvec2(6d, 1.5d);
-            var v = ov.swizzle.yxx;
-            Assert.That(1.5d, Is.EqualTo(v.x));
-            Assert.That(6d, Is.EqualTo(v.y));
-            Assert.That(6d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(-6.5d, 1.0);
-            var v = ov.swizzle.yxxx;
-            Assert.That(1.0, Is.EqualTo(v.x));
-            Assert.That(-6.5d, Is.EqualTo(v.y));
-            Assert.That(-6.5d, Is.EqualTo(v.z));
-            Assert.That(-6.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(7d, -4d);
-            var v = ov.swizzle.yxxy;
-            Assert.That(-4d, Is.EqualTo(v.x));
-            Assert.That(7d, Is.EqualTo(v.y));
-            Assert.That(7d, Is.EqualTo(v.z));
-            Assert.That(-4d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(1.0, -6d);
-            var v = ov.swizzle.yxy;
-            Assert.That(-6d, Is.EqualTo(v.x));
-            Assert.That(1.0, Is.EqualTo(v.y));
-            Assert.That(-6d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(4.5d, -1d);
-            var v = ov.swizzle.yxyx;
-            Assert.That(-1d, Is.EqualTo(v.x));
-            Assert.That(4.5d, Is.EqualTo(v.y));
-            Assert.That(-1d, Is.EqualTo(v.z));
-            Assert.That(4.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-9d, -5.5d);
-            var v = ov.swizzle.yxyy;
-            Assert.That(-5.5d, Is.EqualTo(v.x));
-            Assert.That(-9d, Is.EqualTo(v.y));
-            Assert.That(-5.5d, Is.EqualTo(v.z));
-            Assert.That(-5.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-9.5d, 2.5d);
-            var v = ov.swizzle.yy;
-            Assert.That(2.5d, Is.EqualTo(v.x));
-            Assert.That(2.5d, Is.EqualTo(v.y));
-        }
-        {
-            var ov = new dvec2(4.5d, 5.5d);
-            var v = ov.swizzle.yyx;
-            Assert.That(5.5d, Is.EqualTo(v.x));
-            Assert.That(5.5d, Is.EqualTo(v.y));
-            Assert.That(4.5d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(-9.5d, 9.5d);
-            var v = ov.swizzle.yyxx;
-            Assert.That(9.5d, Is.EqualTo(v.x));
-            Assert.That(9.5d, Is.EqualTo(v.y));
-            Assert.That(-9.5d, Is.EqualTo(v.z));
-            Assert.That(-9.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(8.5d, 7.5d);
-            var v = ov.swizzle.yyxy;
-            Assert.That(7.5d, Is.EqualTo(v.x));
-            Assert.That(7.5d, Is.EqualTo(v.y));
-            Assert.That(8.5d, Is.EqualTo(v.z));
-            Assert.That(7.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(7d, -6d);
-            var v = ov.swizzle.yyy;
-            Assert.That(-6d, Is.EqualTo(v.x));
+            var ov = new dvec2(0.5d, -6d);
+            var v = ov.swizzle.xyx;
+            Assert.That(0.5d, Is.EqualTo(v.x));
             Assert.That(-6d, Is.EqualTo(v.y));
-            Assert.That(-6d, Is.EqualTo(v.z));
+            Assert.That(0.5d, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(1.0, 2d);
-            var v = ov.swizzle.yyyx;
-            Assert.That(2d, Is.EqualTo(v.x));
-            Assert.That(2d, Is.EqualTo(v.y));
-            Assert.That(2d, Is.EqualTo(v.z));
+            var ov = new dvec2(1.0, 1.0);
+            var v = ov.swizzle.xyxx;
+            Assert.That(1.0, Is.EqualTo(v.x));
+            Assert.That(1.0, Is.EqualTo(v.y));
+            Assert.That(1.0, Is.EqualTo(v.z));
             Assert.That(1.0, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(-8.5d, -8.5d);
-            var v = ov.swizzle.yyyy;
+            var ov = new dvec2(7.5d, 9.5d);
+            var v = ov.swizzle.xyxy;
+            Assert.That(7.5d, Is.EqualTo(v.x));
+            Assert.That(9.5d, Is.EqualTo(v.y));
+            Assert.That(7.5d, Is.EqualTo(v.z));
+            Assert.That(9.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(7.5d, -7.5d);
+            var v = ov.swizzle.xyy;
+            Assert.That(7.5d, Is.EqualTo(v.x));
+            Assert.That(-7.5d, Is.EqualTo(v.y));
+            Assert.That(-7.5d, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-4.5d, 0.5d);
+            var v = ov.swizzle.xyyx;
+            Assert.That(-4.5d, Is.EqualTo(v.x));
+            Assert.That(0.5d, Is.EqualTo(v.y));
+            Assert.That(0.5d, Is.EqualTo(v.z));
+            Assert.That(-4.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(3d, 9.5d);
+            var v = ov.swizzle.xyyy;
+            Assert.That(3d, Is.EqualTo(v.x));
+            Assert.That(9.5d, Is.EqualTo(v.y));
+            Assert.That(9.5d, Is.EqualTo(v.z));
+            Assert.That(9.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-1.5d, 8d);
+            var v = ov.swizzle.yx;
+            Assert.That(8d, Is.EqualTo(v.x));
+            Assert.That(-1.5d, Is.EqualTo(v.y));
+        }
+        {
+            var ov = new dvec2(-2d, -9d);
+            var v = ov.swizzle.yxx;
+            Assert.That(-9d, Is.EqualTo(v.x));
+            Assert.That(-2d, Is.EqualTo(v.y));
+            Assert.That(-2d, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-0.5d, -0.5d);
+            var v = ov.swizzle.yxxx;
+            Assert.That(-0.5d, Is.EqualTo(v.x));
+            Assert.That(-0.5d, Is.EqualTo(v.y));
+            Assert.That(-0.5d, Is.EqualTo(v.z));
+            Assert.That(-0.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-6.5d, -5d);
+            var v = ov.swizzle.yxxy;
+            Assert.That(-5d, Is.EqualTo(v.x));
+            Assert.That(-6.5d, Is.EqualTo(v.y));
+            Assert.That(-6.5d, Is.EqualTo(v.z));
+            Assert.That(-5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-9.5d, 4d);
+            var v = ov.swizzle.yxy;
+            Assert.That(4d, Is.EqualTo(v.x));
+            Assert.That(-9.5d, Is.EqualTo(v.y));
+            Assert.That(4d, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-5.5d, -3d);
+            var v = ov.swizzle.yxyx;
+            Assert.That(-3d, Is.EqualTo(v.x));
+            Assert.That(-5.5d, Is.EqualTo(v.y));
+            Assert.That(-3d, Is.EqualTo(v.z));
+            Assert.That(-5.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-7d, -2.5d);
+            var v = ov.swizzle.yxyy;
+            Assert.That(-2.5d, Is.EqualTo(v.x));
+            Assert.That(-7d, Is.EqualTo(v.y));
+            Assert.That(-2.5d, Is.EqualTo(v.z));
+            Assert.That(-2.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-9.5d, 9d);
+            var v = ov.swizzle.yy;
+            Assert.That(9d, Is.EqualTo(v.x));
+            Assert.That(9d, Is.EqualTo(v.y));
+        }
+        {
+            var ov = new dvec2(3d, -9.5d);
+            var v = ov.swizzle.yyx;
+            Assert.That(-9.5d, Is.EqualTo(v.x));
+            Assert.That(-9.5d, Is.EqualTo(v.y));
+            Assert.That(3d, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-7d, -1.5d);
+            var v = ov.swizzle.yyxx;
+            Assert.That(-1.5d, Is.EqualTo(v.x));
+            Assert.That(-1.5d, Is.EqualTo(v.y));
+            Assert.That(-7d, Is.EqualTo(v.z));
+            Assert.That(-7d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(1.5d, -9.5d);
+            var v = ov.swizzle.yyxy;
+            Assert.That(-9.5d, Is.EqualTo(v.x));
+            Assert.That(-9.5d, Is.EqualTo(v.y));
+            Assert.That(1.5d, Is.EqualTo(v.z));
+            Assert.That(-9.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(4d, -8.5d);
+            var v = ov.swizzle.yyy;
             Assert.That(-8.5d, Is.EqualTo(v.x));
             Assert.That(-8.5d, Is.EqualTo(v.y));
             Assert.That(-8.5d, Is.EqualTo(v.z));
-            Assert.That(-8.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(4.5d, 1.5d);
+            var v = ov.swizzle.yyyx;
+            Assert.That(1.5d, Is.EqualTo(v.x));
+            Assert.That(1.5d, Is.EqualTo(v.y));
+            Assert.That(1.5d, Is.EqualTo(v.z));
+            Assert.That(4.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(6.5d, -5.5d);
+            var v = ov.swizzle.yyyy;
+            Assert.That(-5.5d, Is.EqualTo(v.x));
+            Assert.That(-5.5d, Is.EqualTo(v.y));
+            Assert.That(-5.5d, Is.EqualTo(v.z));
+            Assert.That(-5.5d, Is.EqualTo(v.w));
         }
     }
 
@@ -235,212 +235,212 @@ public class DoubleSwizzleVec2Test
     public void RGBA()
     {
         {
-            var ov = new dvec2(-5d, 9d);
+            var ov = new dvec2(-6d, 5d);
             var v = ov.swizzle.rr;
-            Assert.That(-5d, Is.EqualTo(v.x));
-            Assert.That(-5d, Is.EqualTo(v.y));
+            Assert.That(-6d, Is.EqualTo(v.x));
+            Assert.That(-6d, Is.EqualTo(v.y));
         }
         {
-            var ov = new dvec2(-1.5d, 6.5d);
+            var ov = new dvec2(6d, -6d);
             var v = ov.swizzle.rrr;
-            Assert.That(-1.5d, Is.EqualTo(v.x));
-            Assert.That(-1.5d, Is.EqualTo(v.y));
-            Assert.That(-1.5d, Is.EqualTo(v.z));
+            Assert.That(6d, Is.EqualTo(v.x));
+            Assert.That(6d, Is.EqualTo(v.y));
+            Assert.That(6d, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(-9d, 2d);
+            var ov = new dvec2(-4.5d, 8d);
             var v = ov.swizzle.rrrr;
-            Assert.That(-9d, Is.EqualTo(v.x));
-            Assert.That(-9d, Is.EqualTo(v.y));
-            Assert.That(-9d, Is.EqualTo(v.z));
-            Assert.That(-9d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(8d, 4d);
-            var v = ov.swizzle.rrrg;
-            Assert.That(8d, Is.EqualTo(v.x));
-            Assert.That(8d, Is.EqualTo(v.y));
-            Assert.That(8d, Is.EqualTo(v.z));
-            Assert.That(4d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-3.5d, -1.5d);
-            var v = ov.swizzle.rrg;
-            Assert.That(-3.5d, Is.EqualTo(v.x));
-            Assert.That(-3.5d, Is.EqualTo(v.y));
-            Assert.That(-1.5d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(-0.5d, 9d);
-            var v = ov.swizzle.rrgr;
-            Assert.That(-0.5d, Is.EqualTo(v.x));
-            Assert.That(-0.5d, Is.EqualTo(v.y));
-            Assert.That(9d, Is.EqualTo(v.z));
-            Assert.That(-0.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-5d, 6.5d);
-            var v = ov.swizzle.rrgg;
-            Assert.That(-5d, Is.EqualTo(v.x));
-            Assert.That(-5d, Is.EqualTo(v.y));
-            Assert.That(6.5d, Is.EqualTo(v.z));
-            Assert.That(6.5d, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new dvec2(-4.5d, 4.5d);
-            var v = ov.swizzle.rg;
             Assert.That(-4.5d, Is.EqualTo(v.x));
-            Assert.That(4.5d, Is.EqualTo(v.y));
-        }
-        {
-            var ov = new dvec2(-0.5d, -9d);
-            var v = ov.swizzle.rgr;
-            Assert.That(-0.5d, Is.EqualTo(v.x));
-            Assert.That(-9d, Is.EqualTo(v.y));
-            Assert.That(-0.5d, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new dvec2(-4.5d, 6.5d);
-            var v = ov.swizzle.rgrr;
-            Assert.That(-4.5d, Is.EqualTo(v.x));
-            Assert.That(6.5d, Is.EqualTo(v.y));
+            Assert.That(-4.5d, Is.EqualTo(v.y));
             Assert.That(-4.5d, Is.EqualTo(v.z));
             Assert.That(-4.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(5.5d, -8d);
-            var v = ov.swizzle.rgrg;
-            Assert.That(5.5d, Is.EqualTo(v.x));
-            Assert.That(-8d, Is.EqualTo(v.y));
-            Assert.That(5.5d, Is.EqualTo(v.z));
+            var ov = new dvec2(8.5d, -8d);
+            var v = ov.swizzle.rrrg;
+            Assert.That(8.5d, Is.EqualTo(v.x));
+            Assert.That(8.5d, Is.EqualTo(v.y));
+            Assert.That(8.5d, Is.EqualTo(v.z));
             Assert.That(-8d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(7.5d, -1d);
+            var ov = new dvec2(-1.5d, -3.5d);
+            var v = ov.swizzle.rrg;
+            Assert.That(-1.5d, Is.EqualTo(v.x));
+            Assert.That(-1.5d, Is.EqualTo(v.y));
+            Assert.That(-3.5d, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-4d, -0.5d);
+            var v = ov.swizzle.rrgr;
+            Assert.That(-4d, Is.EqualTo(v.x));
+            Assert.That(-4d, Is.EqualTo(v.y));
+            Assert.That(-0.5d, Is.EqualTo(v.z));
+            Assert.That(-4d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-9d, -5.5d);
+            var v = ov.swizzle.rrgg;
+            Assert.That(-9d, Is.EqualTo(v.x));
+            Assert.That(-9d, Is.EqualTo(v.y));
+            Assert.That(-5.5d, Is.EqualTo(v.z));
+            Assert.That(-5.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(3d, 8d);
+            var v = ov.swizzle.rg;
+            Assert.That(3d, Is.EqualTo(v.x));
+            Assert.That(8d, Is.EqualTo(v.y));
+        }
+        {
+            var ov = new dvec2(-0.5d, 0.0);
+            var v = ov.swizzle.rgr;
+            Assert.That(-0.5d, Is.EqualTo(v.x));
+            Assert.That(0.0, Is.EqualTo(v.y));
+            Assert.That(-0.5d, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new dvec2(-7.5d, 6.5d);
+            var v = ov.swizzle.rgrr;
+            Assert.That(-7.5d, Is.EqualTo(v.x));
+            Assert.That(6.5d, Is.EqualTo(v.y));
+            Assert.That(-7.5d, Is.EqualTo(v.z));
+            Assert.That(-7.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-9.5d, -6.5d);
+            var v = ov.swizzle.rgrg;
+            Assert.That(-9.5d, Is.EqualTo(v.x));
+            Assert.That(-6.5d, Is.EqualTo(v.y));
+            Assert.That(-9.5d, Is.EqualTo(v.z));
+            Assert.That(-6.5d, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new dvec2(-1d, -2d);
             var v = ov.swizzle.rgg;
-            Assert.That(7.5d, Is.EqualTo(v.x));
-            Assert.That(-1d, Is.EqualTo(v.y));
-            Assert.That(-1d, Is.EqualTo(v.z));
+            Assert.That(-1d, Is.EqualTo(v.x));
+            Assert.That(-2d, Is.EqualTo(v.y));
+            Assert.That(-2d, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(4.5d, 7.5d);
+            var ov = new dvec2(5d, -9.5d);
             var v = ov.swizzle.rggr;
-            Assert.That(4.5d, Is.EqualTo(v.x));
-            Assert.That(7.5d, Is.EqualTo(v.y));
-            Assert.That(7.5d, Is.EqualTo(v.z));
-            Assert.That(4.5d, Is.EqualTo(v.w));
+            Assert.That(5d, Is.EqualTo(v.x));
+            Assert.That(-9.5d, Is.EqualTo(v.y));
+            Assert.That(-9.5d, Is.EqualTo(v.z));
+            Assert.That(5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(7d, -0.5d);
+            var ov = new dvec2(1.5d, -0.5d);
             var v = ov.swizzle.rggg;
-            Assert.That(7d, Is.EqualTo(v.x));
+            Assert.That(1.5d, Is.EqualTo(v.x));
             Assert.That(-0.5d, Is.EqualTo(v.y));
             Assert.That(-0.5d, Is.EqualTo(v.z));
             Assert.That(-0.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(3d, -7.5d);
+            var ov = new dvec2(-1d, -5d);
             var v = ov.swizzle.gr;
-            Assert.That(-7.5d, Is.EqualTo(v.x));
-            Assert.That(3d, Is.EqualTo(v.y));
+            Assert.That(-5d, Is.EqualTo(v.x));
+            Assert.That(-1d, Is.EqualTo(v.y));
         }
         {
-            var ov = new dvec2(-7.5d, -3d);
+            var ov = new dvec2(2d, -5.5d);
             var v = ov.swizzle.grr;
-            Assert.That(-3d, Is.EqualTo(v.x));
-            Assert.That(-7.5d, Is.EqualTo(v.y));
-            Assert.That(-7.5d, Is.EqualTo(v.z));
+            Assert.That(-5.5d, Is.EqualTo(v.x));
+            Assert.That(2d, Is.EqualTo(v.y));
+            Assert.That(2d, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(0.5d, 5.5d);
+            var ov = new dvec2(4d, 0.5d);
             var v = ov.swizzle.grrr;
-            Assert.That(5.5d, Is.EqualTo(v.x));
-            Assert.That(0.5d, Is.EqualTo(v.y));
-            Assert.That(0.5d, Is.EqualTo(v.z));
-            Assert.That(0.5d, Is.EqualTo(v.w));
+            Assert.That(0.5d, Is.EqualTo(v.x));
+            Assert.That(4d, Is.EqualTo(v.y));
+            Assert.That(4d, Is.EqualTo(v.z));
+            Assert.That(4d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(-5d, -4.5d);
+            var ov = new dvec2(-1d, 3.5d);
             var v = ov.swizzle.grrg;
-            Assert.That(-4.5d, Is.EqualTo(v.x));
-            Assert.That(-5d, Is.EqualTo(v.y));
-            Assert.That(-5d, Is.EqualTo(v.z));
-            Assert.That(-4.5d, Is.EqualTo(v.w));
+            Assert.That(3.5d, Is.EqualTo(v.x));
+            Assert.That(-1d, Is.EqualTo(v.y));
+            Assert.That(-1d, Is.EqualTo(v.z));
+            Assert.That(3.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(1.5d, -3d);
+            var ov = new dvec2(-4d, 9.5d);
             var v = ov.swizzle.grg;
-            Assert.That(-3d, Is.EqualTo(v.x));
-            Assert.That(1.5d, Is.EqualTo(v.y));
-            Assert.That(-3d, Is.EqualTo(v.z));
+            Assert.That(9.5d, Is.EqualTo(v.x));
+            Assert.That(-4d, Is.EqualTo(v.y));
+            Assert.That(9.5d, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(-5.5d, -2d);
+            var ov = new dvec2(7d, -1d);
             var v = ov.swizzle.grgr;
-            Assert.That(-2d, Is.EqualTo(v.x));
-            Assert.That(-5.5d, Is.EqualTo(v.y));
-            Assert.That(-2d, Is.EqualTo(v.z));
-            Assert.That(-5.5d, Is.EqualTo(v.w));
+            Assert.That(-1d, Is.EqualTo(v.x));
+            Assert.That(7d, Is.EqualTo(v.y));
+            Assert.That(-1d, Is.EqualTo(v.z));
+            Assert.That(7d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(1.5d, -4.5d);
+            var ov = new dvec2(6d, 5.5d);
             var v = ov.swizzle.grgg;
-            Assert.That(-4.5d, Is.EqualTo(v.x));
-            Assert.That(1.5d, Is.EqualTo(v.y));
-            Assert.That(-4.5d, Is.EqualTo(v.z));
-            Assert.That(-4.5d, Is.EqualTo(v.w));
+            Assert.That(5.5d, Is.EqualTo(v.x));
+            Assert.That(6d, Is.EqualTo(v.y));
+            Assert.That(5.5d, Is.EqualTo(v.z));
+            Assert.That(5.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(-4.5d, 9.5d);
+            var ov = new dvec2(-2d, 9.5d);
             var v = ov.swizzle.gg;
             Assert.That(9.5d, Is.EqualTo(v.x));
             Assert.That(9.5d, Is.EqualTo(v.y));
         }
         {
-            var ov = new dvec2(8d, -4.5d);
+            var ov = new dvec2(-0.5d, -8.5d);
             var v = ov.swizzle.ggr;
-            Assert.That(-4.5d, Is.EqualTo(v.x));
-            Assert.That(-4.5d, Is.EqualTo(v.y));
-            Assert.That(8d, Is.EqualTo(v.z));
+            Assert.That(-8.5d, Is.EqualTo(v.x));
+            Assert.That(-8.5d, Is.EqualTo(v.y));
+            Assert.That(-0.5d, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(-9.5d, -3d);
+            var ov = new dvec2(-4.5d, 6d);
             var v = ov.swizzle.ggrr;
-            Assert.That(-3d, Is.EqualTo(v.x));
-            Assert.That(-3d, Is.EqualTo(v.y));
-            Assert.That(-9.5d, Is.EqualTo(v.z));
-            Assert.That(-9.5d, Is.EqualTo(v.w));
+            Assert.That(6d, Is.EqualTo(v.x));
+            Assert.That(6d, Is.EqualTo(v.y));
+            Assert.That(-4.5d, Is.EqualTo(v.z));
+            Assert.That(-4.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(7.5d, -0.5d);
+            var ov = new dvec2(-1d, -1.5d);
             var v = ov.swizzle.ggrg;
-            Assert.That(-0.5d, Is.EqualTo(v.x));
-            Assert.That(-0.5d, Is.EqualTo(v.y));
-            Assert.That(7.5d, Is.EqualTo(v.z));
-            Assert.That(-0.5d, Is.EqualTo(v.w));
+            Assert.That(-1.5d, Is.EqualTo(v.x));
+            Assert.That(-1.5d, Is.EqualTo(v.y));
+            Assert.That(-1d, Is.EqualTo(v.z));
+            Assert.That(-1.5d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(2d, -4d);
+            var ov = new dvec2(-3.5d, 0.0);
             var v = ov.swizzle.ggg;
-            Assert.That(-4d, Is.EqualTo(v.x));
-            Assert.That(-4d, Is.EqualTo(v.y));
-            Assert.That(-4d, Is.EqualTo(v.z));
+            Assert.That(0.0, Is.EqualTo(v.x));
+            Assert.That(0.0, Is.EqualTo(v.y));
+            Assert.That(0.0, Is.EqualTo(v.z));
         }
         {
-            var ov = new dvec2(-6.5d, -4d);
+            var ov = new dvec2(2d, -7d);
             var v = ov.swizzle.gggr;
-            Assert.That(-4d, Is.EqualTo(v.x));
-            Assert.That(-4d, Is.EqualTo(v.y));
-            Assert.That(-4d, Is.EqualTo(v.z));
-            Assert.That(-6.5d, Is.EqualTo(v.w));
+            Assert.That(-7d, Is.EqualTo(v.x));
+            Assert.That(-7d, Is.EqualTo(v.y));
+            Assert.That(-7d, Is.EqualTo(v.z));
+            Assert.That(2d, Is.EqualTo(v.w));
         }
         {
-            var ov = new dvec2(-8d, 6.5d);
+            var ov = new dvec2(-5.5d, 2.5d);
             var v = ov.swizzle.gggg;
-            Assert.That(6.5d, Is.EqualTo(v.x));
-            Assert.That(6.5d, Is.EqualTo(v.y));
-            Assert.That(6.5d, Is.EqualTo(v.z));
-            Assert.That(6.5d, Is.EqualTo(v.w));
+            Assert.That(2.5d, Is.EqualTo(v.x));
+            Assert.That(2.5d, Is.EqualTo(v.y));
+            Assert.That(2.5d, Is.EqualTo(v.z));
+            Assert.That(2.5d, Is.EqualTo(v.w));
         }
     }
 
@@ -448,19 +448,19 @@ public class DoubleSwizzleVec2Test
     public void InlineXYZW()
     {
         {
-            var v0 = new dvec2(7.5d, -3.5d);
-            var v1 = new dvec2(8d, -7d);
+            var v0 = new dvec2(6d, -4d);
+            var v1 = new dvec2(-2d, 4d);
             var v2 = v0.xy;
             v0.xy = v1;
             var v3 = v0.xy;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That(8d, Is.EqualTo(v0.x));
-            Assert.That(-7d, Is.EqualTo(v0.y));
+            Assert.That(-2d, Is.EqualTo(v0.x));
+            Assert.That(4d, Is.EqualTo(v0.y));
         
-            Assert.That(7.5d, Is.EqualTo(v2.x));
-            Assert.That(-3.5d, Is.EqualTo(v2.y));
+            Assert.That(6d, Is.EqualTo(v2.x));
+            Assert.That(-4d, Is.EqualTo(v2.y));
         }
     }
 
@@ -468,47 +468,47 @@ public class DoubleSwizzleVec2Test
     public void InlineRGBA()
     {
         {
-            var v0 = new dvec2(3d, 5.5d);
-            var v1 = -8.5d;
+            var v0 = new dvec2(-8d, -6d);
+            var v1 = 2d;
             var v2 = v0.r;
             v0.r = v1;
             var v3 = v0.r;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That(-8.5d, Is.EqualTo(v0.x));
-            Assert.That(5.5d, Is.EqualTo(v0.y));
+            Assert.That(2d, Is.EqualTo(v0.x));
+            Assert.That(-6d, Is.EqualTo(v0.y));
         
-            Assert.That(3d, Is.EqualTo(v2));
+            Assert.That(-8d, Is.EqualTo(v2));
         }
         {
-            var v0 = new dvec2(-1.5d, 7.5d);
-            var v1 = -5.5d;
+            var v0 = new dvec2(0.5d, 5d);
+            var v1 = 1.0;
             var v2 = v0.g;
             v0.g = v1;
             var v3 = v0.g;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That(-1.5d, Is.EqualTo(v0.x));
-            Assert.That(-5.5d, Is.EqualTo(v0.y));
+            Assert.That(0.5d, Is.EqualTo(v0.x));
+            Assert.That(1.0, Is.EqualTo(v0.y));
         
-            Assert.That(7.5d, Is.EqualTo(v2));
+            Assert.That(5d, Is.EqualTo(v2));
         }
         {
-            var v0 = new dvec2(6.5d, 7d);
-            var v1 = new dvec2(-4.5d, 4.5d);
+            var v0 = new dvec2(2d, -8.5d);
+            var v1 = new dvec2(0.5d, -2d);
             var v2 = v0.rg;
             v0.rg = v1;
             var v3 = v0.rg;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That(-4.5d, Is.EqualTo(v0.x));
-            Assert.That(4.5d, Is.EqualTo(v0.y));
+            Assert.That(0.5d, Is.EqualTo(v0.x));
+            Assert.That(-2d, Is.EqualTo(v0.y));
         
-            Assert.That(6.5d, Is.EqualTo(v2.x));
-            Assert.That(7d, Is.EqualTo(v2.y));
+            Assert.That(2d, Is.EqualTo(v2.x));
+            Assert.That(-8.5d, Is.EqualTo(v2.y));
         }
     }
 

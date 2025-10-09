@@ -2,22 +2,22 @@
 
 namespace GlmResharpenedGenerator.Members;
 
-internal abstract class Member
+internal abstract class Member(string name, string comment, AbstractType originalType)
 {
 	/// <summary>
 	/// Original type ref
 	/// </summary>
-	public required AbstractType OriginalType { get; set; }
+	public AbstractType OriginalType { get; set; } = originalType;
 
 	/// <summary>
 	/// Name of the member
 	/// </summary>
-	public required string Name { get; set; }
+	public string Name { get; set; } = name;
 
 	/// <summary>
 	/// Comment of the member
 	/// </summary>
-	public required string Comment { get; set; }
+	public string Comment { get; set; } = comment;
 
 	/// <summary>
 	/// Visibility modifier

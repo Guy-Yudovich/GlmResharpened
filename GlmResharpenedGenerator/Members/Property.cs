@@ -17,11 +17,11 @@ internal class Property : Member
 	/// <summary>
 	/// Getter code
 	/// </summary>
-	public IEnumerable<string> Getter { get; set; }
+	public IEnumerable<string> Getter { get; set; } = null!;
 	/// <summary>
 	/// Setter code
 	/// </summary>
-	public IEnumerable<string> Setter { get; set; }
+	public IEnumerable<string> Setter { get; set; } = null!;
 
 	/// <summary>
 	/// Single-Line getter
@@ -35,11 +35,11 @@ internal class Property : Member
 	/// <summary>
 	/// Initial value
 	/// </summary>
-	public string Value { get; set; }
+	public string Value { get; set; } = null!;
 
 	public override string MemberPrefix => base.MemberPrefix + (Override ? " override" : "");
 
-	public Property(string name, AbstractType type)
+	public Property(string name, AbstractType type) : base(name, "DUMMY << >> &&", type)
 	{
 		Name = name;
 		Type = type;

@@ -11,11 +11,7 @@ internal class ArrayType : AbstractType
 
 	public override string GenericSuffix => ""; // no suffix
 
-	public ArrayType(BuiltinType type, string suffix = "[]")
-	{
-		BaseType = type;
-		ArraySuffix = suffix;
-	}
+	public ArrayType(BuiltinType type, string suffix = "[]") : base(type, type.Name) => ArraySuffix = suffix;
 
 	public override string Name => BaseType.Name + ArraySuffix;
 

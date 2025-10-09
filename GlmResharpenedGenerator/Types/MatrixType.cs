@@ -4,12 +4,10 @@ namespace GlmResharpenedGenerator.Types;
 
 internal class MatrixType : AbstractType
 {
-	public MatrixType(BuiltinType type, int cols, int rows)
+	public MatrixType(BuiltinType type, int cols, int rows) : base(type, type.Prefix + "mat")
 	{
 		Columns = cols;
 		Rows = rows;
-		BaseType = type;
-		BaseName = type.Prefix + "mat";
 	}
 
 	public int Rows { get; set; }

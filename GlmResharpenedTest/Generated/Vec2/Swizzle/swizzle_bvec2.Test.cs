@@ -22,33 +22,33 @@ public class BoolSwizzleVec2Test
     public void XYZW()
     {
         {
-            var ov = new bvec2(false, false);
+            var ov = new bvec2(true, true);
             var v = ov.swizzle.xx;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-        }
-        {
-            var ov = new bvec2(false, false);
-            var v = ov.swizzle.xxx;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
         }
         {
             var ov = new bvec2(true, true);
-            var v = ov.swizzle.xxxx;
+            var v = ov.swizzle.xxx;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(false, false);
-            var v = ov.swizzle.xxxy;
+            var v = ov.swizzle.xxxx;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(false, true);
+            var v = ov.swizzle.xxxy;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(false, false);
@@ -58,33 +58,33 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var ov = new bvec2(true, true);
-            var v = ov.swizzle.xxyx;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
-        }
-        {
             var ov = new bvec2(false, false);
-            var v = ov.swizzle.xxyy;
+            var v = ov.swizzle.xxyx;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.xy;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-        }
-        {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.xyx;
-            Assert.That(false, Is.EqualTo(v.x));
+            var ov = new bvec2(true, false);
+            var v = ov.swizzle.xxyy;
+            Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(false, false);
+            var v = ov.swizzle.xy;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+        }
+        {
+            var ov = new bvec2(true, true);
+            var v = ov.swizzle.xyx;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
         }
         {
             var ov = new bvec2(false, true);
@@ -110,12 +110,12 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(false, true);
             var v = ov.swizzle.xyyx;
-            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
+            Assert.That(false, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(false, false);
@@ -126,108 +126,108 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(true, false);
+            var ov = new bvec2(false, true);
             var v = ov.swizzle.yx;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
         }
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(false, false);
             var v = ov.swizzle.yxx;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new bvec2(true, false);
-            var v = ov.swizzle.yxxx;
             Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
         }
         {
             var ov = new bvec2(false, true);
-            var v = ov.swizzle.yxxy;
+            var v = ov.swizzle.yxxx;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
+            Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.yxy;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.yxyx;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
+            var ov = new bvec2(true, false);
+            var v = ov.swizzle.yxxy;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(true, true);
-            var v = ov.swizzle.yxyy;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new bvec2(true, false);
-            var v = ov.swizzle.yy;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-        }
-        {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.yyx;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
-        }
-        {
-            var ov = new bvec2(true, false);
-            var v = ov.swizzle.yyxx;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new bvec2(true, false);
-            var v = ov.swizzle.yyxy;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.yyy;
+            var v = ov.swizzle.yxy;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
         }
         {
             var ov = new bvec2(false, false);
-            var v = ov.swizzle.yyyx;
+            var v = ov.swizzle.yxyx;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
+            var ov = new bvec2(true, false);
+            var v = ov.swizzle.yxyy;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(true, true);
+            var v = ov.swizzle.yy;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+        }
+        {
+            var ov = new bvec2(true, true);
+            var v = ov.swizzle.yyx;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
+        }
+        {
             var ov = new bvec2(false, true);
-            var v = ov.swizzle.yyyy;
+            var v = ov.swizzle.yyxx;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(false, true);
+            var v = ov.swizzle.yyxy;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(true, false);
+            var v = ov.swizzle.yyy;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new bvec2(true, true);
+            var v = ov.swizzle.yyyx;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
             Assert.That(true, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(false, false);
+            var v = ov.swizzle.yyyy;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
         }
     }
 
@@ -235,10 +235,10 @@ public class BoolSwizzleVec2Test
     public void RGBA()
     {
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(false, false);
             var v = ov.swizzle.rr;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
         }
         {
             var ov = new bvec2(true, true);
@@ -248,7 +248,7 @@ public class BoolSwizzleVec2Test
             Assert.That(true, Is.EqualTo(v.z));
         }
         {
-            var ov = new bvec2(false, false);
+            var ov = new bvec2(false, true);
             var v = ov.swizzle.rrrr;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
@@ -256,35 +256,35 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(true, false);
             var v = ov.swizzle.rrrg;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(false, true);
+            var v = ov.swizzle.rrg;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
+        }
+        {
+            var ov = new bvec2(true, true);
+            var v = ov.swizzle.rrgr;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
             Assert.That(true, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(false, false);
-            var v = ov.swizzle.rrg;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
-        }
-        {
             var ov = new bvec2(false, true);
-            var v = ov.swizzle.rrgr;
+            var v = ov.swizzle.rrgg;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new bvec2(true, false);
-            var v = ov.swizzle.rrgg;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
+            Assert.That(true, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(false, true);
@@ -308,17 +308,17 @@ public class BoolSwizzleVec2Test
             Assert.That(true, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(true, false);
             var v = ov.swizzle.rgrg;
             Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
+            Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(false, true);
+            var ov = new bvec2(true, true);
             var v = ov.swizzle.rgg;
-            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
         }
@@ -331,18 +331,18 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(true, false);
+            var ov = new bvec2(false, false);
             var v = ov.swizzle.rggg;
-            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(false, false);
             var v = ov.swizzle.gr;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
         }
         {
             var ov = new bvec2(false, true);
@@ -352,43 +352,43 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var ov = new bvec2(false, false);
-            var v = ov.swizzle.grrr;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
-        }
-        {
-            var ov = new bvec2(false, false);
-            var v = ov.swizzle.grrg;
-            Assert.That(false, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
-        }
-        {
             var ov = new bvec2(true, true);
-            var v = ov.swizzle.grg;
+            var v = ov.swizzle.grrr;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.w));
         }
         {
-            var ov = new bvec2(false, true);
-            var v = ov.swizzle.grgr;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(false, Is.EqualTo(v.y));
+            var ov = new bvec2(true, false);
+            var v = ov.swizzle.grrg;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
             Assert.That(true, Is.EqualTo(v.z));
             Assert.That(false, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(false, false);
-            var v = ov.swizzle.grgg;
+            var v = ov.swizzle.grg;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(true, false);
+            var v = ov.swizzle.grgr;
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(true, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new bvec2(false, true);
+            var v = ov.swizzle.grgg;
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(true, false);
@@ -397,19 +397,19 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.y));
         }
         {
-            var ov = new bvec2(false, true);
+            var ov = new bvec2(true, true);
             var v = ov.swizzle.ggr;
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.z));
         }
         {
-            var ov = new bvec2(false, false);
+            var ov = new bvec2(true, false);
             var v = ov.swizzle.ggrr;
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(false, Is.EqualTo(v.z));
-            Assert.That(false, Is.EqualTo(v.w));
+            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(true, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(false, false);
@@ -427,12 +427,12 @@ public class BoolSwizzleVec2Test
             Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var ov = new bvec2(true, true);
+            var ov = new bvec2(false, false);
             var v = ov.swizzle.gggr;
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-            Assert.That(true, Is.EqualTo(v.w));
+            Assert.That(false, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.w));
         }
         {
             var ov = new bvec2(true, true);
@@ -449,14 +449,14 @@ public class BoolSwizzleVec2Test
     {
         {
             var v0 = new bvec2(false, false);
-            var v1 = new bvec2(true, true);
+            var v1 = new bvec2(false, true);
             var v2 = v0.xy;
             v0.xy = v1;
             var v3 = v0.xy;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That(true, Is.EqualTo(v0.x));
+            Assert.That(false, Is.EqualTo(v0.x));
             Assert.That(true, Is.EqualTo(v0.y));
         
             Assert.That(false, Is.EqualTo(v2.x));
@@ -468,7 +468,7 @@ public class BoolSwizzleVec2Test
     public void InlineRGBA()
     {
         {
-            var v0 = new bvec2(true, true);
+            var v0 = new bvec2(false, true);
             var v1 = true;
             var v2 = v0.r;
             v0.r = v1;
@@ -479,7 +479,7 @@ public class BoolSwizzleVec2Test
             Assert.That(true, Is.EqualTo(v0.x));
             Assert.That(true, Is.EqualTo(v0.y));
         
-            Assert.That(true, Is.EqualTo(v2));
+            Assert.That(false, Is.EqualTo(v2));
         }
         {
             var v0 = new bvec2(false, true);
@@ -496,8 +496,8 @@ public class BoolSwizzleVec2Test
             Assert.That(true, Is.EqualTo(v2));
         }
         {
-            var v0 = new bvec2(false, true);
-            var v1 = new bvec2(false, true);
+            var v0 = new bvec2(true, true);
+            var v1 = new bvec2(false, false);
             var v2 = v0.rg;
             v0.rg = v1;
             var v3 = v0.rg;
@@ -505,9 +505,9 @@ public class BoolSwizzleVec2Test
             Assert.That(v1, Is.EqualTo(v3));
         
             Assert.That(false, Is.EqualTo(v0.x));
-            Assert.That(true, Is.EqualTo(v0.y));
+            Assert.That(false, Is.EqualTo(v0.y));
         
-            Assert.That(false, Is.EqualTo(v2.x));
+            Assert.That(true, Is.EqualTo(v2.x));
             Assert.That(true, Is.EqualTo(v2.y));
         }
     }

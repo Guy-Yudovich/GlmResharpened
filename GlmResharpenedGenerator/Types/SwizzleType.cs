@@ -2,6 +2,8 @@
 
 internal partial class SwizzleType : AbstractType
 {
+	public SwizzleType(BuiltinType? baseType, string? baseName = null) : base(baseType, baseName) { }
+
 	public int Components { get; set; }
 
 	public override string Name => BaseName + Components;

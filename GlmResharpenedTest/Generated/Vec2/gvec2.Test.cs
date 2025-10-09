@@ -22,38 +22,38 @@ public class TVec2Test
     public void Constructors()
     {
         {
-            var v = new gvec2<string>("((09)-9)");
-            Assert.That("((09)-9)", Is.EqualTo(v.x));
-            Assert.That("((09)-9)", Is.EqualTo(v.y));
+            var v = new gvec2<string>("null");
+            Assert.That("null", Is.EqualTo(v.x));
+            Assert.That("null", Is.EqualTo(v.y));
         }
         {
-            var v = new gvec2<string>("7", "((-5-7)-2)");
-            Assert.That("7", Is.EqualTo(v.x));
-            Assert.That("((-5-7)-2)", Is.EqualTo(v.y));
+            var v = new gvec2<string>("(-94)", "");
+            Assert.That("(-94)", Is.EqualTo(v.x));
+            Assert.That("", Is.EqualTo(v.y));
         }
         {
-            var v = new gvec2<string>(new gvec2<string>("((-81)-9)", "(4-9)"));
-            Assert.That("((-81)-9)", Is.EqualTo(v.x));
-            Assert.That("(4-9)", Is.EqualTo(v.y));
-        }
-        {
-            var v = new gvec2<string>(new gvec3<string>("((-62)0)", "(-10)", "null"));
-            Assert.That("((-62)0)", Is.EqualTo(v.x));
-            Assert.That("(-10)", Is.EqualTo(v.y));
-        }
-        {
-            var v = new gvec2<string>(new gvec4<string>("", "9", "", "((8-2)-2)"));
+            var v = new gvec2<string>(new gvec2<string>("", "4"));
             Assert.That("", Is.EqualTo(v.x));
-            Assert.That("9", Is.EqualTo(v.y));
+            Assert.That("4", Is.EqualTo(v.y));
+        }
+        {
+            var v = new gvec2<string>(new gvec3<string>("((19)6)", "((-60)3)", "null"));
+            Assert.That("((19)6)", Is.EqualTo(v.x));
+            Assert.That("((-60)3)", Is.EqualTo(v.y));
+        }
+        {
+            var v = new gvec2<string>(new gvec4<string>("", "2", "(25)", ""));
+            Assert.That("", Is.EqualTo(v.x));
+            Assert.That("2", Is.EqualTo(v.y));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new gvec2<string>("(29)", "((17)-1)");
-        Assert.That("(29)", Is.EqualTo(v[0]));
-        Assert.That("((17)-1)", Is.EqualTo(v[1]));
+        var v = new gvec2<string>("-6", "1");
+        Assert.That("-6", Is.EqualTo(v[0]));
+        Assert.That("1", Is.EqualTo(v[1]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = "null"; } );
@@ -68,35 +68,35 @@ public class TVec2Test
         
         v[0] = "null";
         Assert.That("null", Is.EqualTo(v[0]));
-        v[1] = "";
-        Assert.That("", Is.EqualTo(v[1]));
-        v[0] = "4";
-        Assert.That("4", Is.EqualTo(v[0]));
-        v[1] = "(0-2)";
-        Assert.That("(0-2)", Is.EqualTo(v[1]));
-        v[1] = "((-29)6)";
-        Assert.That("((-29)6)", Is.EqualTo(v[1]));
-        v[1] = "-7";
-        Assert.That("-7", Is.EqualTo(v[1]));
-        v[0] = "(78)";
-        Assert.That("(78)", Is.EqualTo(v[0]));
-        v[0] = "((-63)0)";
-        Assert.That("((-63)0)", Is.EqualTo(v[0]));
-        v[1] = "4";
-        Assert.That("4", Is.EqualTo(v[1]));
-        v[1] = "(26)";
-        Assert.That("(26)", Is.EqualTo(v[1]));
-        v[0] = "((4-8)1)";
-        Assert.That("((4-8)1)", Is.EqualTo(v[0]));
+        v[0] = "";
+        Assert.That("", Is.EqualTo(v[0]));
+        v[1] = "-1";
+        Assert.That("-1", Is.EqualTo(v[1]));
+        v[1] = "(7-2)";
+        Assert.That("(7-2)", Is.EqualTo(v[1]));
+        v[0] = "((-3-3)-1)";
+        Assert.That("((-3-3)-1)", Is.EqualTo(v[0]));
+        v[0] = "0";
+        Assert.That("0", Is.EqualTo(v[0]));
+        v[1] = "(1-7)";
+        Assert.That("(1-7)", Is.EqualTo(v[1]));
+        v[1] = "((6-2)-4)";
+        Assert.That("((6-2)-4)", Is.EqualTo(v[1]));
+        v[0] = "2";
+        Assert.That("2", Is.EqualTo(v[0]));
+        v[1] = "(-91)";
+        Assert.That("(-91)", Is.EqualTo(v[1]));
+        v[0] = "((-48)-2)";
+        Assert.That("((-48)-2)", Is.EqualTo(v[0]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new gvec2<string>("((52)-4)", "-4");
+        var v = new gvec2<string>("(-6-9)", "((-8-1)-2)");
         var vals = v.Values;
-        Assert.That("((52)-4)", Is.EqualTo(vals[0]));
-        Assert.That("-4", Is.EqualTo(vals[1]));
+        Assert.That("(-6-9)", Is.EqualTo(vals[0]));
+        Assert.That("((-8-1)-2)", Is.EqualTo(vals[1]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
 
@@ -110,9 +110,9 @@ public class TVec2Test
     [Test]
     public void Operators()
     {
-        var v1 = new gvec2<string>("4", "-3");
-        var v2 = new gvec2<string>("4", "-3");
-        var v3 = new gvec2<string>("-3", "4");
+        var v1 = new gvec2<string>("6", "(-63)");
+        var v2 = new gvec2<string>("6", "(-63)");
+        var v3 = new gvec2<string>("(-63)", "6");
         Assert.That(v1 == new gvec2<string>(v1));
         Assert.That(v2 == new gvec2<string>(v2));
         Assert.That(v3 == new gvec2<string>(v3));
@@ -124,7 +124,7 @@ public class TVec2Test
     [Test]
     public void StringInterop()
     {
-        var v = new gvec2<string>("", "4");
+        var v = new gvec2<string>("((5-5)-3)", "(-85)");
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -133,7 +133,7 @@ public class TVec2Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new gvec2<string>("(-65)", "4");
+        var v0 = new gvec2<string>("(17)", "((-60)-7)");
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<gvec2<string>>(s0);

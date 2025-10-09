@@ -27,7 +27,7 @@ internal class Field : Member
 		}
 	}
 
-	public Field(string name, AbstractType type)
+	public Field(string name, AbstractType type) : base(name, "DUMMY << >> &&", type)
 	{
 		Name = name;
 		Type = type;
