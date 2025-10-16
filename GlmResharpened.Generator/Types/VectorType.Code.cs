@@ -242,27 +242,46 @@ internal partial class VectorType
 
 		if (BaseType.IsBool)
 		{
-			yield return new ImplicitOperator(BuiltinType.TypeBool)
+			yield return new Property("AnyTrue", BuiltinType.TypeBool)
 			{
-				ParameterString = NameThat + " v",
-				CodeString = Fields.Select(c => "v." + c).Aggregated(" && "),
-				Comment = $"Implicitly converts this to a bool, true when all components are true, false otherwise."
+				GetterLine = Fields.Select(c => c).Aggregated(" || "),
+				Comment = $"Returns true when any component is true, false otherwise."
 			};
-			yield return new AnyMember("true", "true when all components are true, false otherwise.", BuiltinType.TypeBool, MemberType.ImplicitOperator)
+			yield return new Property("AllTrue", BuiltinType.TypeBool)
 			{
-				Static = true,
-				Visibility = "public",
-				Code = [
-					"public static bool operator true(" + NameThat + " v) => " + Fields.Select(c => "v." + c).Aggregated(" && ") + ";",
-				]
+				GetterLine = Fields.Select(c => c).Aggregated(" && "),
+				Comment = $"Returns true when all components are true, false otherwise."
 			};
-			yield return new AnyMember("false", "true when any component is false, false otherwise.", BuiltinType.TypeBool, MemberType.ImplicitOperator)
+			yield return new Property("NoneTrue", BuiltinType.TypeBool)
 			{
-				Static = true,
-				Visibility = "public",
-				Code = [
-					"public static bool operator false(" + NameThat + " v) => " + Fields.Select(c => "v." + c).Select(s => "!" + s).Aggregated(" || ") + ";",
-				]
+				GetterLine = "!" + Fields.Select(c => c).Aggregated(" || "),
+				Comment = $"Returns true when no component is true, false otherwise."
+			};
+			yield return new Property("CountTrue", BuiltinType.TypeUint)
+			{
+				GetterLine = Fields.Select(c => $"({c} ? 1u : 0u)").Aggregated(" + "),
+				Comment = $"Returns the number of components that are true."
+			};
+
+			yield return new Property("AnyFalse", BuiltinType.TypeBool)
+			{
+				GetterLine = Fields.Select(c => "!" + c).Aggregated(" || "),
+				Comment = $"Returns true when any component is false, false otherwise."
+			};
+			yield return new Property("AllFalse", BuiltinType.TypeBool)
+			{
+				GetterLine = Fields.Select(c => "!" + c).Aggregated(" && "),
+				Comment = $"Returns true when all components are false, false otherwise."
+			};
+			yield return new Property("NoneFalse", BuiltinType.TypeBool)
+			{
+				GetterLine = "!" + Fields.Select(c => "!" + c).Aggregated(" || "),
+				Comment = $"Returns true when no component is false, false otherwise."
+			};
+			yield return new Property("CountFalse", BuiltinType.TypeUint)
+			{
+				GetterLine = Fields.Select(c => $"({c} ? 0u : 1u)").Aggregated(" + "),
+				Comment = $"Returns the number of components that are false."
 			};
 		}
 
@@ -795,7 +814,7 @@ internal partial class VectorType
 				};
 				yield return new Property("NormalizedSafe", this)
 				{
-					GetterLine = $"this == Zero ? Zero : this / {BaseTypeCast}Length",
+					GetterLine = $"(this == Zero).AllTrue ? Zero : this / {BaseTypeCast}Length",
 					Comment = "Returns a copy of this vector with length one (returns zero if length is zero)."
 				};
 			}

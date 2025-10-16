@@ -124,12 +124,12 @@ internal partial class VectorType
 			yield return $"var v1 = {Construct(this, vals)};";
 			yield return $"var v2 = {Construct(this, vals)};";
 			yield return $"var v3 = {Construct(this, vals.Reverse())};";
-			yield return $"Assert.That(v1 == {Construct(this, "v1")});";
-			yield return $"Assert.That(v2 == {Construct(this, "v2")});";
-			yield return $"Assert.That(v3 == {Construct(this, "v3")});";
-			yield return string.Format("Assert.That(v1 == v2);");
-			yield return string.Format("Assert.That(v1 != v3);");
-			yield return string.Format("Assert.That(v2 != v3);");
+			yield return $"Assert.That((v1 == {Construct(this, "v1")}).AllTrue);";
+			yield return $"Assert.That((v2 == {Construct(this, "v2")}).AllTrue);";
+			yield return $"Assert.That((v3 == {Construct(this, "v3")}).AllTrue);";
+			yield return string.Format("Assert.That((v1 == v2).AllTrue);");
+			yield return string.Format("Assert.That((v1 != v3).AllTrue);");
+			yield return string.Format("Assert.That((v2 != v3).AllTrue);");
 		}
 	}
 
