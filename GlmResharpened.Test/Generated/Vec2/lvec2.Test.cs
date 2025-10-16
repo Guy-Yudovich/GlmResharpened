@@ -22,37 +22,37 @@ public class LongVec2Test
     public void Constructors()
     {
         {
-            var v = new lvec2(6L);
-            Assert.That(6L, Is.EqualTo(v.x));
-            Assert.That(6L, Is.EqualTo(v.y));
+            var v = new lvec2(3L);
+            Assert.That(3L, Is.EqualTo(v.x));
+            Assert.That(3L, Is.EqualTo(v.y));
         }
         {
-            var v = new lvec2(-9L, 4L);
-            Assert.That(-9L, Is.EqualTo(v.x));
-            Assert.That(4L, Is.EqualTo(v.y));
-        }
-        {
-            var v = new lvec2(new lvec2(-7L, -2L));
+            var v = new lvec2(-7L, -9L);
             Assert.That(-7L, Is.EqualTo(v.x));
-            Assert.That(-2L, Is.EqualTo(v.y));
+            Assert.That(-9L, Is.EqualTo(v.y));
         }
         {
-            var v = new lvec2(new lvec3(-9L, 8L, 9L));
-            Assert.That(-9L, Is.EqualTo(v.x));
-            Assert.That(8L, Is.EqualTo(v.y));
-        }
-        {
-            var v = new lvec2(new lvec4(8L, 4L, 6L, 5L));
-            Assert.That(8L, Is.EqualTo(v.x));
+            var v = new lvec2(new lvec2(4L, 4L));
+            Assert.That(4L, Is.EqualTo(v.x));
             Assert.That(4L, Is.EqualTo(v.y));
+        }
+        {
+            var v = new lvec2(new lvec3(-5L, 1, 5L));
+            Assert.That(-5L, Is.EqualTo(v.x));
+            Assert.That(1, Is.EqualTo(v.y));
+        }
+        {
+            var v = new lvec2(new lvec4(-7L, 8L, -8L, 4L));
+            Assert.That(-7L, Is.EqualTo(v.x));
+            Assert.That(8L, Is.EqualTo(v.y));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new lvec2(6L, 4L);
-        Assert.That(6L, Is.EqualTo(v[0]));
+        var v = new lvec2(-8L, 4L);
+        Assert.That(-8L, Is.EqualTo(v[0]));
         Assert.That(4L, Is.EqualTo(v[1]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
@@ -66,28 +66,28 @@ public class LongVec2Test
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[5]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = 0; } );
         
-        v[1] = 0;
-        Assert.That(0, Is.EqualTo(v[1]));
-        v[0] = 1;
-        Assert.That(1, Is.EqualTo(v[0]));
-        v[0] = 2L;
-        Assert.That(2L, Is.EqualTo(v[0]));
+        v[0] = 0;
+        Assert.That(0, Is.EqualTo(v[0]));
+        v[1] = 1;
+        Assert.That(1, Is.EqualTo(v[1]));
+        v[1] = 2L;
+        Assert.That(2L, Is.EqualTo(v[1]));
         v[0] = 3L;
         Assert.That(3L, Is.EqualTo(v[0]));
-        v[1] = 4L;
-        Assert.That(4L, Is.EqualTo(v[1]));
-        v[0] = 5L;
-        Assert.That(5L, Is.EqualTo(v[0]));
+        v[0] = 4L;
+        Assert.That(4L, Is.EqualTo(v[0]));
+        v[1] = 5L;
+        Assert.That(5L, Is.EqualTo(v[1]));
         v[1] = 6L;
         Assert.That(6L, Is.EqualTo(v[1]));
-        v[1] = 7L;
-        Assert.That(7L, Is.EqualTo(v[1]));
-        v[1] = 8L;
-        Assert.That(8L, Is.EqualTo(v[1]));
+        v[0] = 7L;
+        Assert.That(7L, Is.EqualTo(v[0]));
+        v[0] = 8L;
+        Assert.That(8L, Is.EqualTo(v[0]));
         v[1] = 9L;
         Assert.That(9L, Is.EqualTo(v[1]));
-        v[0] = -1L;
-        Assert.That(-1L, Is.EqualTo(v[0]));
+        v[1] = -1L;
+        Assert.That(-1L, Is.EqualTo(v[1]));
         v[1] = -2L;
         Assert.That(-2L, Is.EqualTo(v[1]));
         v[1] = -3L;
@@ -102,17 +102,17 @@ public class LongVec2Test
         Assert.That(-7L, Is.EqualTo(v[1]));
         v[1] = -8L;
         Assert.That(-8L, Is.EqualTo(v[1]));
-        v[0] = -9L;
-        Assert.That(-9L, Is.EqualTo(v[0]));
+        v[1] = -9L;
+        Assert.That(-9L, Is.EqualTo(v[1]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new lvec2(5L, -6L);
+        var v = new lvec2(1, 9L);
         var vals = v.Values;
-        Assert.That(5L, Is.EqualTo(vals[0]));
-        Assert.That(-6L, Is.EqualTo(vals[1]));
+        Assert.That(1, Is.EqualTo(vals[0]));
+        Assert.That(9L, Is.EqualTo(vals[1]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
     }
 
@@ -141,21 +141,21 @@ public class LongVec2Test
     [Test]
     public void Operators()
     {
-        var v1 = new lvec2(1, 9L);
-        var v2 = new lvec2(1, 9L);
-        var v3 = new lvec2(9L, 1);
-        Assert.That(v1 == new lvec2(v1));
-        Assert.That(v2 == new lvec2(v2));
-        Assert.That(v3 == new lvec2(v3));
-        Assert.That(v1 == v2);
-        Assert.That(v1 != v3);
-        Assert.That(v2 != v3);
+        var v1 = new lvec2(-6L, 9L);
+        var v2 = new lvec2(-6L, 9L);
+        var v3 = new lvec2(9L, -6L);
+        Assert.That((v1 == new lvec2(v1)).AllTrue);
+        Assert.That((v2 == new lvec2(v2)).AllTrue);
+        Assert.That((v3 == new lvec2(v3)).AllTrue);
+        Assert.That((v1 == v2).AllTrue);
+        Assert.That((v1 != v3).AllTrue);
+        Assert.That((v2 != v3).AllTrue);
     }
 
     [Test]
     public void StringInterop()
     {
-        var v = new lvec2(1, 4L);
+        var v = new lvec2(3L, 3L);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -201,7 +201,7 @@ public class LongVec2Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new lvec2(-7L, -1L);
+        var v0 = new lvec2(-1L, 1);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<lvec2>(s0);
@@ -215,43 +215,43 @@ public class LongVec2Test
     public void InvariantId()
     {
         {
-            var v0 = new lvec2(-7L, 1);
+            var v0 = new lvec2(-7L, -1L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(-2L, 9L);
+            var v0 = new lvec2(1, -5L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(1, 8L);
+            var v0 = new lvec2(9L, -1L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(-4L, 4L);
+            var v0 = new lvec2(2L, 1);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(-3L, 0);
+            var v0 = new lvec2(-2L, 5L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(5L, 5L);
+            var v0 = new lvec2(-2L, -6L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(-1L, -7L);
+            var v0 = new lvec2(8L, 7L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(8L, 9L);
+            var v0 = new lvec2(-8L, -3L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(1, -8L);
+            var v0 = new lvec2(6L, 0);
             Assert.That(v0, Is.EqualTo(+v0));
         }
         {
-            var v0 = new lvec2(2L, 7L);
+            var v0 = new lvec2(-6L, 3L);
             Assert.That(v0, Is.EqualTo(+v0));
         }
     }
@@ -260,43 +260,43 @@ public class LongVec2Test
     public void InvariantDouble()
     {
         {
+            var v0 = new lvec2(0, 6L);
+            Assert.That(v0 + v0, Is.EqualTo(2 * v0));
+        }
+        {
             var v0 = new lvec2(-7L, -7L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(8L, -7L);
+            var v0 = new lvec2(-1L, -7L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(0, 7L);
+            var v0 = new lvec2(-4L, 7L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(-3L, -7L);
+            var v0 = new lvec2(-2L, -8L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(3L, -1L);
+            var v0 = new lvec2(6L, 4L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(-7L, -5L);
+            var v0 = new lvec2(5L, -4L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(-4L, 1);
+            var v0 = new lvec2(4L, -4L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(1, -6L);
+            var v0 = new lvec2(-5L, 4L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
         {
-            var v0 = new lvec2(-5L, 3L);
-            Assert.That(v0 + v0, Is.EqualTo(2 * v0));
-        }
-        {
-            var v0 = new lvec2(4L, -8L);
+            var v0 = new lvec2(-4L, 9L);
             Assert.That(v0 + v0, Is.EqualTo(2 * v0));
         }
     }
@@ -305,35 +305,11 @@ public class LongVec2Test
     public void InvariantTriple()
     {
         {
-            var v0 = new lvec2(9L, 5L);
+            var v0 = new lvec2(9L, -8L);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new lvec2(7L, 0);
-            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
-        }
-        {
-            var v0 = new lvec2(6L, 7L);
-            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
-        }
-        {
-            var v0 = new lvec2(-9L, 5L);
-            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
-        }
-        {
-            var v0 = new lvec2(-5L, -6L);
-            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
-        }
-        {
-            var v0 = new lvec2(7L, -1L);
-            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
-        }
-        {
-            var v0 = new lvec2(-8L, -7L);
-            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
-        }
-        {
-            var v0 = new lvec2(1, -8L);
+            var v0 = new lvec2(-1L, 0);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
@@ -341,7 +317,31 @@ public class LongVec2Test
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
         {
-            var v0 = new lvec2(-2L, 5L);
+            var v0 = new lvec2(1, -2L);
+            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
+        }
+        {
+            var v0 = new lvec2(2L, -4L);
+            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
+        }
+        {
+            var v0 = new lvec2(-7L, -1L);
+            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
+        }
+        {
+            var v0 = new lvec2(2L, 7L);
+            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
+        }
+        {
+            var v0 = new lvec2(-3L, 8L);
+            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
+        }
+        {
+            var v0 = new lvec2(5L, 7L);
+            Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
+        }
+        {
+            var v0 = new lvec2(5L, -5L);
             Assert.That(v0 + v0 + v0, Is.EqualTo(3 * v0));
         }
     }
@@ -350,53 +350,53 @@ public class LongVec2Test
     public void InvariantCommutative()
     {
         {
-            var v0 = new lvec2(-1L, 9L);
-            var v1 = new lvec2(-8L, 7L);
+            var v0 = new lvec2(-7L, -2L);
+            var v1 = new lvec2(2L, 1);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(-5L, 9L);
-            var v1 = new lvec2(4L, -8L);
+            var v0 = new lvec2(-2L, 2L);
+            var v1 = new lvec2(-9L, 1);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(2L, -3L);
-            var v1 = new lvec2(-9L, 9L);
+            var v0 = new lvec2(-3L, 6L);
+            var v1 = new lvec2(-8L, -9L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(6L, 3L);
-            var v1 = new lvec2(-1L, 0);
+            var v0 = new lvec2(9L, -1L);
+            var v1 = new lvec2(0, 6L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(-1L, -3L);
-            var v1 = new lvec2(2L, -6L);
+            var v0 = new lvec2(-8L, 8L);
+            var v1 = new lvec2(-1L, 8L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(-6L, 9L);
-            var v1 = new lvec2(4L, 4L);
+            var v0 = new lvec2(4L, 3L);
+            var v1 = new lvec2(3L, 8L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(-6L, -3L);
-            var v1 = new lvec2(1, -3L);
+            var v0 = new lvec2(6L, 0);
+            var v1 = new lvec2(9L, -1L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(-7L, -7L);
-            var v1 = new lvec2(7L, -9L);
+            var v0 = new lvec2(-4L, -8L);
+            var v1 = new lvec2(9L, 7L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(4L, 5L);
-            var v1 = new lvec2(-7L, -8L);
+            var v0 = new lvec2(7L, -8L);
+            var v1 = new lvec2(0, 3L);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
         {
-            var v0 = new lvec2(-2L, 8L);
-            var v1 = new lvec2(-2L, -5L);
+            var v0 = new lvec2(0, -2L);
+            var v1 = new lvec2(9L, 0);
             Assert.That(v0 * v1, Is.EqualTo(v1 * v0));
         }
     }
@@ -405,63 +405,63 @@ public class LongVec2Test
     public void InvariantAssociative()
     {
         {
-            var v0 = new lvec2(3L, 8L);
-            var v1 = new lvec2(8L, -9L);
-            var v2 = new lvec2(-2L, 2L);
+            var v0 = new lvec2(6L, 3L);
+            var v1 = new lvec2(-3L, -1L);
+            var v2 = new lvec2(-5L, 1);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(-4L, 4L);
-            var v1 = new lvec2(-2L, -5L);
-            var v2 = new lvec2(5L, -8L);
+            var v0 = new lvec2(3L, 3L);
+            var v1 = new lvec2(5L, 1);
+            var v2 = new lvec2(-8L, -5L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(1, 9L);
-            var v1 = new lvec2(2L, 6L);
-            var v2 = new lvec2(3L, -3L);
+            var v0 = new lvec2(-8L, -4L);
+            var v1 = new lvec2(5L, -9L);
+            var v2 = new lvec2(-9L, 8L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(8L, -4L);
-            var v1 = new lvec2(3L, -6L);
-            var v2 = new lvec2(-2L, 1);
+            var v0 = new lvec2(-8L, -4L);
+            var v1 = new lvec2(9L, 6L);
+            var v2 = new lvec2(3L, 0);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(6L, 1);
-            var v1 = new lvec2(4L, 5L);
-            var v2 = new lvec2(7L, 0);
+            var v0 = new lvec2(8L, 6L);
+            var v1 = new lvec2(5L, -4L);
+            var v2 = new lvec2(-4L, 8L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(9L, -2L);
-            var v1 = new lvec2(8L, 6L);
-            var v2 = new lvec2(2L, -5L);
+            var v0 = new lvec2(-1L, -6L);
+            var v1 = new lvec2(-5L, -9L);
+            var v2 = new lvec2(7L, 6L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(-1L, -2L);
-            var v1 = new lvec2(6L, 6L);
-            var v2 = new lvec2(-8L, -2L);
+            var v0 = new lvec2(-4L, 7L);
+            var v1 = new lvec2(-4L, 5L);
+            var v2 = new lvec2(9L, 9L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(-3L, -1L);
-            var v1 = new lvec2(6L, -8L);
-            var v2 = new lvec2(7L, 8L);
+            var v0 = new lvec2(-4L, 2L);
+            var v1 = new lvec2(-2L, 0);
+            var v2 = new lvec2(-4L, 8L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(-7L, -3L);
-            var v1 = new lvec2(2L, -4L);
-            var v2 = new lvec2(-5L, 6L);
+            var v0 = new lvec2(0, -8L);
+            var v1 = new lvec2(-3L, 4L);
+            var v2 = new lvec2(9L, 0);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
         {
-            var v0 = new lvec2(5L, 6L);
-            var v1 = new lvec2(-6L, 6L);
-            var v2 = new lvec2(-3L, -1L);
+            var v0 = new lvec2(-8L, 0);
+            var v1 = new lvec2(-9L, -3L);
+            var v2 = new lvec2(1, 8L);
             Assert.That(v0 * (v1 + v2), Is.EqualTo(v0 * v1 + v0 * v2));
         }
     }
@@ -470,43 +470,43 @@ public class LongVec2Test
     public void InvariantIdNeg()
     {
         {
-            var v0 = new lvec2(-1L, 8L);
+            var v0 = new lvec2(-6L, -9L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(-3L, -1L);
+            var v0 = new lvec2(5L, -9L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(3L, 2L);
+            var v0 = new lvec2(4L, 7L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(0, -3L);
+            var v0 = new lvec2(-6L, -6L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(-9L, -1L);
+            var v0 = new lvec2(3L, 6L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(-8L, 4L);
+            var v0 = new lvec2(-9L, -8L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(-6L, 8L);
+            var v0 = new lvec2(-5L, 2L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(-5L, 7L);
+            var v0 = new lvec2(3L, -1L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(-3L, 7L);
+            var v0 = new lvec2(1, -2L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
         {
-            var v0 = new lvec2(0, 5L);
+            var v0 = new lvec2(7L, 2L);
             Assert.That(v0, Is.EqualTo(-(-v0)));
         }
     }
@@ -515,53 +515,53 @@ public class LongVec2Test
     public void InvariantCommutativeNeg()
     {
         {
-            var v0 = new lvec2(-9L, 8L);
-            var v1 = new lvec2(-8L, -9L);
+            var v0 = new lvec2(1, -8L);
+            var v1 = new lvec2(-7L, 1);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(-9L, -2L);
-            var v1 = new lvec2(-7L, -4L);
+            var v0 = new lvec2(6L, -1L);
+            var v1 = new lvec2(2L, -8L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(4L, -6L);
-            var v1 = new lvec2(-5L, -8L);
+            var v0 = new lvec2(3L, -6L);
+            var v1 = new lvec2(-5L, 9L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(9L, 4L);
-            var v1 = new lvec2(-7L, 8L);
+            var v0 = new lvec2(3L, 0);
+            var v1 = new lvec2(-3L, -5L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(4L, 7L);
-            var v1 = new lvec2(0, 2L);
+            var v0 = new lvec2(2L, -3L);
+            var v1 = new lvec2(-5L, -1L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(-5L, -5L);
-            var v1 = new lvec2(1, -4L);
+            var v0 = new lvec2(6L, 1);
+            var v1 = new lvec2(7L, 9L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(4L, 6L);
-            var v1 = new lvec2(-5L, 2L);
+            var v0 = new lvec2(-3L, 4L);
+            var v1 = new lvec2(-9L, 5L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(8L, -7L);
-            var v1 = new lvec2(-3L, -4L);
+            var v0 = new lvec2(-4L, 4L);
+            var v1 = new lvec2(-2L, 4L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(-8L, 6L);
-            var v1 = new lvec2(-1L, 6L);
+            var v0 = new lvec2(-6L, -7L);
+            var v1 = new lvec2(7L, -4L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
         {
-            var v0 = new lvec2(-4L, -6L);
-            var v1 = new lvec2(-8L, 7L);
+            var v0 = new lvec2(6L, -5L);
+            var v1 = new lvec2(8L, -9L);
             Assert.That(v0 - v1, Is.EqualTo(-(v1 - v0)));
         }
     }
@@ -570,63 +570,63 @@ public class LongVec2Test
     public void InvariantAssociativeNeg()
     {
         {
-            var v0 = new lvec2(8L, 6L);
-            var v1 = new lvec2(-3L, 0);
-            var v2 = new lvec2(6L, 7L);
+            var v0 = new lvec2(-1L, 7L);
+            var v1 = new lvec2(6L, -3L);
+            var v2 = new lvec2(-5L, 6L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(-9L, -5L);
-            var v1 = new lvec2(-9L, 4L);
-            var v2 = new lvec2(-8L, 9L);
+            var v0 = new lvec2(4L, 5L);
+            var v1 = new lvec2(6L, 0);
+            var v2 = new lvec2(-1L, 7L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(0, 7L);
-            var v1 = new lvec2(-5L, -6L);
-            var v2 = new lvec2(1, 0);
+            var v0 = new lvec2(-4L, 9L);
+            var v1 = new lvec2(1, 7L);
+            var v2 = new lvec2(-1L, 4L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(4L, -5L);
-            var v1 = new lvec2(-3L, -3L);
-            var v2 = new lvec2(9L, 5L);
+            var v0 = new lvec2(2L, 8L);
+            var v1 = new lvec2(2L, 9L);
+            var v2 = new lvec2(-2L, 5L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(7L, 7L);
-            var v1 = new lvec2(4L, 2L);
-            var v2 = new lvec2(0, 6L);
+            var v0 = new lvec2(2L, -4L);
+            var v1 = new lvec2(3L, -9L);
+            var v2 = new lvec2(-1L, -4L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(1, 0);
-            var v1 = new lvec2(-2L, 5L);
-            var v2 = new lvec2(-5L, 7L);
+            var v0 = new lvec2(1, 9L);
+            var v1 = new lvec2(-8L, 1);
+            var v2 = new lvec2(-2L, -1L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(2L, -5L);
-            var v1 = new lvec2(-9L, -7L);
-            var v2 = new lvec2(-7L, -2L);
+            var v0 = new lvec2(-3L, 8L);
+            var v1 = new lvec2(-4L, 3L);
+            var v2 = new lvec2(6L, -9L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(2L, -1L);
-            var v1 = new lvec2(-7L, 0);
-            var v2 = new lvec2(9L, -7L);
+            var v0 = new lvec2(-9L, -2L);
+            var v1 = new lvec2(3L, 5L);
+            var v2 = new lvec2(4L, 8L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(-9L, -6L);
-            var v1 = new lvec2(1, -1L);
-            var v2 = new lvec2(-3L, 4L);
+            var v0 = new lvec2(0, -5L);
+            var v1 = new lvec2(-7L, 9L);
+            var v2 = new lvec2(2L, 3L);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
         {
-            var v0 = new lvec2(-4L, -5L);
-            var v1 = new lvec2(-6L, 7L);
-            var v2 = new lvec2(-3L, -8L);
+            var v0 = new lvec2(0, 1);
+            var v1 = new lvec2(-6L, 1);
+            var v2 = new lvec2(9L, 1);
             Assert.That(v0 * (v1 - v2), Is.EqualTo(v0 * v1 - v0 * v2));
         }
     }
@@ -635,53 +635,53 @@ public class LongVec2Test
     public void TriangleInequality()
     {
         {
-            var v0 = new lvec2(7L, -9L);
-            var v1 = new lvec2(9L, 7L);
+            var v0 = new lvec2(-2L, 3L);
+            var v1 = new lvec2(5L, -4L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(-1L, -2L);
-            var v1 = new lvec2(-1L, -9L);
+            var v0 = new lvec2(-3L, 6L);
+            var v1 = new lvec2(-5L, 1);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(-4L, 8L);
-            var v1 = new lvec2(2L, -6L);
+            var v0 = new lvec2(-3L, 3L);
+            var v1 = new lvec2(8L, -3L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(-3L, 9L);
-            var v1 = new lvec2(-4L, -6L);
+            var v0 = new lvec2(0, 8L);
+            var v1 = new lvec2(-8L, 5L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(4L, 2L);
-            var v1 = new lvec2(4L, -2L);
+            var v0 = new lvec2(5L, -8L);
+            var v1 = new lvec2(0, 5L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(-4L, 5L);
-            var v1 = new lvec2(-1L, 6L);
+            var v0 = new lvec2(-7L, 6L);
+            var v1 = new lvec2(6L, -1L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(-2L, -8L);
-            var v1 = new lvec2(-7L, 0);
+            var v0 = new lvec2(-8L, -1L);
+            var v1 = new lvec2(-7L, -4L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(4L, 0);
-            var v1 = new lvec2(2L, 6L);
+            var v0 = new lvec2(-8L, 5L);
+            var v1 = new lvec2(-1L, 4L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(-6L, -3L);
-            var v1 = new lvec2(-4L, -3L);
+            var v0 = new lvec2(-4L, 9L);
+            var v1 = new lvec2(4L, -1L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
         {
-            var v0 = new lvec2(3L, -4L);
-            var v1 = new lvec2(-3L, -8L);
+            var v0 = new lvec2(7L, 9L);
+            var v1 = new lvec2(0, 5L);
             Assert.That(v0.NormMax + v1.NormMax, Is.GreaterThanOrEqualTo((v0 + v1).NormMax));
         }
     }
@@ -690,43 +690,43 @@ public class LongVec2Test
     public void InvariantNorm()
     {
         {
-            var v0 = new lvec2(2L, 6L);
+            var v0 = new lvec2(-2L, 8L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(2L, 4L);
+            var v0 = new lvec2(-2L, -5L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(2L, -2L);
+            var v0 = new lvec2(7L, 6L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(4L, 2L);
+            var v0 = new lvec2(9L, -1L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(2L, -8L);
+            var v0 = new lvec2(-8L, -1L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(6L, 5L);
+            var v0 = new lvec2(2L, -5L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(-5L, -4L);
+            var v0 = new lvec2(-5L, 3L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(0, -8L);
+            var v0 = new lvec2(9L, 3L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(-3L, 2L);
+            var v0 = new lvec2(-1L, 9L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
         {
-            var v0 = new lvec2(0, -4L);
+            var v0 = new lvec2(6L, -6L);
             Assert.That(v0.NormMax, Is.LessThanOrEqualTo(v0.Norm));
         }
     }
@@ -734,14 +734,14 @@ public class LongVec2Test
     [Test]
     public void RandomUniform0()
     {
-        var random = new Random(530583572);
+        var random = new Random(1896535169);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.Random(random, (-3), (2));
+            var v = lvec2.Random(random, (2), (5));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -749,24 +749,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(3).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(3).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.6666666666666666).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.6666666666666666).Within(3.0));
     }
 
     [Test]
     public void RandomUniform1()
     {
-        var random = new Random(68893612);
+        var random = new Random(1053499564);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomUniform(random, (0), (3));
+            var v = lvec2.RandomUniform(random, (3), (6));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -774,8 +774,8 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(4).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(4).Within(1.0));
         
         Assert.That(variance.x, Is.EqualTo(0.6666666666666666).Within(3.0));
         Assert.That(variance.y, Is.EqualTo(0.6666666666666666).Within(3.0));
@@ -784,14 +784,14 @@ public class LongVec2Test
     [Test]
     public void RandomUniform2()
     {
-        var random = new Random(71666369);
+        var random = new Random(1589826031);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.Random(random, (-2), (1));
+            var v = lvec2.Random(random, (0), (5));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -799,24 +799,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-1).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-1).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.6666666666666666).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.6666666666666666).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
     }
 
     [Test]
     public void RandomUniform3()
     {
-        var random = new Random(606068153);
+        var random = new Random(1604281237);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomUniform(random, (-4), (-1));
+            var v = lvec2.RandomUniform(random, (4), (8));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -824,24 +824,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(-3).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(-3).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(5.5).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(5.5).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.6666666666666666).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.6666666666666666).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.25).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.25).Within(3.0));
     }
 
     [Test]
     public void RandomUniform4()
     {
-        var random = new Random(353627741);
+        var random = new Random(1106478537);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.Random(random, (1), (3));
+            var v = lvec2.Random(random, (-4), (1));
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -849,24 +849,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.5).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.5).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(-2).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(-2).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(0.25).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(0.25).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson0()
     {
-        var random = new Random(1815444793);
+        var random = new Random(298202444);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomPoisson(random, 3.1097937229135044);
+            var v = lvec2.RandomPoisson(random, 1.7837558366748298);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -874,24 +874,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(3.1097937229135044).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(3.1097937229135044).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(1.7837558366748298).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(1.7837558366748298).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(3.1097937229135044).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(3.1097937229135044).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.7837558366748298).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.7837558366748298).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson1()
     {
-        var random = new Random(2133826522);
+        var random = new Random(1453909717);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomPoisson(random, 1.6022750223531737);
+            var v = lvec2.RandomPoisson(random, 2.5229668049248715);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -899,24 +899,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.6022750223531737).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.6022750223531737).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2.5229668049248715).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2.5229668049248715).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.6022750223531737).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.6022750223531737).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2.5229668049248715).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2.5229668049248715).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson2()
     {
-        var random = new Random(621151935);
+        var random = new Random(181203262);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomPoisson(random, 1.282759436770696);
+            var v = lvec2.RandomPoisson(random, 0.836038164950925);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -924,24 +924,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(1.282759436770696).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(1.282759436770696).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(0.836038164950925).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(0.836038164950925).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(1.282759436770696).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(1.282759436770696).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(0.836038164950925).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(0.836038164950925).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson3()
     {
-        var random = new Random(1893585475);
+        var random = new Random(402438290);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomPoisson(random, 3.407828106967652);
+            var v = lvec2.RandomPoisson(random, 1.8624843472440187);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -949,24 +949,24 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(3.407828106967652).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(3.407828106967652).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(1.8624843472440187).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(1.8624843472440187).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(3.407828106967652).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(3.407828106967652).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(1.8624843472440187).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(1.8624843472440187).Within(3.0));
     }
 
     [Test]
     public void RandomPoisson4()
     {
-        var random = new Random(1852697694);
+        var random = new Random(898827396);
         var sum = new dvec2(0.0);
         var sumSqr = new dvec2(0.0);
         
         const int count = 50000;
         for (var _ = 0; _ < count; ++_)
         {
-            var v = lvec2.RandomPoisson(random, 2.362594711530299);
+            var v = lvec2.RandomPoisson(random, 2.873504723596156);
             sum += (dvec2)v;
             sumSqr += glm.Pow2((dvec2)v);
         }
@@ -974,11 +974,11 @@ public class LongVec2Test
         var avg = sum / (double)count;
         var variance = sumSqr / (double)count - avg * avg;
         
-        Assert.That(avg.x, Is.EqualTo(2.362594711530299).Within(1.0));
-        Assert.That(avg.y, Is.EqualTo(2.362594711530299).Within(1.0));
+        Assert.That(avg.x, Is.EqualTo(2.873504723596156).Within(1.0));
+        Assert.That(avg.y, Is.EqualTo(2.873504723596156).Within(1.0));
         
-        Assert.That(variance.x, Is.EqualTo(2.362594711530299).Within(3.0));
-        Assert.That(variance.y, Is.EqualTo(2.362594711530299).Within(3.0));
+        Assert.That(variance.x, Is.EqualTo(2.873504723596156).Within(3.0));
+        Assert.That(variance.y, Is.EqualTo(2.873504723596156).Within(3.0));
     }
 
 }

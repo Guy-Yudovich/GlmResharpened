@@ -22,44 +22,44 @@ public class BoolVec3Test
     public void Constructors()
     {
         {
-            var v = new bvec3(true);
-            Assert.That(true, Is.EqualTo(v.x));
-            Assert.That(true, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
-        }
-        {
-            var v = new bvec3(true, false, true);
-            Assert.That(true, Is.EqualTo(v.x));
+            var v = new bvec3(false);
+            Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var v = new bvec3(new bvec2(true, true));
-            Assert.That(true, Is.EqualTo(v.x));
+            var v = new bvec3(false, true, false);
+            Assert.That(false, Is.EqualTo(v.x));
             Assert.That(true, Is.EqualTo(v.y));
             Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var v = new bvec3(new bvec3(true, false, true));
+            var v = new bvec3(new bvec2(true, false));
             Assert.That(true, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.z));
         }
         {
-            var v = new bvec3(new bvec4(false, false, true, false));
+            var v = new bvec3(new bvec3(false, false, false));
             Assert.That(false, Is.EqualTo(v.x));
             Assert.That(false, Is.EqualTo(v.y));
-            Assert.That(true, Is.EqualTo(v.z));
+            Assert.That(false, Is.EqualTo(v.z));
+        }
+        {
+            var v = new bvec3(new bvec4(true, false, false, false));
+            Assert.That(true, Is.EqualTo(v.x));
+            Assert.That(false, Is.EqualTo(v.y));
+            Assert.That(false, Is.EqualTo(v.z));
         }
     }
 
     [Test]
     public void Indexer()
     {
-        var v = new bvec3(true, true, true);
+        var v = new bvec3(true, false, false);
         Assert.That(true, Is.EqualTo(v[0]));
-        Assert.That(true, Is.EqualTo(v[1]));
-        Assert.That(true, Is.EqualTo(v[2]));
+        Assert.That(false, Is.EqualTo(v[1]));
+        Assert.That(false, Is.EqualTo(v[2]));
         
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[-2147483648]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[-2147483648] = false; } );
@@ -72,18 +72,18 @@ public class BoolVec3Test
         Assert.Throws<ArgumentOutOfRangeException>(() => { var s = v[5]; } );
         Assert.Throws<ArgumentOutOfRangeException>(() => { v[5] = false; } );
         
-        v[0] = false;
-        Assert.That(false, Is.EqualTo(v[0]));
-        v[0] = true;
-        Assert.That(true, Is.EqualTo(v[0]));
+        v[1] = false;
+        Assert.That(false, Is.EqualTo(v[1]));
+        v[2] = true;
+        Assert.That(true, Is.EqualTo(v[2]));
     }
 
     [Test]
     public void PropertyValues()
     {
-        var v = new bvec3(true, false, false);
+        var v = new bvec3(false, false, false);
         var vals = v.Values;
-        Assert.That(true, Is.EqualTo(vals[0]));
+        Assert.That(false, Is.EqualTo(vals[0]));
         Assert.That(false, Is.EqualTo(vals[1]));
         Assert.That(false, Is.EqualTo(vals[2]));
         Assert.That(vals.SequenceEqual(v.ToArray()));
@@ -119,18 +119,18 @@ public class BoolVec3Test
         var v1 = new bvec3(true, true, false);
         var v2 = new bvec3(true, true, false);
         var v3 = new bvec3(false, true, true);
-        Assert.That(v1 == new bvec3(v1));
-        Assert.That(v2 == new bvec3(v2));
-        Assert.That(v3 == new bvec3(v3));
-        Assert.That(v1 == v2);
-        Assert.That(v1 != v3);
-        Assert.That(v2 != v3);
+        Assert.That((v1 == new bvec3(v1)).AllTrue);
+        Assert.That((v2 == new bvec3(v2)).AllTrue);
+        Assert.That((v3 == new bvec3(v3)).AllTrue);
+        Assert.That((v1 == v2).AllTrue);
+        Assert.That((v1 != v3).AllTrue);
+        Assert.That((v2 != v3).AllTrue);
     }
 
     [Test]
     public void StringInterop()
     {
-        var v = new bvec3(true, true, false);
+        var v = new bvec3(false, false, false);
         
         var s0 = v.ToString();
         var s1 = v.ToString("#");
@@ -165,7 +165,7 @@ public class BoolVec3Test
     [Test]
     public void SerializationJson()
     {
-        var v0 = new bvec3(false, true, false);
+        var v0 = new bvec3(false, false, false);
         var s0 = JsonConvert.SerializeObject(v0);
         
         var v1 = JsonConvert.DeserializeObject<bvec3>(s0);

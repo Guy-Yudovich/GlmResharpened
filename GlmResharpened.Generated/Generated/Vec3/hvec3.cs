@@ -287,7 +287,7 @@ public struct hvec3 : IReadOnlyList<Half>, IEquatable<hvec3>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public hvec3 NormalizedSafe => this == Zero ? Zero : this / (Half)Length;
+    public hvec3 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (Half)Length;
     #endregion
 
     #region Indexer

@@ -168,7 +168,7 @@ public struct decvec2 : IReadOnlyList<decimal>, IEquatable<decvec2>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public decvec2 NormalizedSafe => this == Zero ? Zero : this / (decimal)Length;
+    public decvec2 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (decimal)Length;
     
     /// <summary>
     /// Returns the vector angle (atan2(y, x)) in radians.

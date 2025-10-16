@@ -158,7 +158,7 @@ public struct cvec2 : IReadOnlyList<Complex>, IEquatable<cvec2>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public cvec2 NormalizedSafe => this == Zero ? Zero : this / (Complex)Length;
+    public cvec2 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (Complex)Length;
     
     /// <summary>
     /// Returns a vector containing component-wise magnitudes.

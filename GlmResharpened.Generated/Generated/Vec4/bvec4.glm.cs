@@ -29,6 +29,46 @@ public static partial class glm
     public static bool[] Values(bvec4 v) => v.Values;
     
     /// <summary>
+    /// Returns true when any component is true, false otherwise.
+    /// </summary>
+    public static bool AnyTrue(bvec4 v) => v.AnyTrue;
+    
+    /// <summary>
+    /// Returns true when all components are true, false otherwise.
+    /// </summary>
+    public static bool AllTrue(bvec4 v) => v.AllTrue;
+    
+    /// <summary>
+    /// Returns true when no component is true, false otherwise.
+    /// </summary>
+    public static bool NoneTrue(bvec4 v) => v.NoneTrue;
+    
+    /// <summary>
+    /// Returns the number of components that are true.
+    /// </summary>
+    public static uint CountTrue(bvec4 v) => v.CountTrue;
+    
+    /// <summary>
+    /// Returns true when any component is false, false otherwise.
+    /// </summary>
+    public static bool AnyFalse(bvec4 v) => v.AnyFalse;
+    
+    /// <summary>
+    /// Returns true when all components are false, false otherwise.
+    /// </summary>
+    public static bool AllFalse(bvec4 v) => v.AllFalse;
+    
+    /// <summary>
+    /// Returns true when no component is false, false otherwise.
+    /// </summary>
+    public static bool NoneFalse(bvec4 v) => v.NoneFalse;
+    
+    /// <summary>
+    /// Returns the number of components that are false.
+    /// </summary>
+    public static uint CountFalse(bvec4 v) => v.CountFalse;
+    
+    /// <summary>
     /// Returns an enumerator that iterates through all components.
     /// </summary>
     public static IEnumerator<bool> GetEnumerator(bvec4 v) => v.GetEnumerator();

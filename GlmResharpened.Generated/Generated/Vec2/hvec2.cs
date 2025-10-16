@@ -168,7 +168,7 @@ public struct hvec2 : IReadOnlyList<Half>, IEquatable<hvec2>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public hvec2 NormalizedSafe => this == Zero ? Zero : this / (Half)Length;
+    public hvec2 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (Half)Length;
     
     /// <summary>
     /// Returns the vector angle (atan2(y, x)) in radians.

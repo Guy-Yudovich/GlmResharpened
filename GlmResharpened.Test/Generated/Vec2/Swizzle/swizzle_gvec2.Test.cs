@@ -22,212 +22,212 @@ public class TSwizzleVec2Test
     public void XYZW()
     {
         {
-            var ov = new gvec2<string>("((97)-1)", null);
+            var ov = new gvec2<string>(null, "((-3-1)-9)");
             var v = ov.swizzle.xx;
-            Assert.That("((97)-1)", Is.EqualTo(v.x));
-            Assert.That("((97)-1)", Is.EqualTo(v.y));
+            Assert.That(null, Is.EqualTo(v.x));
+            Assert.That(null, Is.EqualTo(v.y));
         }
         {
-            var ov = new gvec2<string>("((-76)5)", "(1-3)");
+            var ov = new gvec2<string>("(36)", "(-6-9)");
             var v = ov.swizzle.xxx;
-            Assert.That("((-76)5)", Is.EqualTo(v.x));
-            Assert.That("((-76)5)", Is.EqualTo(v.y));
-            Assert.That("((-76)5)", Is.EqualTo(v.z));
+            Assert.That("(36)", Is.EqualTo(v.x));
+            Assert.That("(36)", Is.EqualTo(v.y));
+            Assert.That("(36)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("9", "8");
+            var ov = new gvec2<string>("-4", "");
             var v = ov.swizzle.xxxx;
-            Assert.That("9", Is.EqualTo(v.x));
-            Assert.That("9", Is.EqualTo(v.y));
-            Assert.That("9", Is.EqualTo(v.z));
-            Assert.That("9", Is.EqualTo(v.w));
+            Assert.That("-4", Is.EqualTo(v.x));
+            Assert.That("-4", Is.EqualTo(v.y));
+            Assert.That("-4", Is.EqualTo(v.z));
+            Assert.That("-4", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((3-4)-9)", "(05)");
+            var ov = new gvec2<string>(null, "(-3-4)");
             var v = ov.swizzle.xxxy;
-            Assert.That("((3-4)-9)", Is.EqualTo(v.x));
-            Assert.That("((3-4)-9)", Is.EqualTo(v.y));
-            Assert.That("((3-4)-9)", Is.EqualTo(v.z));
-            Assert.That("(05)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("-5", "-5");
-            var v = ov.swizzle.xxy;
-            Assert.That("-5", Is.EqualTo(v.x));
-            Assert.That("-5", Is.EqualTo(v.y));
-            Assert.That("-5", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("", null);
-            var v = ov.swizzle.xxyx;
-            Assert.That("", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
+            Assert.That(null, Is.EqualTo(v.x));
+            Assert.That(null, Is.EqualTo(v.y));
             Assert.That(null, Is.EqualTo(v.z));
-            Assert.That("", Is.EqualTo(v.w));
+            Assert.That("(-3-4)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>(null, "((4-9)-7)");
+            var ov = new gvec2<string>("((-22)-4)", "((-47)9)");
+            var v = ov.swizzle.xxy;
+            Assert.That("((-22)-4)", Is.EqualTo(v.x));
+            Assert.That("((-22)-4)", Is.EqualTo(v.y));
+            Assert.That("((-47)9)", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>("((17)6)", "5");
+            var v = ov.swizzle.xxyx;
+            Assert.That("((17)6)", Is.EqualTo(v.x));
+            Assert.That("((17)6)", Is.EqualTo(v.y));
+            Assert.That("5", Is.EqualTo(v.z));
+            Assert.That("((17)6)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>(null, "((7-8)1)");
             var v = ov.swizzle.xxyy;
             Assert.That(null, Is.EqualTo(v.x));
             Assert.That(null, Is.EqualTo(v.y));
-            Assert.That("((4-9)-7)", Is.EqualTo(v.z));
-            Assert.That("((4-9)-7)", Is.EqualTo(v.w));
+            Assert.That("((7-8)1)", Is.EqualTo(v.z));
+            Assert.That("((7-8)1)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((4-8)-5)", "(-5-8)");
+            var ov = new gvec2<string>("(99)", "0");
             var v = ov.swizzle.xy;
-            Assert.That("((4-8)-5)", Is.EqualTo(v.x));
-            Assert.That("(-5-8)", Is.EqualTo(v.y));
+            Assert.That("(99)", Is.EqualTo(v.x));
+            Assert.That("0", Is.EqualTo(v.y));
         }
         {
-            var ov = new gvec2<string>("", "");
+            var ov = new gvec2<string>("(-92)", "-2");
             var v = ov.swizzle.xyx;
-            Assert.That("", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
-            Assert.That("", Is.EqualTo(v.z));
+            Assert.That("(-92)", Is.EqualTo(v.x));
+            Assert.That("-2", Is.EqualTo(v.y));
+            Assert.That("(-92)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("((0-4)6)", "");
+            var ov = new gvec2<string>("", "((3-6)-7)");
             var v = ov.swizzle.xyxx;
-            Assert.That("((0-4)6)", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
-            Assert.That("((0-4)6)", Is.EqualTo(v.z));
-            Assert.That("((0-4)6)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("0", "-7");
-            var v = ov.swizzle.xyxy;
-            Assert.That("0", Is.EqualTo(v.x));
-            Assert.That("-7", Is.EqualTo(v.y));
-            Assert.That("0", Is.EqualTo(v.z));
-            Assert.That("-7", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("(-3-6)", "(05)");
-            var v = ov.swizzle.xyy;
-            Assert.That("(-3-6)", Is.EqualTo(v.x));
-            Assert.That("(05)", Is.EqualTo(v.y));
-            Assert.That("(05)", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("", "");
-            var v = ov.swizzle.xyyx;
             Assert.That("", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
+            Assert.That("((3-6)-7)", Is.EqualTo(v.y));
             Assert.That("", Is.EqualTo(v.z));
             Assert.That("", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("6", "(-23)");
-            var v = ov.swizzle.xyyy;
+            var ov = new gvec2<string>("6", "(-26)");
+            var v = ov.swizzle.xyxy;
             Assert.That("6", Is.EqualTo(v.x));
-            Assert.That("(-23)", Is.EqualTo(v.y));
-            Assert.That("(-23)", Is.EqualTo(v.z));
-            Assert.That("(-23)", Is.EqualTo(v.w));
+            Assert.That("(-26)", Is.EqualTo(v.y));
+            Assert.That("6", Is.EqualTo(v.z));
+            Assert.That("(-26)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((1-1)5)", "((1-1)5)");
+            var ov = new gvec2<string>("(25)", "((-59)-1)");
+            var v = ov.swizzle.xyy;
+            Assert.That("(25)", Is.EqualTo(v.x));
+            Assert.That("((-59)-1)", Is.EqualTo(v.y));
+            Assert.That("((-59)-1)", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>(null, "(-3-9)");
+            var v = ov.swizzle.xyyx;
+            Assert.That(null, Is.EqualTo(v.x));
+            Assert.That("(-3-9)", Is.EqualTo(v.y));
+            Assert.That("(-3-9)", Is.EqualTo(v.z));
+            Assert.That(null, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("((72)-4)", "-6");
+            var v = ov.swizzle.xyyy;
+            Assert.That("((72)-4)", Is.EqualTo(v.x));
+            Assert.That("-6", Is.EqualTo(v.y));
+            Assert.That("-6", Is.EqualTo(v.z));
+            Assert.That("-6", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("((-30)-4)", "((-30)-4)");
             var v = ov.swizzle.yx;
-            Assert.That("((1-1)5)", Is.EqualTo(v.x));
-            Assert.That("((1-1)5)", Is.EqualTo(v.y));
+            Assert.That("((-30)-4)", Is.EqualTo(v.x));
+            Assert.That("((-30)-4)", Is.EqualTo(v.y));
         }
         {
-            var ov = new gvec2<string>("5", "((7-4)5)");
+            var ov = new gvec2<string>("(9-6)", "5");
             var v = ov.swizzle.yxx;
-            Assert.That("((7-4)5)", Is.EqualTo(v.x));
-            Assert.That("5", Is.EqualTo(v.y));
-            Assert.That("5", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("(-6-1)", "((-75)-3)");
-            var v = ov.swizzle.yxxx;
-            Assert.That("((-75)-3)", Is.EqualTo(v.x));
-            Assert.That("(-6-1)", Is.EqualTo(v.y));
-            Assert.That("(-6-1)", Is.EqualTo(v.z));
-            Assert.That("(-6-1)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("", "((-7-3)-6)");
-            var v = ov.swizzle.yxxy;
-            Assert.That("((-7-3)-6)", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
-            Assert.That("", Is.EqualTo(v.z));
-            Assert.That("((-7-3)-6)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("(-67)", "(2-4)");
-            var v = ov.swizzle.yxy;
-            Assert.That("(2-4)", Is.EqualTo(v.x));
-            Assert.That("(-67)", Is.EqualTo(v.y));
-            Assert.That("(2-4)", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("((8-8)-4)", "8");
-            var v = ov.swizzle.yxyx;
-            Assert.That("8", Is.EqualTo(v.x));
-            Assert.That("((8-8)-4)", Is.EqualTo(v.y));
-            Assert.That("8", Is.EqualTo(v.z));
-            Assert.That("((8-8)-4)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("(34)", "(-43)");
-            var v = ov.swizzle.yxyy;
-            Assert.That("(-43)", Is.EqualTo(v.x));
-            Assert.That("(34)", Is.EqualTo(v.y));
-            Assert.That("(-43)", Is.EqualTo(v.z));
-            Assert.That("(-43)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("((-1-5)8)", "8");
-            var v = ov.swizzle.yy;
-            Assert.That("8", Is.EqualTo(v.x));
-            Assert.That("8", Is.EqualTo(v.y));
-        }
-        {
-            var ov = new gvec2<string>("((-9-1)6)", "5");
-            var v = ov.swizzle.yyx;
             Assert.That("5", Is.EqualTo(v.x));
-            Assert.That("5", Is.EqualTo(v.y));
-            Assert.That("((-9-1)6)", Is.EqualTo(v.z));
+            Assert.That("(9-6)", Is.EqualTo(v.y));
+            Assert.That("(9-6)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("5", "(-9-2)");
+            var ov = new gvec2<string>("((98)9)", "");
+            var v = ov.swizzle.yxxx;
+            Assert.That("", Is.EqualTo(v.x));
+            Assert.That("((98)9)", Is.EqualTo(v.y));
+            Assert.That("((98)9)", Is.EqualTo(v.z));
+            Assert.That("((98)9)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("(-17)", "");
+            var v = ov.swizzle.yxxy;
+            Assert.That("", Is.EqualTo(v.x));
+            Assert.That("(-17)", Is.EqualTo(v.y));
+            Assert.That("(-17)", Is.EqualTo(v.z));
+            Assert.That("", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("7", "(-5-8)");
+            var v = ov.swizzle.yxy;
+            Assert.That("(-5-8)", Is.EqualTo(v.x));
+            Assert.That("7", Is.EqualTo(v.y));
+            Assert.That("(-5-8)", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>(null, "((-96)-9)");
+            var v = ov.swizzle.yxyx;
+            Assert.That("((-96)-9)", Is.EqualTo(v.x));
+            Assert.That(null, Is.EqualTo(v.y));
+            Assert.That("((-96)-9)", Is.EqualTo(v.z));
+            Assert.That(null, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("((-1-1)-4)", "((-9-2)7)");
+            var v = ov.swizzle.yxyy;
+            Assert.That("((-9-2)7)", Is.EqualTo(v.x));
+            Assert.That("((-1-1)-4)", Is.EqualTo(v.y));
+            Assert.That("((-9-2)7)", Is.EqualTo(v.z));
+            Assert.That("((-9-2)7)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("(65)", "(65)");
+            var v = ov.swizzle.yy;
+            Assert.That("(65)", Is.EqualTo(v.x));
+            Assert.That("(65)", Is.EqualTo(v.y));
+        }
+        {
+            var ov = new gvec2<string>("4", "-5");
+            var v = ov.swizzle.yyx;
+            Assert.That("-5", Is.EqualTo(v.x));
+            Assert.That("-5", Is.EqualTo(v.y));
+            Assert.That("4", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>("(05)", "(7-3)");
             var v = ov.swizzle.yyxx;
-            Assert.That("(-9-2)", Is.EqualTo(v.x));
-            Assert.That("(-9-2)", Is.EqualTo(v.y));
-            Assert.That("5", Is.EqualTo(v.z));
-            Assert.That("5", Is.EqualTo(v.w));
+            Assert.That("(7-3)", Is.EqualTo(v.x));
+            Assert.That("(7-3)", Is.EqualTo(v.y));
+            Assert.That("(05)", Is.EqualTo(v.z));
+            Assert.That("(05)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("9", "((1-8)-7)");
+            var ov = new gvec2<string>("(57)", "-2");
             var v = ov.swizzle.yyxy;
-            Assert.That("((1-8)-7)", Is.EqualTo(v.x));
-            Assert.That("((1-8)-7)", Is.EqualTo(v.y));
-            Assert.That("9", Is.EqualTo(v.z));
-            Assert.That("((1-8)-7)", Is.EqualTo(v.w));
+            Assert.That("-2", Is.EqualTo(v.x));
+            Assert.That("-2", Is.EqualTo(v.y));
+            Assert.That("(57)", Is.EqualTo(v.z));
+            Assert.That("-2", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((30)-9)", "(-82)");
+            var ov = new gvec2<string>("(6-5)", "(-6-9)");
             var v = ov.swizzle.yyy;
-            Assert.That("(-82)", Is.EqualTo(v.x));
-            Assert.That("(-82)", Is.EqualTo(v.y));
-            Assert.That("(-82)", Is.EqualTo(v.z));
+            Assert.That("(-6-9)", Is.EqualTo(v.x));
+            Assert.That("(-6-9)", Is.EqualTo(v.y));
+            Assert.That("(-6-9)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("((51)-5)", "8");
+            var ov = new gvec2<string>("7", "-2");
             var v = ov.swizzle.yyyx;
-            Assert.That("8", Is.EqualTo(v.x));
-            Assert.That("8", Is.EqualTo(v.y));
-            Assert.That("8", Is.EqualTo(v.z));
-            Assert.That("((51)-5)", Is.EqualTo(v.w));
+            Assert.That("-2", Is.EqualTo(v.x));
+            Assert.That("-2", Is.EqualTo(v.y));
+            Assert.That("-2", Is.EqualTo(v.z));
+            Assert.That("7", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((31)-8)", "(33)");
+            var ov = new gvec2<string>("-1", "-2");
             var v = ov.swizzle.yyyy;
-            Assert.That("(33)", Is.EqualTo(v.x));
-            Assert.That("(33)", Is.EqualTo(v.y));
-            Assert.That("(33)", Is.EqualTo(v.z));
-            Assert.That("(33)", Is.EqualTo(v.w));
+            Assert.That("-2", Is.EqualTo(v.x));
+            Assert.That("-2", Is.EqualTo(v.y));
+            Assert.That("-2", Is.EqualTo(v.z));
+            Assert.That("-2", Is.EqualTo(v.w));
         }
     }
 
@@ -235,212 +235,212 @@ public class TSwizzleVec2Test
     public void RGBA()
     {
         {
-            var ov = new gvec2<string>("((8-7)7)", "4");
+            var ov = new gvec2<string>("((-1-7)-5)", "((-1-7)-5)");
             var v = ov.swizzle.rr;
-            Assert.That("((8-7)7)", Is.EqualTo(v.x));
-            Assert.That("((8-7)7)", Is.EqualTo(v.y));
+            Assert.That("((-1-7)-5)", Is.EqualTo(v.x));
+            Assert.That("((-1-7)-5)", Is.EqualTo(v.y));
         }
         {
-            var ov = new gvec2<string>("(75)", "(75)");
+            var ov = new gvec2<string>("((6-3)3)", "(69)");
             var v = ov.swizzle.rrr;
-            Assert.That("(75)", Is.EqualTo(v.x));
-            Assert.That("(75)", Is.EqualTo(v.y));
-            Assert.That("(75)", Is.EqualTo(v.z));
+            Assert.That("((6-3)3)", Is.EqualTo(v.x));
+            Assert.That("((6-3)3)", Is.EqualTo(v.y));
+            Assert.That("((6-3)3)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("(23)", "(8-3)");
+            var ov = new gvec2<string>(null, "((0-2)4)");
             var v = ov.swizzle.rrrr;
-            Assert.That("(23)", Is.EqualTo(v.x));
-            Assert.That("(23)", Is.EqualTo(v.y));
-            Assert.That("(23)", Is.EqualTo(v.z));
-            Assert.That("(23)", Is.EqualTo(v.w));
+            Assert.That(null, Is.EqualTo(v.x));
+            Assert.That(null, Is.EqualTo(v.y));
+            Assert.That(null, Is.EqualTo(v.z));
+            Assert.That(null, Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("6", "0");
+            var ov = new gvec2<string>("3", "0");
             var v = ov.swizzle.rrrg;
-            Assert.That("6", Is.EqualTo(v.x));
-            Assert.That("6", Is.EqualTo(v.y));
-            Assert.That("6", Is.EqualTo(v.z));
+            Assert.That("3", Is.EqualTo(v.x));
+            Assert.That("3", Is.EqualTo(v.y));
+            Assert.That("3", Is.EqualTo(v.z));
             Assert.That("0", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((2-2)-6)", "(2-3)");
+            var ov = new gvec2<string>("0", "((6-2)1)");
             var v = ov.swizzle.rrg;
-            Assert.That("((2-2)-6)", Is.EqualTo(v.x));
-            Assert.That("((2-2)-6)", Is.EqualTo(v.y));
-            Assert.That("(2-3)", Is.EqualTo(v.z));
+            Assert.That("0", Is.EqualTo(v.x));
+            Assert.That("0", Is.EqualTo(v.y));
+            Assert.That("((6-2)1)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("(6-6)", "((-51)-5)");
+            var ov = new gvec2<string>("(4-4)", null);
             var v = ov.swizzle.rrgr;
-            Assert.That("(6-6)", Is.EqualTo(v.x));
-            Assert.That("(6-6)", Is.EqualTo(v.y));
-            Assert.That("((-51)-5)", Is.EqualTo(v.z));
-            Assert.That("(6-6)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("(2-7)", "5");
-            var v = ov.swizzle.rrgg;
-            Assert.That("(2-7)", Is.EqualTo(v.x));
-            Assert.That("(2-7)", Is.EqualTo(v.y));
-            Assert.That("5", Is.EqualTo(v.z));
-            Assert.That("5", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("4", "(-9-7)");
-            var v = ov.swizzle.rg;
-            Assert.That("4", Is.EqualTo(v.x));
-            Assert.That("(-9-7)", Is.EqualTo(v.y));
-        }
-        {
-            var ov = new gvec2<string>(null, "(79)");
-            var v = ov.swizzle.rgr;
-            Assert.That(null, Is.EqualTo(v.x));
-            Assert.That("(79)", Is.EqualTo(v.y));
+            Assert.That("(4-4)", Is.EqualTo(v.x));
+            Assert.That("(4-4)", Is.EqualTo(v.y));
             Assert.That(null, Is.EqualTo(v.z));
+            Assert.That("(4-4)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("(5-8)", "((-32)-8)");
+            var ov = new gvec2<string>("(52)", "-8");
+            var v = ov.swizzle.rrgg;
+            Assert.That("(52)", Is.EqualTo(v.x));
+            Assert.That("(52)", Is.EqualTo(v.y));
+            Assert.That("-8", Is.EqualTo(v.z));
+            Assert.That("-8", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("7", "((5-9)8)");
+            var v = ov.swizzle.rg;
+            Assert.That("7", Is.EqualTo(v.x));
+            Assert.That("((5-9)8)", Is.EqualTo(v.y));
+        }
+        {
+            var ov = new gvec2<string>("-8", "-8");
+            var v = ov.swizzle.rgr;
+            Assert.That("-8", Is.EqualTo(v.x));
+            Assert.That("-8", Is.EqualTo(v.y));
+            Assert.That("-8", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>("((6-5)-1)", "-9");
             var v = ov.swizzle.rgrr;
-            Assert.That("(5-8)", Is.EqualTo(v.x));
-            Assert.That("((-32)-8)", Is.EqualTo(v.y));
-            Assert.That("(5-8)", Is.EqualTo(v.z));
-            Assert.That("(5-8)", Is.EqualTo(v.w));
+            Assert.That("((6-5)-1)", Is.EqualTo(v.x));
+            Assert.That("-9", Is.EqualTo(v.y));
+            Assert.That("((6-5)-1)", Is.EqualTo(v.z));
+            Assert.That("((6-5)-1)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("-4", "");
+            var ov = new gvec2<string>("(-53)", "((81)-8)");
             var v = ov.swizzle.rgrg;
-            Assert.That("-4", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
-            Assert.That("-4", Is.EqualTo(v.z));
-            Assert.That("", Is.EqualTo(v.w));
+            Assert.That("(-53)", Is.EqualTo(v.x));
+            Assert.That("((81)-8)", Is.EqualTo(v.y));
+            Assert.That("(-53)", Is.EqualTo(v.z));
+            Assert.That("((81)-8)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((-50)-2)", "(-28)");
+            var ov = new gvec2<string>("-1", "7");
             var v = ov.swizzle.rgg;
-            Assert.That("((-50)-2)", Is.EqualTo(v.x));
-            Assert.That("(-28)", Is.EqualTo(v.y));
-            Assert.That("(-28)", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("(10)", "(10)");
-            var v = ov.swizzle.rggr;
-            Assert.That("(10)", Is.EqualTo(v.x));
-            Assert.That("(10)", Is.EqualTo(v.y));
-            Assert.That("(10)", Is.EqualTo(v.z));
-            Assert.That("(10)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("-1", "-1");
-            var v = ov.swizzle.rggg;
             Assert.That("-1", Is.EqualTo(v.x));
-            Assert.That("-1", Is.EqualTo(v.y));
-            Assert.That("-1", Is.EqualTo(v.z));
-            Assert.That("-1", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("((94)5)", "(37)");
-            var v = ov.swizzle.gr;
-            Assert.That("(37)", Is.EqualTo(v.x));
-            Assert.That("((94)5)", Is.EqualTo(v.y));
-        }
-        {
-            var ov = new gvec2<string>("-1", "");
-            var v = ov.swizzle.grr;
-            Assert.That("", Is.EqualTo(v.x));
-            Assert.That("-1", Is.EqualTo(v.y));
-            Assert.That("-1", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("((-8-3)-6)", "((71)-9)");
-            var v = ov.swizzle.grrr;
-            Assert.That("((71)-9)", Is.EqualTo(v.x));
-            Assert.That("((-8-3)-6)", Is.EqualTo(v.y));
-            Assert.That("((-8-3)-6)", Is.EqualTo(v.z));
-            Assert.That("((-8-3)-6)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("7", "(-21)");
-            var v = ov.swizzle.grrg;
-            Assert.That("(-21)", Is.EqualTo(v.x));
             Assert.That("7", Is.EqualTo(v.y));
             Assert.That("7", Is.EqualTo(v.z));
-            Assert.That("(-21)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("-1", "((23)7)");
+            var ov = new gvec2<string>("2", "7");
+            var v = ov.swizzle.rggr;
+            Assert.That("2", Is.EqualTo(v.x));
+            Assert.That("7", Is.EqualTo(v.y));
+            Assert.That("7", Is.EqualTo(v.z));
+            Assert.That("2", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("(7-5)", "(04)");
+            var v = ov.swizzle.rggg;
+            Assert.That("(7-5)", Is.EqualTo(v.x));
+            Assert.That("(04)", Is.EqualTo(v.y));
+            Assert.That("(04)", Is.EqualTo(v.z));
+            Assert.That("(04)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("(70)", "((9-1)5)");
+            var v = ov.swizzle.gr;
+            Assert.That("((9-1)5)", Is.EqualTo(v.x));
+            Assert.That("(70)", Is.EqualTo(v.y));
+        }
+        {
+            var ov = new gvec2<string>("-1", "((42)-2)");
+            var v = ov.swizzle.grr;
+            Assert.That("((42)-2)", Is.EqualTo(v.x));
+            Assert.That("-1", Is.EqualTo(v.y));
+            Assert.That("-1", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>("(04)", "1");
+            var v = ov.swizzle.grrr;
+            Assert.That("1", Is.EqualTo(v.x));
+            Assert.That("(04)", Is.EqualTo(v.y));
+            Assert.That("(04)", Is.EqualTo(v.z));
+            Assert.That("(04)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("-6", "(-7-2)");
+            var v = ov.swizzle.grrg;
+            Assert.That("(-7-2)", Is.EqualTo(v.x));
+            Assert.That("-6", Is.EqualTo(v.y));
+            Assert.That("-6", Is.EqualTo(v.z));
+            Assert.That("(-7-2)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("((01)-6)", "((-3-2)-6)");
             var v = ov.swizzle.grg;
-            Assert.That("((23)7)", Is.EqualTo(v.x));
-            Assert.That("-1", Is.EqualTo(v.y));
-            Assert.That("((23)7)", Is.EqualTo(v.z));
+            Assert.That("((-3-2)-6)", Is.EqualTo(v.x));
+            Assert.That("((01)-6)", Is.EqualTo(v.y));
+            Assert.That("((-3-2)-6)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("((9-8)4)", "3");
+            var ov = new gvec2<string>("((-4-1)-5)", "8");
             var v = ov.swizzle.grgr;
-            Assert.That("3", Is.EqualTo(v.x));
-            Assert.That("((9-8)4)", Is.EqualTo(v.y));
-            Assert.That("3", Is.EqualTo(v.z));
-            Assert.That("((9-8)4)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("(31)", "(-6-5)");
-            var v = ov.swizzle.grgg;
-            Assert.That("(-6-5)", Is.EqualTo(v.x));
-            Assert.That("(31)", Is.EqualTo(v.y));
-            Assert.That("(-6-5)", Is.EqualTo(v.z));
-            Assert.That("(-6-5)", Is.EqualTo(v.w));
-        }
-        {
-            var ov = new gvec2<string>("((7-6)-3)", "-9");
-            var v = ov.swizzle.gg;
-            Assert.That("-9", Is.EqualTo(v.x));
-            Assert.That("-9", Is.EqualTo(v.y));
-        }
-        {
-            var ov = new gvec2<string>("((6-7)3)", "-1");
-            var v = ov.swizzle.ggr;
-            Assert.That("-1", Is.EqualTo(v.x));
-            Assert.That("-1", Is.EqualTo(v.y));
-            Assert.That("((6-7)3)", Is.EqualTo(v.z));
-        }
-        {
-            var ov = new gvec2<string>("8", "(0-3)");
-            var v = ov.swizzle.ggrr;
-            Assert.That("(0-3)", Is.EqualTo(v.x));
-            Assert.That("(0-3)", Is.EqualTo(v.y));
+            Assert.That("8", Is.EqualTo(v.x));
+            Assert.That("((-4-1)-5)", Is.EqualTo(v.y));
             Assert.That("8", Is.EqualTo(v.z));
-            Assert.That("8", Is.EqualTo(v.w));
+            Assert.That("((-4-1)-5)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("", "-1");
+            var ov = new gvec2<string>("((-1-4)6)", null);
+            var v = ov.swizzle.grgg;
+            Assert.That(null, Is.EqualTo(v.x));
+            Assert.That("((-1-4)6)", Is.EqualTo(v.y));
+            Assert.That(null, Is.EqualTo(v.z));
+            Assert.That(null, Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>(null, "((0-1)1)");
+            var v = ov.swizzle.gg;
+            Assert.That("((0-1)1)", Is.EqualTo(v.x));
+            Assert.That("((0-1)1)", Is.EqualTo(v.y));
+        }
+        {
+            var ov = new gvec2<string>("((-7-6)-8)", "((60)4)");
+            var v = ov.swizzle.ggr;
+            Assert.That("((60)4)", Is.EqualTo(v.x));
+            Assert.That("((60)4)", Is.EqualTo(v.y));
+            Assert.That("((-7-6)-8)", Is.EqualTo(v.z));
+        }
+        {
+            var ov = new gvec2<string>("(-83)", "(-91)");
+            var v = ov.swizzle.ggrr;
+            Assert.That("(-91)", Is.EqualTo(v.x));
+            Assert.That("(-91)", Is.EqualTo(v.y));
+            Assert.That("(-83)", Is.EqualTo(v.z));
+            Assert.That("(-83)", Is.EqualTo(v.w));
+        }
+        {
+            var ov = new gvec2<string>("(-46)", "((34)-2)");
             var v = ov.swizzle.ggrg;
-            Assert.That("-1", Is.EqualTo(v.x));
-            Assert.That("-1", Is.EqualTo(v.y));
-            Assert.That("", Is.EqualTo(v.z));
-            Assert.That("-1", Is.EqualTo(v.w));
+            Assert.That("((34)-2)", Is.EqualTo(v.x));
+            Assert.That("((34)-2)", Is.EqualTo(v.y));
+            Assert.That("(-46)", Is.EqualTo(v.z));
+            Assert.That("((34)-2)", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("((26)6)", "((26)6)");
+            var ov = new gvec2<string>("((-32)6)", "((-98)-9)");
             var v = ov.swizzle.ggg;
-            Assert.That("((26)6)", Is.EqualTo(v.x));
-            Assert.That("((26)6)", Is.EqualTo(v.y));
-            Assert.That("((26)6)", Is.EqualTo(v.z));
+            Assert.That("((-98)-9)", Is.EqualTo(v.x));
+            Assert.That("((-98)-9)", Is.EqualTo(v.y));
+            Assert.That("((-98)-9)", Is.EqualTo(v.z));
         }
         {
-            var ov = new gvec2<string>("(53)", "");
+            var ov = new gvec2<string>("0", "(6-5)");
             var v = ov.swizzle.gggr;
-            Assert.That("", Is.EqualTo(v.x));
-            Assert.That("", Is.EqualTo(v.y));
-            Assert.That("", Is.EqualTo(v.z));
-            Assert.That("(53)", Is.EqualTo(v.w));
+            Assert.That("(6-5)", Is.EqualTo(v.x));
+            Assert.That("(6-5)", Is.EqualTo(v.y));
+            Assert.That("(6-5)", Is.EqualTo(v.z));
+            Assert.That("0", Is.EqualTo(v.w));
         }
         {
-            var ov = new gvec2<string>("(-44)", "((3-5)3)");
+            var ov = new gvec2<string>("5", "(86)");
             var v = ov.swizzle.gggg;
-            Assert.That("((3-5)3)", Is.EqualTo(v.x));
-            Assert.That("((3-5)3)", Is.EqualTo(v.y));
-            Assert.That("((3-5)3)", Is.EqualTo(v.z));
-            Assert.That("((3-5)3)", Is.EqualTo(v.w));
+            Assert.That("(86)", Is.EqualTo(v.x));
+            Assert.That("(86)", Is.EqualTo(v.y));
+            Assert.That("(86)", Is.EqualTo(v.z));
+            Assert.That("(86)", Is.EqualTo(v.w));
         }
     }
 
@@ -448,19 +448,19 @@ public class TSwizzleVec2Test
     public void InlineXYZW()
     {
         {
-            var v0 = new gvec2<string>("((6-7)8)", "-1");
-            var v1 = new gvec2<string>("", "-5");
+            var v0 = new gvec2<string>("((-6-3)8)", "");
+            var v1 = new gvec2<string>("(-3-4)", "((-8-9)-2)");
             var v2 = v0.xy;
             v0.xy = v1;
             var v3 = v0.xy;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That("", Is.EqualTo(v0.x));
-            Assert.That("-5", Is.EqualTo(v0.y));
+            Assert.That("(-3-4)", Is.EqualTo(v0.x));
+            Assert.That("((-8-9)-2)", Is.EqualTo(v0.y));
         
-            Assert.That("((6-7)8)", Is.EqualTo(v2.x));
-            Assert.That("-1", Is.EqualTo(v2.y));
+            Assert.That("((-6-3)8)", Is.EqualTo(v2.x));
+            Assert.That("", Is.EqualTo(v2.y));
         }
     }
 
@@ -468,21 +468,21 @@ public class TSwizzleVec2Test
     public void InlineRGBA()
     {
         {
-            gvec2<string> v0 = new gvec2<string>("-7", "");
-            string v1 = "((49)0)";
+            gvec2<string> v0 = new gvec2<string>("-3", null);
+            string v1 = "((1-2)7)";
             var v2 = v0.r;
             v0.r = v1;
             var v3 = v0.r;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That("((49)0)", Is.EqualTo(v0.x));
-            Assert.That("", Is.EqualTo(v0.y));
+            Assert.That("((1-2)7)", Is.EqualTo(v0.x));
+            Assert.That(null, Is.EqualTo(v0.y));
         
-            Assert.That("-7", Is.EqualTo(v2));
+            Assert.That("-3", Is.EqualTo(v2));
         }
         {
-            gvec2<string> v0 = new gvec2<string>("-2", "(0-7)");
+            gvec2<string> v0 = new gvec2<string>("-2", "((-9-2)9)");
             string v1 = "";
             var v2 = v0.g;
             v0.g = v1;
@@ -493,22 +493,22 @@ public class TSwizzleVec2Test
             Assert.That("-2", Is.EqualTo(v0.x));
             Assert.That("", Is.EqualTo(v0.y));
         
-            Assert.That("(0-7)", Is.EqualTo(v2));
+            Assert.That("((-9-2)9)", Is.EqualTo(v2));
         }
         {
-            gvec2<string> v0 = new gvec2<string>("(9-1)", "((5-4)5)");
-            gvec2<string> v1 = new gvec2<string>("(78)", "((40)3)");
+            gvec2<string> v0 = new gvec2<string>(null, "-9");
+            gvec2<string> v1 = new gvec2<string>("1", "1");
             var v2 = v0.rg;
             v0.rg = v1;
             var v3 = v0.rg;
         
             Assert.That(v1, Is.EqualTo(v3));
         
-            Assert.That("(78)", Is.EqualTo(v0.x));
-            Assert.That("((40)3)", Is.EqualTo(v0.y));
+            Assert.That("1", Is.EqualTo(v0.x));
+            Assert.That("1", Is.EqualTo(v0.y));
         
-            Assert.That("(9-1)", Is.EqualTo(v2.x));
-            Assert.That("((5-4)5)", Is.EqualTo(v2.y));
+            Assert.That(null, Is.EqualTo(v2.x));
+            Assert.That("-9", Is.EqualTo(v2.y));
         }
     }
 

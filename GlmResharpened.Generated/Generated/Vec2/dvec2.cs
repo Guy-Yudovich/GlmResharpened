@@ -168,7 +168,7 @@ public struct dvec2 : IReadOnlyList<double>, IEquatable<dvec2>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public dvec2 NormalizedSafe => this == Zero ? Zero : this / (double)Length;
+    public dvec2 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (double)Length;
     
     /// <summary>
     /// Returns the vector angle (atan2(y, x)) in radians.

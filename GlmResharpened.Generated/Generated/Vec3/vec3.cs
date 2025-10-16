@@ -287,7 +287,7 @@ public struct vec3 : IReadOnlyList<float>, IEquatable<vec3>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public vec3 NormalizedSafe => this == Zero ? Zero : this / (float)Length;
+    public vec3 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (float)Length;
     #endregion
 
     #region Indexer

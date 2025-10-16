@@ -542,7 +542,7 @@ public struct dvec4 : IReadOnlyList<double>, IEquatable<dvec4>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public dvec4 NormalizedSafe => this == Zero ? Zero : this / (double)Length;
+    public dvec4 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (double)Length;
     #endregion
 
     #region Indexer

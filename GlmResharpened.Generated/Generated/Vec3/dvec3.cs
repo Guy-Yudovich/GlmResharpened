@@ -287,7 +287,7 @@ public struct dvec3 : IReadOnlyList<double>, IEquatable<dvec3>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public dvec3 NormalizedSafe => this == Zero ? Zero : this / (double)Length;
+    public dvec3 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (double)Length;
     #endregion
 
     #region Indexer

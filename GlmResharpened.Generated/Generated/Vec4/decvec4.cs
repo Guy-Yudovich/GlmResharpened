@@ -542,7 +542,7 @@ public struct decvec4 : IReadOnlyList<decimal>, IEquatable<decvec4>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public decvec4 NormalizedSafe => this == Zero ? Zero : this / (decimal)Length;
+    public decvec4 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (decimal)Length;
     #endregion
 
     #region Indexer

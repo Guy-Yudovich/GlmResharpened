@@ -485,6 +485,46 @@ public struct bvec4 : IReadOnlyList<bool>, IEquatable<bvec4>
     public bool[] Values => new[] { x, y, z, w };
     
     /// <summary>
+    /// Returns true when any component is true, false otherwise.
+    /// </summary>
+    public bool AnyTrue => ((x || y) || (z || w));
+    
+    /// <summary>
+    /// Returns true when all components are true, false otherwise.
+    /// </summary>
+    public bool AllTrue => ((x && y) && (z && w));
+    
+    /// <summary>
+    /// Returns true when no component is true, false otherwise.
+    /// </summary>
+    public bool NoneTrue => !((x || y) || (z || w));
+    
+    /// <summary>
+    /// Returns the number of components that are true.
+    /// </summary>
+    public uint CountTrue => (((x ? 1u : 0u) + (y ? 1u : 0u)) + ((z ? 1u : 0u) + (w ? 1u : 0u)));
+    
+    /// <summary>
+    /// Returns true when any component is false, false otherwise.
+    /// </summary>
+    public bool AnyFalse => ((!x || !y) || (!z || !w));
+    
+    /// <summary>
+    /// Returns true when all components are false, false otherwise.
+    /// </summary>
+    public bool AllFalse => ((!x && !y) && (!z && !w));
+    
+    /// <summary>
+    /// Returns true when no component is false, false otherwise.
+    /// </summary>
+    public bool NoneFalse => !((!x || !y) || (!z || !w));
+    
+    /// <summary>
+    /// Returns the number of components that are false.
+    /// </summary>
+    public uint CountFalse => (((x ? 0u : 1u) + (y ? 0u : 1u)) + ((z ? 0u : 1u) + (w ? 0u : 1u)));
+    
+    /// <summary>
     /// Returns the number of components (4).
     /// </summary>
     public int Count => 4;
@@ -1063,24 +1103,6 @@ public struct bvec4 : IReadOnlyList<bool>, IEquatable<bvec4>
     /// Returns a bvec4 from component-wise application of operator | (lhs || rhs).
     /// </summary>
     public static bvec4 operator |(bool lhs, bvec4 rhs) => new bvec4(lhs || rhs.x, lhs || rhs.y, lhs || rhs.z, lhs || rhs.w);
-    #endregion
-
-    #region Implicit Operators
-    
-    /// <summary>
-    /// Implicitly converts this to a bool, true when all components are true, false otherwise.
-    /// </summary>
-    public static implicit operator bool(bvec4 v) => ((v.x && v.y) && (v.z && v.w));
-    
-    /// <summary>
-    /// true when all components are true, false otherwise.
-    /// </summary>
-    public static bool operator true(bvec4 v) => ((v.x && v.y) && (v.z && v.w));
-    
-    /// <summary>
-    /// true when any component is false, false otherwise.
-    /// </summary>
-    public static bool operator false(bvec4 v) => ((!v.x || !v.y) || (!v.z || !v.w));
     #endregion
 
     #region Explicit Operators

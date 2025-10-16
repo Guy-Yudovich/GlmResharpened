@@ -542,7 +542,7 @@ public struct hvec4 : IReadOnlyList<Half>, IEquatable<hvec4>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public hvec4 NormalizedSafe => this == Zero ? Zero : this / (Half)Length;
+    public hvec4 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (Half)Length;
     #endregion
 
     #region Indexer

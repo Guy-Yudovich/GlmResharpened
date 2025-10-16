@@ -168,7 +168,7 @@ public struct vec2 : IReadOnlyList<float>, IEquatable<vec2>
     /// <summary>
     /// Returns a copy of this vector with length one (returns zero if length is zero).
     /// </summary>
-    public vec2 NormalizedSafe => this == Zero ? Zero : this / (float)Length;
+    public vec2 NormalizedSafe => (this == Zero).AllTrue ? Zero : this / (float)Length;
     
     /// <summary>
     /// Returns the vector angle (atan2(y, x)) in radians.
